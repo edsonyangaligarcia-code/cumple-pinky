@@ -395,7 +395,18 @@ a{color:inherit}
 }
 .letter::before{content:"💌";position:absolute;right:22px;top:16px;font-size:30px;opacity:.55}
 .letter p{line-height:1.9;font-family:Georgia,serif;font-size:17px;color:#553b43;margin:0 0 21px}
-.letter .highlight{font-size:21px;color:var(--wine);font-weight:700;text-align:center;margin:28px 0}
+.letter .highlight{
+  font-size:21px;
+  color:var(--wine);
+  font-weight:700;
+  text-align:center;
+  margin:30px 0;
+  padding:18px 16px;
+  border-radius:18px;
+  background:linear-gradient(145deg,#fff4f7,#fffaf4);
+  border:1px solid #f1d9e1;
+  box-shadow:0 8px 24px rgba(90,43,59,.06);
+}
 .signature{font-family:"Segoe Script","Brush Script MT",cursive!important;font-size:23px!important;color:var(--wine)!important;text-align:right}
 
 /* ===== final ===== */
@@ -451,7 +462,7 @@ a{color:inherit}
   border:8px solid rgba(255,255,255,.92);
 }
 .hero-photo::after{
-  content:"nuestro corazoncito ❤️";
+  content:"nuestro corazón ❤️";
   position:absolute;
   left:50%;
   bottom:14px;
@@ -607,7 +618,7 @@ a{color:inherit}
     <h1>Para mi Pinky</h1>
     <p>
       Todavía no puedo dejarte entrar… 😌❤️<br>
-      Esta pequeña sorpresa se abre cuando empiece un día muy especial.
+      Esta sorpresa se abre cuando empiece un día muy especial.
     </p>
     <div class="countdown">
       <div class="time-box"><b id="hh">00</b><span>horas</span></div>
@@ -641,12 +652,12 @@ a{color:inherit}
           <div class="hero-date">21 · septiembre · 2026</div>
           <h1>
             Feliz cumpleaños, Pinky
-            <small>23 añitos de una persona maravillosa 🥹</small>
+            <small>23 años de una persona maravillosa 🥹</small>
           </h1>
           <p>
-            Hoy no quería darte solamente un mensaje. Quería hacerte un pequeño rincón
-            que sea solo tuyo, para recordarte cuánto te amo, cuánto creo en ti
-            y lo feliz que me hace tenerte en mi vida.
+            Hoy no quería darte solamente un mensaje. Quería hacerte un lugar que fuera solo tuyo,
+            para recordarte cuánto te amo, cuánto creo en ti y lo feliz que me hace
+            compartir mi vida contigo.
           </p>
 
           <div class="hero-photo">
@@ -662,7 +673,7 @@ a{color:inherit}
         <div class="section-kicker">Sorpresa 01</div>
         <h2 class="section-title">23 razones por las que te amo 💗</h2>
         <p class="section-copy">
-          Una por cada añito tuyo. Toca los corazoncitos, Pinky. Hay cosas que quizá ya sabes…
+          Una por cada año de tu vida. Toca cada número, Pinky. Hay cosas que quizá ya sabes,
           pero nunca me voy a cansar de recordártelas.
         </p>
         <div class="reason-grid" id="reasonGrid"></div>
@@ -671,7 +682,7 @@ a{color:inherit}
       <!-- RECUERDOS -->
       <section class="panel" id="recuerdos">
         <div class="section-kicker">Sorpresa 02</div>
-        <h2 class="section-title">Pedacitos de nosotros 📸</h2>
+        <h2 class="section-title">Recuerdos de nosotros 📸</h2>
         <p class="section-copy">
           Algunas fotos guardan más que una imagen: guardan risas, conversaciones,
           abrazos, viajes, tonterías y momentos que nunca quisiera perder.
@@ -691,7 +702,7 @@ a{color:inherit}
           <div class="memory">
             <div class="dot"></div>
             <div class="memory-card">
-              <img src="foto3.jpg" alt="Una sonrisa que amo" onerror="photoError(this,'Una sonrisa que amo muchísimo ✨')">
+              <img src="foto3.jpg" alt="Una sonrisa que amo" onerror="photoError(this,'Una sonrisa que amo ✨')">
               <h4>Tu sonrisa ❤️</h4>
               <p>Hay fotos que me gustan por el lugar y otras que me gustan simplemente porque estás tú. Esta es una de esas.</p>
             </div>
@@ -711,23 +722,23 @@ a{color:inherit}
             <div class="memory-card">
               <img src="foto5.jpg" alt="Juntos frente al árbol de Navidad" onerror="photoError(this,'Una fecha bonita juntos 🎄')">
               <h4>Por más fechas especiales juntos 🎄❤️</h4>
-              <p>Quiero que pasen los años y sigamos teniendo fotos como esta: cambiando nosotros, cambiando los lugares, pero todavía eligiendo estar cerquita.</p>
+              <p>Quiero que pasen los años y sigamos teniendo fotos como esta: cambiando nosotros, cambiando los lugares, pero todavía eligiendo estar cerca.</p>
             </div>
           </div>
 
         </div>
 
 
-        <h3 class="gallery-title">Y unas cuantas más… porque nunca son suficientes 📷❤️</h3>
+        <h3 class="gallery-title">Y algunas más… porque cada una guarda algo nuestro 📷❤️</h3>
         <p class="gallery-sub">
           No todas tienen que ser perfectas. Precisamente por eso me gustan:
-          son pedacitos reales de nosotros.
+          son recuerdos reales de nosotros.
         </p>
 
         <div class="memory-gallery">
           <figure class="gallery-item">
             <img src="foto6.jpg" alt="Un beso">
-            <figcaption>Un besito para mi Pinky 😘❤️</figcaption>
+            <figcaption>Un beso para mi Pinky 😘❤️</figcaption>
           </figure>
           <figure class="gallery-item">
             <img src="foto7.jpg" alt="Una caminata juntos">
@@ -735,7 +746,7 @@ a{color:inherit}
           </figure>
           <figure class="gallery-item">
             <img src="foto8.jpg" alt="Juntos en una salida">
-            <figcaption>Mi lugar favorito muchas veces es cerquita de ti 🥹</figcaption>
+            <figcaption>Muchas veces, mi lugar favorito es a tu lado 🥹</figcaption>
           </figure>
           <figure class="gallery-item">
             <img src="foto9.jpg" alt="Un día juntos">
@@ -743,51 +754,26 @@ a{color:inherit}
           </figure>
           <figure class="gallery-item">
             <img src="foto10.jpg" alt="Una foto espontánea juntos">
-            <figcaption>Y hasta las fotos más random terminan siendo nuestras 😂💗</figcaption>
+            <figcaption>Hasta las fotos más espontáneas terminan siendo de mis favoritas 😂💗</figcaption>
           </figure>
           <figure class="gallery-item">
             <img src="foto11.jpg" alt="Una foto divertida">
-            <figcaption>También amo nuestra parte más random y graciosa 😂🦛❤️</figcaption>
+            <figcaption>También amo nuestra parte espontánea y graciosa 😂🦛❤️</figcaption>
           </figure>
           <figure class="gallery-item">
             <img src="foto12.jpg" alt="Postre juntos">
-            <figcaption>Contigo hasta un antojito se vuelve recuerdo rico 🍓🥹</figcaption>
+            <figcaption>Contigo hasta un antojo termina siendo un buen recuerdo 🍓🥹</figcaption>
           </figure>
           <figure class="gallery-item">
             <img src="foto13.jpg" alt="Compartiendo una bebida">
-            <figcaption>Las pequeñas cositas contigo también me encantan 🥤❤️</figcaption>
+            <figcaption>También me encantan esas cosas simples que compartimos 🥤❤️</figcaption>
           </figure>
           <figure class="gallery-item">
             <img src="foto14.jpg" alt="Un beso en el parque">
-            <figcaption>Y tus besitos… esos sí son de mis favoritos 😘🌙</figcaption>
+            <figcaption>Y tus besos… esos siempre están entre mis favoritos 😘🌙</figcaption>
           </figure>
         </div>
 
-
-        <h3 class="micro-title">Y también esos momentitos simples que amo 🥹</h3>
-        <p class="micro-copy">
-          Porque nosotros no solo somos las fotos “bonitas”; también somos antojos, tonterías,
-          paseítos, risas espontáneas y escenas muy nuestras. ❤️
-        </p>
-
-        <div class="memory-gallery">
-          <figure class="gallery-item">
-            <img src="foto11.jpg" alt="Momento divertido con hipopótamo">
-            <figcaption>Hasta tus tonterías me encantan 😂🦛</figcaption>
-          </figure>
-          <figure class="gallery-item">
-            <img src="foto12.jpg" alt="Postrecitos juntos">
-            <figcaption>Antojitos compartidos = plan perfecto 🍓🍨❤️</figcaption>
-          </figure>
-          <figure class="gallery-item">
-            <img src="foto13.jpg" alt="Gaseosas juntos">
-            <figcaption>Hasta una coquita contigo sabe mejor 🥤💗</figcaption>
-          </figure>
-          <figure class="gallery-item">
-            <img src="foto14.jpg" alt="Besito en el parque">
-            <figcaption>Y tus besitos... esos sí me pueden 😌❤️</figcaption>
-          </figure>
-        </div>
 
         <div class="center" style="margin-top:25px">
           <button class="btn soft" onclick="completeSection('memories'); toast('📸 Estos recuerdos apenas son el comienzo ❤️')">
@@ -802,16 +788,16 @@ a{color:inherit}
         <h2 class="section-title">Ábreme cuando… 💌</h2>
         <p class="section-copy">
           Estos mensajes no son solamente para hoy. Vuelve aquí cuando los necesites.
-          Quiero estar cerquita incluso en esos momentos en los que no pueda abrazarte.
+          Quiero acompañarte incluso en esos momentos en los que no pueda abrazarte.
         </p>
         <div class="open-grid" id="openGrid"></div>
       </section>
 
-      <!-- JUEGUITO -->
+      <!-- JUEGO -->
       <section class="panel" id="juego">
         <div class="section-kicker">Sorpresa 04</div>
         <h2 class="section-title">Un examen muy difícil 😌❤️</h2>
-        <p class="section-copy">Tres preguntas importantísimas. No se permite copiar. Bueno… hoy sí, porque es tu cumpleaños 😂.</p>
+        <p class="section-copy">Tres preguntas importantes. No se permite copiar. Bueno… hoy sí, porque es tu cumpleaños 😂.</p>
 
         <div class="quiz-card">
           <h4>1. ¿Hasta dónde te amo? 🌙</h4>
@@ -826,7 +812,7 @@ a{color:inherit}
         <div class="quiz-card">
           <h4>2. Para mí, tú eres… 🥹</h4>
           <div class="quiz-options">
-            <button class="quiz-option" onclick="answerQuiz(this,false,1)">Una señorita que me roba comida 😂</button>
+            <button class="quiz-option" onclick="answerQuiz(this,false,1)">La que siempre intenta robarme comida 😂</button>
             <button class="quiz-option" onclick="answerQuiz(this,true,1)">Mi compañera de vida ❤️</button>
             <button class="quiz-option" onclick="answerQuiz(this,false,1)">Mi archienemiga 😤</button>
           </div>
@@ -838,7 +824,7 @@ a{color:inherit}
           <div class="quiz-options">
             <button class="quiz-option" onclick="answerQuiz(this,false,2)">Nos rendimos y ya 😒</button>
             <button class="quiz-option" onclick="answerQuiz(this,true,2)">Recordamos cuánto nos amamos y lo hablamos ❤️</button>
-            <button class="quiz-option" onclick="answerQuiz(this,false,2)">Pinky desaparece con mis papitas 😭</button>
+            <button class="quiz-option" onclick="answerQuiz(this,false,2)">Pinky desaparece con mis papas 😭</button>
           </div>
           <div class="quiz-result" id="quizResult2"></div>
         </div>
@@ -849,7 +835,7 @@ a{color:inherit}
         <div class="section-kicker">Sorpresa 05</div>
         <h2 class="section-title">Una canción para nosotros 🎵</h2>
         <p class="section-copy">
-          Hay canciones que dicen algo que a veces uno siente pero no sabe explicar tan bonito.
+          Hay canciones que dicen de una forma especial lo que a veces uno siente y no sabe explicar.
           Esta me hizo pensar en ti. ❤️
         </p>
         <div class="music-card">
@@ -879,17 +865,17 @@ a{color:inherit}
           <div class="starfield" id="starfield"></div>
           <div class="wish-content">
             <div style="font-size:48px">🌙✨</div>
-            <h3>Cierra los ojitos, Pinky</h3>
+            <h3>Cierra los ojos, Pinky</h3>
             <p>
               Piensa en algo que quieras con todo tu corazón.<br>
               No me lo digas todavía… primero pídelo.
             </p>
             <button class="btn gold" id="wishBtn" onclick="makeWish()">Ya pedí mi deseo ✨</button>
             <div id="wishMessage" class="hidden" style="margin-top:22px;line-height:1.8">
-              🌟 Espero verte cumplir ese deseo y muchísimos más.<br>
-              <b>Yo quiero ser tu soporte, acompañarte en los días fáciles y en los difíciles,
-              y verte lograr todo lo que te propongas.</b><br><br>
-              Porque tú puedes, mi amor. Yo creo muchísimo en ti. ❤️
+              🌟 Espero verte cumplir ese deseo y muchos más.<br>
+              <b>Quiero ser un apoyo para ti, acompañarte en los días fáciles y en los difíciles,
+              y verte alcanzar todo lo que te propongas.</b><br><br>
+              Tú puedes, mi amor. Creo de verdad en ti. ❤️
             </div>
           </div>
         </div>
@@ -898,7 +884,7 @@ a{color:inherit}
       <!-- REGALO -->
       <section class="panel" id="regalo">
         <div class="section-kicker">Sorpresa 07</div>
-        <h2 class="section-title">Te dejaron un regalito 🎁</h2>
+        <h2 class="section-title">Te dejaron un regalo 🎁</h2>
         <p class="section-copy center">Tócalo. Prometo que no explota… creo 😌.</p>
 
         <div class="gift-wrap">
@@ -917,7 +903,7 @@ a{color:inherit}
               Vale por muchos momentos juntos
             </h3>
             <p style="line-height:1.8;color:var(--muted);margin-bottom:8px">
-              Este vale incluye: una cita contigo, muchos abrazos, besitos, comida rica,
+              Este vale incluye: una cita contigo, abrazos, besos, comida rica,
               una salida que disfrutemos los dos y la promesa de seguir creando recuerdos juntos. 🥹❤️
             </p>
             <small style="color:#ae8e98">No tiene fecha de vencimiento 😌</small>
@@ -934,59 +920,59 @@ a{color:inherit}
           <p>Feliz cumpleaños, mi Pinky ❤️.</p>
 
           <p>
-            Hoy cumples 23 añitos y quería recordarte algo que quizá te digo mucho,
+            Hoy cumples 23 años y quería recordarte algo que quizá te digo seguido,
             pero que para mí nunca va a perder su significado:
-            <b>conocerte fue de las mejores cosas que me pasó.</b>
+            <b>conocerte fue una de las mejores cosas que me han pasado.</b>
           </p>
 
           <p>
-            Amo todos esos momentos que tenemos juntos: las risas, nuestras bromas,
-            nuestros cariños, nuestras conversaciones, los días bonitos y también
-            todo lo que hemos aprendido en los momentos difíciles.
+            Amo todo lo que compartimos: nuestras risas, bromas, conversaciones,
+            el cariño que nos tenemos, los días buenos y también lo que hemos aprendido
+            de los momentos difíciles.
           </p>
 
           <p>
-            Sé que podemos tener peleas, diferencias o días en los que todo parezca más complicado,
-            pero incluso ahí quiero que recuerdes esto:
-            <b>por más peleas que tengamos, siempre te amo.</b>
-            No quiero soltarte por una dificultad; quiero que aprendamos, hablemos,
-            mejoremos y sigamos cuidando lo nuestro.
+            Sé que podemos tener peleas, diferencias o días en los que todo se haga más difícil,
+            pero incluso entonces quiero que recuerdes algo:
+            <b>por más peleas que tengamos, te amo.</b>
+            No quiero que una discusión nos haga olvidar lo que sentimos. Quiero que sepamos
+            calmarnos, hablar, escucharnos, aprender y seguir cuidando lo nuestro.
           </p>
 
           <p class="highlight">
-            Te amo, te quiero y te amo, apestocín 😌❤️
+            Te amo, te quiero. Te amo, apestocín. 😌❤️
           </p>
 
           <p>
-            Quiero tenerte en mi vida por muchísimo tiempo. Quiero que seas mi compañera de vida,
+            Quiero tenerte en mi vida por mucho tiempo. Quiero que seas mi compañera de vida,
             seguir creciendo contigo y poder mirar atrás algún día y decir:
-            “mira todo lo que vivimos, Pinky”.
+            “mira todo lo que hemos vivido, Pinky”.
           </p>
 
           <p>
-            También quiero que nunca dudes de ti. Tienes la capacidad de lograr cosas enormes
-            cuando te lo propones. Quiero estar ahí cuando consigas tus metas, celebrar contigo,
-            ayudarte cuando algo se ponga difícil y recordarte todas las veces que haga falta
-            que <b>tú puedes cumplir todo lo que te propongas.</b>
+            También quiero que nunca dudes de ti. Eres capaz de lograr grandes cosas cuando te lo propones.
+            Quiero estar ahí cuando alcances tus metas, celebrar contigo, apoyarte cuando algo
+            se ponga difícil y recordarte, las veces que haga falta,
+            que <b>puedes cumplir todo lo que te propongas.</b>
           </p>
 
           <p>
-            En tus momentos malos quiero ser un lugar seguro para ti, alguien con quien puedas hablar,
-            llorar, descansar o simplemente quedarte en silencio. No necesito arreglarlo todo;
-            a veces solo quiero que sepas que <b>siempre voy a estar para ti.</b>
+            En tus momentos malos quiero ser un lugar seguro para ti: alguien con quien puedas hablar,
+            llorar, descansar o simplemente quedarte en silencio. No siempre voy a tener una solución,
+            pero quiero que sepas que <b>voy a estar para ti.</b>
           </p>
 
           <p>
-            Y en los momentos buenos quiero seguir estando todavía más: celebrando tus logros,
-            haciendo planes contigo, conociendo lugares, viajando, tomándonos mil fotos,
-            riéndonos hasta que nos duela la barriga y haciendo recuerdos que algún día
-            nos hagan decir “qué bonito fue vivir todo esto juntos”.
+            Y en los momentos buenos quiero estar para celebrar tus logros, hacer planes contigo,
+            conocer lugares, viajar, tomar fotos, reírnos hasta que nos duela la barriga
+            y construir recuerdos que algún día nos hagan decir:
+            “qué bonito fue vivir todo esto juntos”.
           </p>
 
           <p>
             Deseo que tus 23 estén llenos de crecimiento, tranquilidad, oportunidades,
-            personas que te quieran bonito y muchísimos motivos para sentirte orgullosa de ti.
-            Y egoístamente también deseo poder estar cerquita para verlo. 🥹
+            personas que te quieran bien y razones para sentirte orgullosa de ti.
+            Y también deseo poder estar a tu lado para verlo. 🥹
           </p>
 
           <p class="highlight">
@@ -994,13 +980,13 @@ a{color:inherit}
           </p>
 
           <p>
-            Gracias por existir, gracias por todos los momentos y gracias por dejarme conocerte
-            tal como eres. Espero que hoy te sientas muy amada, porque lo eres.
+            Gracias por existir, por todo lo que hemos compartido y por dejarme conocerte
+            tal como eres. Espero que hoy te sientas amada, valorada y acompañada, porque lo eres.
           </p>
 
           <p>
             Feliz cumpleaños, mi Pinky hermosa. 🎂🌷<br>
-            Por tus 23, por todos tus sueños y por muchísimos momentos felices más juntos.
+            Por tus 23, por todos tus sueños y por muchos momentos felices que todavía nos faltan vivir juntos.
           </p>
 
           <p class="signature">Con todo mi amor ❤️</p>
@@ -1015,7 +1001,7 @@ a{color:inherit}
 
       <!-- FINAL -->
       <section class="panel final-panel" id="final">
-        <div class="section-kicker">Una última cosita…</div>
+        <div class="section-kicker">Una última cosa…</div>
         <div class="final-heart">❤️</div>
         <h2 class="section-title">¿Seguimos creando recuerdos juntos?</h2>
         <p class="section-copy">
@@ -1034,28 +1020,28 @@ a{color:inherit}
 
       <section class="panel final-panel" id="secreto">
         <div class="section-kicker">Pssst…</div>
-        <h2 class="section-title">Un botoncito secreto 👀</h2>
+        <h2 class="section-title">Un botón secreto 👀</h2>
         <p class="section-copy">
-          Si llegaste hasta aquí, seguramente te ganaste una última sorpresita.  
-          <br>Presiona la estrellita de abajo. ✨
+          Si llegaste hasta aquí, todavía queda una última sorpresa.
+          <br>Presiona la estrella de abajo. ✨
         </p>
 
         <button class="secret-trigger" onclick="toggleEaster()">✨</button>
 
         <div class="easter-box" id="easterBox">
           <img src="foto15.png" alt="Nosotros de niños">
-          <h3>¿Y si nos hubiéramos conocido desde chiquitos? 🥹❤️</h3>
+          <h3>¿Y si nos hubiéramos conocido de niños? 🥹❤️</h3>
           <p>
-            Estoy seguro de que, incluso así, te habría escogido.<br>
-            Me gusta pensar que en cualquier versión de la vida, en cualquier momento,
-            de alguna manera habría terminado encontrándote. 🌷<br><br>
-            Y sí… hasta de chiquitos nos veríamos bonitos juntos. 😌❤️
+            Me gusta imaginar que, incluso entonces, habría querido acercarme a ti.<br>
+            Que en otra versión de nuestra historia, en otro momento y de otra manera,
+            igual habría terminado encontrándote. 🌷<br><br>
+            Tal vez no crecimos juntos desde niños, pero me alegra que la vida nos haya hecho coincidir ahora. 😌❤️
           </p>
         </div>
       </section>
 
       <div class="footer">
-        Hecho con muchísimo amor para Gina, mi Pinky ❤️ · 21.09.2026
+        Hecho con todo mi amor para Gina, mi Pinky ❤️ · 21.09.2026
       </div>
 
     </div>
@@ -1086,61 +1072,61 @@ const HAS_LOCAL_SONG = true;
    DATOS
 ========================================================= */
 const reasons = [
-  "Porque conocerte fue de las mejores cosas que me pasó. Llegaste a mi vida y dejaste recuerdos que ahora son parte de mí. ❤️",
-  "Porque tu sonrisa puede cambiarme completamente un día. Hay algo en verte feliz que también me hace feliz a mí. 😊",
-  "Porque contigo puedo reírme de las cosas más tontas y aun así sentir que estoy teniendo uno de mis mejores momentos. 😂❤️",
-  "Porque eres mi Pinky. Ese nombre ya significa cariño, confianza, recuerdos y un pedacito enorme de mi corazón. 🌷",
-  "Porque incluso después de una pelea, sigo sabiendo que te amo y que prefiero arreglar las cosas contigo antes que soltarnos por orgullo. 🤍",
-  "Porque quiero crecer contigo, no buscar una relación perfecta, sino una relación que aprenda, mejore y se cuide con el tiempo. 🌱",
-  "Porque quiero ser tu soporte cuando algo te pese, escucharte y recordarte que no tienes que poder con todo tú sola. 🫂",
-  "Porque creo muchísimo en ti. Sé que puedes cumplir todo lo que te propongas, incluso cuando tú misma dudes un poquito. ✨",
-  "Porque quiero celebrar cada una de tus metas como si también fueran mías. Verte avanzar me hace sentir orgulloso de ti. 🏆❤️",
-  "Porque quiero seguir viajando contigo, conocer lugares nuevos, perdernos, reírnos y regresar con mil historias que contar. ✈️🌎",
-  "Porque quiero muchísimos momentos felices más: comidas, paseos, películas, llamadas, abrazos y planes improvisados. 🍿💕",
-  "Porque hasta nuestros momentos sencillos pueden convertirse en recuerdos especiales cuando estoy contigo. ☕❤️",
-  "Porque me importa cómo te sientes, cómo estuvo tu día y esas pequeñas cosas que para los demás quizá pasan desapercibidas. 🌸",
-  "Porque quiero que siempre sientas que conmigo puedes ser tú, sin tener que fingir que todo está bien cuando no lo está. 🫶",
-  "Porque te quiero en tus días arregladita y preciosa, pero también cansada, despeinada, renegando y siendo tú misma. 😂💗",
-  "Porque no quiero estar solamente para las fotografías bonitas; quiero estar también cuando toque apoyarnos de verdad. 🤝❤️",
-  "Porque puedo imaginar muchísimos capítulos más contigo y me ilusiona pensar en todo lo que todavía no hemos vivido. 📖✨",
-  "Porque eres una persona capaz, fuerte y con muchísimo por conseguir. Nunca dejes que un mal día te haga olvidar eso. 🌟",
-  "Porque contigo he aprendido que querer a alguien también es escucharlo, tener paciencia y seguir aprendiendo cómo cuidarnos mejor. 💞",
-  "Porque quiero elegirte incluso cuando no sea el día más fácil, recordando todo lo bonito que también existe entre nosotros. ❤️",
-  "Porque quiero tenerte para toda la vida y poder llamarte, con el tiempo, mi compañera de vida. 🥹💍",
-  "Porque te amo, te quiero y sí… te amo, apestocín. Eso no podía faltar. 😌😂❤️",
-  "Porque te amo de aquí a la luna a pasitos de tortuga… para que el camino sea larguito y podamos vivir muchísimo juntos. 🐢🌙❤️"
+  "Porque conocerte fue una de las mejores cosas que me han pasado. Desde que llegaste, hay recuerdos y momentos que ya forman parte de mí. ❤️",
+  "Porque tu sonrisa puede cambiar por completo mi día. Verte feliz también me hace feliz. 😊",
+  "Porque contigo puedo reírme de cualquier tontería y sentir que estoy exactamente donde quiero estar. 😂❤️",
+  "Porque eres mi Pinky. Ese nombre, para mí, significa cariño, confianza, complicidad y muchos recuerdos compartidos. 🌷",
+  "Porque incluso después de una pelea sigo sabiendo que te amo y que prefiero hablar contigo antes que dejar que el orgullo gane. 🤍",
+  "Porque quiero crecer contigo. No busco que seamos perfectos; quiero que aprendamos, mejoremos y sepamos cuidarnos con el tiempo. 🌱",
+  "Porque quiero ser un apoyo para ti cuando algo te pese, escucharte y recordarte que no tienes que cargar con todo sola. 🫂",
+  "Porque creo de verdad en ti. Sé que puedes cumplir lo que te propongas, incluso en los días en que tú misma lo dudes. ✨",
+  "Porque quiero celebrar tus metas contigo. Verte avanzar y conseguir lo que buscas me hace sentir orgulloso de ti. 🏆❤️",
+  "Porque quiero seguir viajando contigo, conocer lugares nuevos, perdernos un poco, reírnos y volver con historias que recordar. ✈️🌎",
+  "Porque quiero seguir compartiendo contigo comidas, paseos, películas, llamadas, abrazos y planes improvisados. 🍿💕",
+  "Porque contigo los momentos sencillos también pueden convertirse en recuerdos especiales. ☕❤️",
+  "Porque me importa cómo te sientes, cómo estuvo tu día y esas cosas que quizá para otros pasan desapercibidas. 🌸",
+  "Porque quiero que conmigo puedas ser tú, sin sentir que tienes que fingir que todo está bien cuando no lo está. 🫶",
+  "Porque te quiero arreglada, cansada, despeinada, renegando o riéndote; te quiero siendo tú. 😂💗",
+  "Porque no quiero estar solo para las fotos bonitas. También quiero estar cuando toque apoyarnos de verdad. 🤝❤️",
+  "Porque puedo imaginar muchos capítulos más contigo y me ilusiona pensar en todo lo que todavía nos falta vivir. 📖✨",
+  "Porque eres capaz, fuerte y tienes mucho por conseguir. No dejes que un mal día te haga olvidar eso. 🌟",
+  "Porque contigo he aprendido que querer a alguien también significa escuchar, tener paciencia, reconocer errores y aprender a cuidarnos mejor. 💞",
+  "Porque quiero seguir eligiéndote incluso en los días difíciles, recordando todo lo bueno que también existe entre nosotros. ❤️",
+  "Porque quiero tenerte en mi vida y, con el tiempo, seguir llamándote mi compañera de vida. 🥹💍",
+  "Porque te amo, te quiero. Te amo, apestocín. Esa frase es demasiado nuestra como para dejarla fuera. 😌😂❤️",
+  "Porque te amo de aquí a la luna a pasitos de tortuga… y esa distancia todavía me parece corta para todo lo que siento por ti. 🐢🌙❤️"
 ];
 
 const openMessages = [
   {
     icon:"🥺",
     title:"Cuando estés triste",
-    text:"Mi Pinky, no tienes que estar bien todo el tiempo. Si hoy pesa un poquito más, recuerda que puedes venir conmigo tal como estás. Quiero escucharte, abrazarte y acompañarte hasta que el día se sienta un poquito menos difícil. ❤️"
+    text:"Mi Pinky, no tienes que estar bien todo el tiempo. Si hoy pesa más de lo normal, ven conmigo tal como estás. Quiero escucharte, abrazarte y acompañarte hasta que el día se sienta un poco más llevadero. ❤️"
   },
   {
     icon:"🌙",
     title:"Cuando no puedas dormir",
-    text:"Imagíname diciéndote bajito: cierra esos ojitos, apestocín 😌❤️. Mañana será otro día y no tienes que resolver toda la vida esta noche. Descansa. Te mando un abrazo enorme hasta donde estés."
+    text:"Imagíname hablándote al oído: descansa, apestocín 😌❤️. No tienes que resolver toda la vida esta noche. Mañana será otro día. Por ahora, respira y recuerda que estoy contigo."
   },
   {
     icon:"💗",
     title:"Cuando me extrañes",
-    text:"Yo también te extraño. Piensa en todos esos momentos en los que terminamos riéndonos por cualquier tontería y recuerda que todavía tenemos muchísimos recuerdos pendientes por crear juntos. 🥹❤️"
+    text:"Yo también te extraño. Piensa en todas las veces que terminamos riéndonos por cualquier tontería y recuerda que todavía tenemos muchos recuerdos por crear juntos. 🥹❤️"
   },
   {
     icon:"🌷",
     title:"Cuando dudes de ti",
-    text:"No permitas que un mal momento te convenza de que no puedes. Yo he visto todo lo que eres capaz de hacer. Ve de a poquito, pero sigue. Tú puedes cumplir todo lo que te propongas y yo voy a estar orgulloso de cada paso. ✨"
+    text:"No dejes que un mal momento te convenza de que no puedes. Yo he visto de lo que eres capaz. Avanza paso a paso. Puedes cumplir todo lo que te propongas y voy a estar orgulloso de cada avance. ✨"
   },
   {
     icon:"🎉",
-    title:"Cuando estés muy feliz",
-    text:"¡Ven a contármelo! Quiero celebrar tus cosas bonitas contigo, escucharte hablar emocionada y verte disfrutar todo aquello por lo que trabajaste. Tus alegrías también son importantes para mí. ❤️"
+    title:"Cuando estés feliz",
+    text:"Ven a contármelo. Quiero celebrar tus cosas buenas contigo, escucharte hablar con emoción y verte disfrutar aquello por lo que trabajaste. Tus alegrías también son importantes para mí. ❤️"
   },
   {
     icon:"🫂",
     title:"Cuando tengamos una pelea",
-    text:"Lee esto antes de que el orgullo hable más fuerte: por más peleas que tengamos, te amo. Prefiero que nos calmemos, nos escuchemos y recordemos que somos nosotros contra el problema, no nosotros uno contra el otro. 🤍"
+    text:"Lee esto antes de que el orgullo hable más fuerte: por más peleas que tengamos, te amo. Prefiero que nos calmemos, nos escuchemos y recordemos que somos nosotros frente al problema, no uno contra el otro. 🤍"
   }
 ];
 
@@ -1234,7 +1220,7 @@ updateProgress();
 
 function startExperience(){
   document.getElementById("razones").scrollIntoView({behavior:"smooth",block:"start"});
-  toast("Empieza por los 23 corazoncitos, Pinky ❤️");
+  toast("Empieza por las 23 razones, Pinky ❤️");
 }
 
 /* =========================================================
@@ -1413,9 +1399,9 @@ function finalAnswer(type){
   const box=document.getElementById("finalMessage");
   box.classList.add("show");
   if(type===1){
-    box.innerHTML="🥹❤️ Entonces queda oficialmente firmado: <b>más momentos, más viajes, más abrazos y más nosotros.</b><br><br>Feliz cumpleaños, mi Pinky. Te amo muchísimo.";
+    box.innerHTML="🥹❤️ Entonces queda oficialmente firmado: <b>más momentos, más viajes, más abrazos y más nosotros.</b><br><br>Feliz cumpleaños, mi Pinky. Te amo con todo mi corazón.";
   }else{
-    box.innerHTML="😂🎁 ¡Sabía que ibas a preguntar por el regalo! Este era el regalo sentimental… el reclamo del regalo físico se recibe directamente con tu apestocín 😌❤️.";
+    box.innerHTML="😂🎁 Sabía que ibas a preguntar por el regalo. Este era el regalo sentimental… el reclamo por el regalo físico se presenta directamente con tu apestocín 😌❤️.";
   }
   confetti(100);
 }
