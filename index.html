@@ -1,0 +1,1476 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#7f4057">
+<title>Feliz cumpleaños, Pinky ❤️</title>
+
+<style>
+:root{
+  --wine:#7f4057;
+  --wine2:#a85d77;
+  --pink:#f4bccd;
+  --rose:#ffe7ef;
+  --cream:#fffaf7;
+  --ink:#4c3038;
+  --muted:#8a7078;
+  --gold:#d8ad65;
+  --glass:rgba(255,255,255,.76);
+  --shadow:0 22px 70px rgba(97,44,64,.17);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  min-height:100vh;
+  font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 10% 0%, #ffdce8 0 14%, transparent 35%),
+    radial-gradient(circle at 90% 20%, #ffe8cf 0 10%, transparent 31%),
+    linear-gradient(145deg,#fff8f8,#fffdf9 48%,#fbe1ea);
+  overflow-x:hidden;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  opacity:.22;
+  background-image:
+    radial-gradient(#a85d77 0.7px,transparent .7px),
+    radial-gradient(#d8ad65 0.7px,transparent .7px);
+  background-size:26px 26px,31px 31px;
+  background-position:0 0,12px 9px;
+  z-index:-2;
+}
+button{font:inherit}
+a{color:inherit}
+.hidden{display:none!important}
+
+/* ====== floating hearts ====== */
+.floaters{
+  position:fixed;
+  inset:0;
+  overflow:hidden;
+  pointer-events:none;
+  z-index:0;
+}
+.floater{
+  position:absolute;
+  bottom:-50px;
+  opacity:0;
+  animation:rise linear infinite;
+  filter:drop-shadow(0 3px 4px rgba(120,50,70,.1));
+}
+@keyframes rise{
+  0%{transform:translateY(0) rotate(0deg) scale(.7);opacity:0}
+  10%{opacity:.26}
+  85%{opacity:.18}
+  100%{transform:translateY(-120vh) rotate(22deg) scale(1.2);opacity:0}
+}
+
+/* ====== midnight gate ====== */
+.gate{
+  min-height:100svh;
+  display:grid;
+  place-items:center;
+  padding:28px 18px;
+  position:relative;
+  z-index:3;
+}
+.gate-card{
+  width:min(620px,100%);
+  text-align:center;
+  border:1px solid rgba(255,255,255,.8);
+  background:rgba(255,255,255,.78);
+  backdrop-filter:blur(18px);
+  border-radius:34px;
+  padding:38px 24px 32px;
+  box-shadow:var(--shadow);
+}
+.gate-heart{
+  font-size:68px;
+  animation:pulse 1.55s ease-in-out infinite;
+  cursor:pointer;
+  user-select:none;
+}
+@keyframes pulse{50%{transform:scale(1.12)}}
+.gate h1{
+  margin:10px 0 9px;
+  font-family:Georgia,serif;
+  color:var(--wine);
+  font-size:clamp(32px,7vw,54px);
+}
+.gate p{line-height:1.7;color:var(--muted);margin:8px auto;max-width:480px}
+.countdown{
+  margin:24px auto 8px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  max-width:430px;
+}
+.time-box{
+  background:#fff;
+  padding:16px 8px;
+  border-radius:20px;
+  box-shadow:0 10px 30px rgba(98,47,67,.08);
+}
+.time-box b{display:block;color:var(--wine);font-size:clamp(25px,7vw,39px);font-variant-numeric:tabular-nums}
+.time-box span{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.12em}
+.preview-badge{
+  position:fixed;
+  top:12px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:100;
+  border-radius:999px;
+  background:#2d2226;
+  color:white;
+  padding:8px 13px;
+  font-size:12px;
+  box-shadow:0 8px 25px rgba(0,0,0,.2);
+}
+
+/* ====== header progress ====== */
+.progress-shell{
+  position:fixed;
+  left:50%;
+  transform:translateX(-50%);
+  top:10px;
+  width:min(680px,calc(100% - 24px));
+  z-index:60;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  background:rgba(255,255,255,.84);
+  backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,.8);
+  border-radius:999px;
+  padding:8px 12px;
+  box-shadow:0 9px 35px rgba(82,39,54,.13);
+}
+.progress-shell span{font-size:12px;white-space:nowrap;color:var(--wine);font-weight:700}
+.progress-track{height:7px;background:#f4d9e2;border-radius:999px;flex:1;overflow:hidden}
+.progress-bar{height:100%;width:0%;background:linear-gradient(90deg,var(--wine2),#da88a4);border-radius:999px;transition:width .45s ease}
+
+/* ====== app / shared ====== */
+.app{position:relative;z-index:2;padding:76px 14px 60px}
+.wrap{width:min(780px,100%);margin:0 auto}
+.panel{
+  background:var(--glass);
+  border:1px solid rgba(255,255,255,.85);
+  backdrop-filter:blur(15px);
+  border-radius:30px;
+  box-shadow:var(--shadow);
+  padding:clamp(24px,5vw,44px);
+  margin:24px 0;
+  overflow:hidden;
+}
+.section-kicker{
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:var(--gold);
+  font-weight:800;
+  font-size:12px;
+  margin-bottom:8px;
+}
+.section-title{
+  margin:0 0 12px;
+  color:var(--wine);
+  font-family:Georgia,serif;
+  font-size:clamp(28px,6vw,43px);
+  line-height:1.08;
+}
+.section-copy{color:var(--muted);line-height:1.75;margin:0 0 22px}
+.btn{
+  border:0;
+  border-radius:999px;
+  padding:14px 22px;
+  cursor:pointer;
+  background:linear-gradient(135deg,var(--wine),var(--wine2));
+  color:#fff;
+  font-weight:800;
+  box-shadow:0 11px 26px rgba(127,64,87,.22);
+  transition:.22s ease;
+}
+.btn:hover{transform:translateY(-2px) scale(1.015)}
+.btn:active{transform:scale(.98)}
+.btn.soft{
+  background:#fff;
+  color:var(--wine);
+  box-shadow:0 8px 22px rgba(127,64,87,.1);
+}
+.btn.gold{
+  background:linear-gradient(135deg,#c79a50,#e2be79);
+  color:#fff;
+}
+.center{text-align:center}
+
+/* ====== hero ====== */
+.hero{
+  min-height:calc(100svh - 100px);
+  display:grid;
+  place-items:center;
+}
+.hero .panel{text-align:center;padding-top:55px;padding-bottom:55px;position:relative}
+.hero-emoji{font-size:64px;animation:pulse 1.8s infinite}
+.hero-date{color:var(--gold);font-weight:900;letter-spacing:.14em;text-transform:uppercase;font-size:12px;margin-top:14px}
+.hero h1{
+  font-family:Georgia,serif;
+  font-size:clamp(42px,10vw,70px);
+  line-height:.98;
+  color:var(--wine);
+  margin:13px 0 14px;
+}
+.hero h1 small{display:block;font-size:.43em;margin-top:12px;font-family:inherit;color:var(--wine2);font-weight:500}
+.hero p{max-width:590px;margin:0 auto 25px;color:var(--muted);line-height:1.75;font-size:17px}
+.spark{position:absolute;font-size:22px;opacity:.55;animation:twinkle 2s infinite ease-in-out}
+.spark.s1{top:22px;left:9%}.spark.s2{top:55px;right:11%;animation-delay:.8s}.spark.s3{bottom:28px;left:15%;animation-delay:1.3s}
+@keyframes twinkle{50%{transform:scale(1.5) rotate(10deg);opacity:1}}
+
+/* ====== 23 reasons ====== */
+.reason-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:10px;
+  margin-top:22px;
+}
+.reason-btn{
+  aspect-ratio:1;
+  border:0;
+  background:#fff;
+  border-radius:19px;
+  cursor:pointer;
+  color:var(--wine);
+  font-weight:900;
+  font-size:15px;
+  box-shadow:0 8px 22px rgba(94,42,61,.09);
+  transition:.2s;
+  position:relative;
+}
+.reason-btn::after{content:"❤";font-size:10px;position:absolute;right:8px;bottom:6px;opacity:.25}
+.reason-btn:hover{transform:translateY(-3px)}
+.reason-btn.opened{background:linear-gradient(145deg,#fff,#ffe5ee);outline:2px solid #f2bfd0}
+.reason-btn.opened::after{opacity:.9}
+@media(max-width:480px){.reason-grid{grid-template-columns:repeat(4,1fr)}}
+
+/* ====== modal ====== */
+.modal-back{
+  position:fixed;
+  inset:0;
+  z-index:120;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  background:rgba(55,31,40,.48);
+  backdrop-filter:blur(7px);
+}
+.modal-back.show{display:flex;animation:fade .22s ease}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.modal-card{
+  width:min(520px,100%);
+  max-height:82svh;
+  overflow:auto;
+  background:#fffafc;
+  border-radius:30px;
+  padding:31px 24px 24px;
+  box-shadow:0 30px 90px rgba(42,20,27,.28);
+  text-align:center;
+  animation:pop .28s ease;
+}
+@keyframes pop{from{transform:scale(.92);opacity:0}to{transform:scale(1);opacity:1}}
+.modal-icon{font-size:48px}
+.modal-card h3{font-family:Georgia,serif;font-size:29px;color:var(--wine);margin:9px 0 12px}
+.modal-card p{line-height:1.75;color:#6f5960;margin:0 0 21px}
+
+/* ====== photos timeline ====== */
+.timeline{position:relative;margin-top:27px}
+.timeline::before{
+  content:"";
+  position:absolute;
+  left:26px;
+  top:10px;
+  bottom:10px;
+  width:2px;
+  background:linear-gradient(var(--pink),var(--gold),var(--pink));
+}
+.memory{display:grid;grid-template-columns:54px 1fr;gap:14px;margin:22px 0;position:relative}
+.dot{
+  width:18px;height:18px;background:#fff;border:5px solid var(--wine2);
+  border-radius:50%;margin:17px 0 0 18px;z-index:2;box-shadow:0 0 0 5px rgba(245,192,209,.25)
+}
+.memory-card{background:#fff;border-radius:22px;padding:10px 10px 16px;box-shadow:0 10px 28px rgba(90,43,59,.1)}
+.memory-card img{
+  width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:16px;display:block;background:#f8e6ec
+}
+.memory-card h4{color:var(--wine);margin:14px 10px 6px;font-family:Georgia,serif;font-size:22px}
+.memory-card p{margin:0 10px;color:var(--muted);line-height:1.65}
+.photo-placeholder{
+  aspect-ratio:4/3;border-radius:16px;
+  display:grid;place-items:center;
+  background:linear-gradient(145deg,#fae6ed,#fff4e7);
+  color:var(--wine2);text-align:center;padding:18px;font-weight:800;
+}
+
+/* ===== open when ===== */
+.open-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
+.open-btn{
+  min-height:96px;border:0;border-radius:22px;padding:18px 12px;cursor:pointer;
+  background:#fff;color:var(--wine);font-weight:850;box-shadow:0 8px 24px rgba(93,45,62,.09);
+  transition:.2s;line-height:1.35
+}
+.open-btn:hover{transform:translateY(-3px)}
+.open-btn .emo{display:block;font-size:27px;margin-bottom:6px}
+.open-btn.opened{background:#fff1f6}
+@media(max-width:520px){.open-grid{grid-template-columns:1fr}}
+
+/* ===== mini quiz ===== */
+.quiz-card{background:#fff;border-radius:24px;padding:22px;margin-top:15px;box-shadow:0 9px 25px rgba(90,43,59,.08)}
+.quiz-card h4{color:var(--wine);font-size:19px;margin:0 0 15px}
+.quiz-options{display:grid;gap:9px}
+.quiz-option{
+  border:1px solid #f0d7df;background:#fffafb;color:#664c55;border-radius:16px;padding:12px 14px;cursor:pointer;text-align:left;
+}
+.quiz-option.correct{background:#e9faef;border-color:#9bd7ad}
+.quiz-option.wrong{animation:shake .25s}
+@keyframes shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.quiz-result{min-height:27px;margin-top:12px;color:var(--wine);font-weight:800}
+
+/* ===== music ===== */
+.music-card{
+  display:flex;align-items:center;gap:18px;background:#fff;border-radius:25px;padding:18px;
+  box-shadow:0 10px 28px rgba(90,43,59,.09)
+}
+.disc{
+  width:82px;height:82px;border-radius:50%;flex:0 0 auto;
+  background:radial-gradient(circle,#f5b8cb 0 12%,#fff 13% 17%,#4f313b 18% 22%,#171214 23% 100%);
+  box-shadow:inset 0 0 0 5px #2e2428,0 8px 18px rgba(0,0,0,.16);
+}
+.disc.playing{animation:spin 3s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.music-info{flex:1;min-width:0}
+.music-info strong{color:var(--wine);display:block;margin-bottom:5px}
+.music-info small{color:var(--muted)}
+.music-play{width:48px;height:48px;border:0;border-radius:50%;background:var(--wine);color:white;cursor:pointer;font-size:19px;flex:0 0 auto}
+
+/* ===== wish ===== */
+.wish-box{
+  position:relative;overflow:hidden;border-radius:28px;padding:48px 22px;
+  background:radial-gradient(circle at 50% 70%,#563a61,#241827 48%,#151016);
+  color:#fff;text-align:center;
+}
+.wish-box h3{font-family:Georgia,serif;font-size:30px;margin:8px 0 10px}
+.wish-box p{color:#e9dfe8;line-height:1.7}
+.starfield{position:absolute;inset:0;pointer-events:none}
+.star{position:absolute;color:#fff;opacity:.5;animation:twinkle 2s infinite}
+.wish-content{position:relative;z-index:2}
+
+/* ===== gift ===== */
+.gift-wrap{text-align:center;padding:10px 0 0}
+.gift{
+  width:150px;height:125px;margin:30px auto 18px;position:relative;cursor:pointer;transition:.25s;
+}
+.gift:hover{transform:translateY(-4px)}
+.gift-box{position:absolute;bottom:0;width:100%;height:96px;background:linear-gradient(135deg,#9b506b,#c77692);border-radius:7px 7px 14px 14px}
+.gift-lid{position:absolute;top:16px;left:-8px;width:166px;height:30px;background:#7f4057;border-radius:8px;z-index:3;transition:.5s}
+.gift-ribbon-v{position:absolute;left:64px;top:16px;width:23px;height:109px;background:#e6bd72;z-index:4}
+.gift-ribbon-h{position:absolute;left:0;top:56px;width:150px;height:20px;background:#e6bd72;z-index:4}
+.bow{position:absolute;z-index:5;top:-5px;left:50%;transform:translateX(-50%);font-size:48px}
+.gift.open .gift-lid{transform:translateY(-47px) rotate(-7deg)}
+.gift.open{animation:giftpop .6s ease}
+@keyframes giftpop{50%{transform:scale(1.08)}}
+.gift-message{display:none;background:#fff;border-radius:22px;padding:20px;margin-top:16px;box-shadow:0 8px 25px rgba(90,43,59,.09)}
+.gift-message.show{display:block;animation:pop .35s ease}
+
+/* ===== letter ===== */
+.letter{
+  background:#fffdfb;
+  border-radius:25px;
+  padding:clamp(22px,5vw,38px);
+  box-shadow:inset 0 0 0 1px #f3e1e6,0 10px 35px rgba(90,43,59,.08);
+  position:relative;
+}
+.letter::before{content:"💌";position:absolute;right:22px;top:16px;font-size:30px;opacity:.55}
+.letter p{line-height:1.9;font-family:Georgia,serif;font-size:17px;color:#553b43;margin:0 0 21px}
+.letter .highlight{font-size:21px;color:var(--wine);font-weight:700;text-align:center;margin:28px 0}
+.signature{font-family:"Segoe Script","Brush Script MT",cursive!important;font-size:23px!important;color:var(--wine)!important;text-align:right}
+
+/* ===== final ===== */
+.final-panel{text-align:center}
+.final-heart{font-size:72px;animation:pulse 1.5s infinite}
+.final-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:22px}
+.final-message{
+  display:none;margin-top:24px;background:#fff;border-radius:23px;padding:23px;
+  box-shadow:0 9px 28px rgba(90,43,59,.09);line-height:1.75;color:#674b54
+}
+.final-message.show{display:block;animation:pop .35s ease}
+
+/* ===== toast + confetti ===== */
+.toast{
+  position:fixed;left:50%;bottom:22px;transform:translate(-50%,20px);
+  z-index:200;background:#2d2226;color:white;border-radius:999px;padding:11px 17px;
+  opacity:0;pointer-events:none;transition:.3s;font-size:13px;text-align:center;max-width:90vw;
+}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.confetti{
+  position:fixed;top:-20px;width:10px;height:14px;z-index:300;pointer-events:none;border-radius:3px;
+  animation:confettiFall 3.4s linear forwards;
+}
+@keyframes confettiFall{
+  to{transform:translate3d(var(--drift),110vh,0) rotate(720deg);opacity:.2}
+}
+
+.footer{
+  text-align:center;color:#9d858c;font-size:12px;padding:18px 8px 30px;
+}
+@media(max-width:520px){
+  .panel{border-radius:25px}
+  .hero .panel{padding-top:43px;padding-bottom:43px}
+  .countdown{grid-template-columns:repeat(3,1fr)}
+  .progress-shell span{font-size:11px}
+  .music-card{gap:12px}
+  .disc{width:66px;height:66px}
+}
+
+/* ===== foto protagonista + galería de recuerdos ===== */
+.hero-photo{
+  width:min(430px,94%);
+  margin:26px auto 4px;
+  position:relative;
+}
+.hero-photo img{
+  width:100%;
+  aspect-ratio:3/4;
+  object-fit:cover;
+  display:block;
+  border-radius:28px;
+  box-shadow:0 18px 48px rgba(85,40,56,.18);
+  border:8px solid rgba(255,255,255,.92);
+}
+.hero-photo::after{
+  content:"nuestro corazoncito ❤️";
+  position:absolute;
+  left:50%;
+  bottom:14px;
+  transform:translateX(-50%) rotate(-1deg);
+  background:rgba(255,255,255,.9);
+  color:var(--wine);
+  padding:7px 13px;
+  border-radius:999px;
+  font-family:Georgia,serif;
+  font-size:13px;
+  white-space:nowrap;
+  box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+.gallery-title{
+  text-align:center;
+  color:var(--wine);
+  font-family:Georgia,serif;
+  font-size:27px;
+  margin:38px 0 8px;
+}
+.gallery-sub{
+  text-align:center;
+  color:var(--muted);
+  line-height:1.65;
+  margin:0 auto 18px;
+  max-width:560px;
+}
+.memory-gallery{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:13px;
+  margin-top:18px;
+}
+@media(min-width:760px){.memory-gallery{grid-template-columns:repeat(3,1fr)}}
+.gallery-item{
+  margin:0;
+  background:#fff;
+  border-radius:20px;
+  padding:8px 8px 12px;
+  box-shadow:0 9px 27px rgba(91,42,59,.09);
+  transform:rotate(var(--tilt,0deg));
+  transition:.22s ease;
+}
+.gallery-item:hover{transform:rotate(0deg) translateY(-3px)}
+.gallery-item img{
+  width:100%;
+  height:250px;
+  object-fit:cover;
+  display:block;
+  border-radius:15px;
+}
+.gallery-item figcaption{
+  text-align:center;
+  color:#765862;
+  font-family:Georgia,serif;
+  font-size:14px;
+  line-height:1.4;
+  padding:10px 5px 1px;
+}
+.gallery-item:nth-child(1){--tilt:-1.2deg}
+.gallery-item:nth-child(2){--tilt:1.1deg}
+.gallery-item:nth-child(3){--tilt:.7deg}
+.gallery-item:nth-child(4){--tilt:-.8deg}
+.gallery-item:nth-child(5){--tilt:1deg}
+@media(max-width:520px){
+  .memory-gallery{gap:9px}
+  .gallery-item{padding:6px 6px 10px;border-radius:17px}
+  .gallery-item img{height:190px;border-radius:12px}
+  .gallery-item figcaption{font-size:12px}
+  .hero-photo img{border-width:6px;border-radius:24px}
+}
+
+
+/* ===== galería extra ===== */
+.micro-title{
+  text-align:center;
+  color:var(--wine);
+  font-family:Georgia,serif;
+  font-size:24px;
+  margin:32px 0 6px;
+}
+.micro-copy{
+  text-align:center;
+  color:var(--muted);
+  line-height:1.65;
+  margin:0 auto 15px;
+  max-width:550px;
+}
+.secret-trigger{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:38px;height:38px;
+  border-radius:50%;
+  border:0;
+  background:rgba(255,255,255,.9);
+  box-shadow:0 7px 18px rgba(90,43,59,.10);
+  cursor:pointer;
+  color:var(--wine);
+  font-size:18px;
+  transition:.2s ease;
+}
+.secret-trigger:hover{transform:translateY(-2px) scale(1.04)}
+.easter-box{
+  display:none;
+  margin-top:28px;
+  background:linear-gradient(145deg,#fff6f8,#fffdf6);
+  border:1px solid #f1dbe2;
+  border-radius:26px;
+  padding:18px 16px 20px;
+  box-shadow:0 12px 30px rgba(90,43,59,.09);
+  text-align:center;
+}
+.easter-box.show{display:block;animation:pop .35s ease}
+.easter-box img{
+  width:min(310px,92%);
+  display:block;
+  margin:0 auto 14px;
+  border-radius:22px;
+  box-shadow:0 14px 38px rgba(82,39,54,.16);
+  border:6px solid rgba(255,255,255,.94);
+}
+.easter-box h3{
+  color:var(--wine);
+  font-family:Georgia,serif;
+  font-size:29px;
+  margin:8px 0 10px;
+}
+.easter-box p{
+  color:#72575f;
+  line-height:1.8;
+  margin:0 auto;
+  max-width:560px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="floaters" id="floaters"></div>
+<div class="preview-badge hidden" id="previewBadge">🛠️ Modo prueba — solo tú ves esto</div>
+
+<!-- =======================
+     PANTALLA ANTES DE MEDIANOCHE
+     Se desbloquea el 21/09/2026 a las 00:00 hora Perú.
+     Para probarla antes: abre index.html?preview=1
+======================= -->
+<section class="gate" id="gate">
+  <div class="gate-card">
+    <div class="gate-heart" id="secretHeart">❤️</div>
+    <div style="font-size:13px;color:#b0929b;letter-spacing:.12em;text-transform:uppercase;font-weight:800">Una sorpresa está esperando</div>
+    <h1>Para mi Pinky</h1>
+    <p>
+      Todavía no puedo dejarte entrar… 😌❤️<br>
+      Esta pequeña sorpresa se abre cuando empiece un día muy especial.
+    </p>
+    <div class="countdown">
+      <div class="time-box"><b id="hh">00</b><span>horas</span></div>
+      <div class="time-box"><b id="mm">00</b><span>minutos</span></div>
+      <div class="time-box"><b id="ss">00</b><span>segundos</span></div>
+    </div>
+    <p style="font-size:13px;margin-top:17px">🎂 21 de septiembre · Tu día, mi amor</p>
+  </div>
+</section>
+
+<!-- =======================
+     EXPERIENCIA PRINCIPAL
+======================= -->
+<div class="hidden" id="experience">
+
+  <div class="progress-shell">
+    <span>❤️ <b id="progressText">0/8</b> sorpresas</span>
+    <div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
+  </div>
+
+  <main class="app">
+    <div class="wrap">
+
+      <!-- HERO -->
+      <section class="hero" id="inicio">
+        <div class="panel">
+          <span class="spark s1">✨</span>
+          <span class="spark s2">🌷</span>
+          <span class="spark s3">✨</span>
+          <div class="hero-emoji">🎂❤️</div>
+          <div class="hero-date">21 · septiembre · 2026</div>
+          <h1>
+            Feliz cumpleaños, Pinky
+            <small>23 añitos de una persona maravillosa 🥹</small>
+          </h1>
+          <p>
+            Hoy no quería darte solamente un mensaje. Quería hacerte un pequeño rincón
+            que sea solo tuyo, para recordarte cuánto te amo, cuánto creo en ti
+            y lo feliz que me hace tenerte en mi vida.
+          </p>
+
+          <div class="hero-photo">
+            <img src="foto1.jpg" alt="Nuestro corazón hecho con las manos">
+          </div>
+
+          <button class="btn" onclick="startExperience()">Comenzar mi sorpresa ❤️</button>
+        </div>
+      </section>
+
+      <!-- 23 RAZONES -->
+      <section class="panel" id="razones">
+        <div class="section-kicker">Sorpresa 01</div>
+        <h2 class="section-title">23 razones por las que te amo 💗</h2>
+        <p class="section-copy">
+          Una por cada añito tuyo. Toca los corazoncitos, Pinky. Hay cosas que quizá ya sabes…
+          pero nunca me voy a cansar de recordártelas.
+        </p>
+        <div class="reason-grid" id="reasonGrid"></div>
+      </section>
+
+      <!-- RECUERDOS -->
+      <section class="panel" id="recuerdos">
+        <div class="section-kicker">Sorpresa 02</div>
+        <h2 class="section-title">Pedacitos de nosotros 📸</h2>
+        <p class="section-copy">
+          Algunas fotos guardan más que una imagen: guardan risas, conversaciones,
+          abrazos, viajes, tonterías y momentos que nunca quisiera perder.
+        </p>
+
+        <div class="timeline">
+
+          <div class="memory">
+            <div class="dot"></div>
+            <div class="memory-card">
+              <img src="foto2.jpg" alt="Nuestras sombras caminando juntas" onerror="photoError(this,'Una de nuestras fotos favoritas ❤️')">
+              <h4>Hasta nuestras sombras saben caminar juntas 🥹</h4>
+              <p>Me gusta pensar que hasta en una foto tan simple hay algo nuestro: dos personas avanzando lado a lado, compartiendo el camino.</p>
+            </div>
+          </div>
+
+          <div class="memory">
+            <div class="dot"></div>
+            <div class="memory-card">
+              <img src="foto3.jpg" alt="Una sonrisa que amo" onerror="photoError(this,'Una sonrisa que amo muchísimo ✨')">
+              <h4>Tu sonrisa ❤️</h4>
+              <p>Hay fotos que me gustan por el lugar y otras que me gustan simplemente porque estás tú. Esta es una de esas.</p>
+            </div>
+          </div>
+
+          <div class="memory">
+            <div class="dot"></div>
+            <div class="memory-card">
+              <img src="foto4.jpg" alt="Una noche juntos" onerror="photoError(this,'Una de tantas noches bonitas 🌙')">
+              <h4>Por esas noches que terminan siendo recuerdos 🌙❤️</h4>
+              <p>No siempre necesitamos un plan enorme. A veces basta estar contigo para que una noche cualquiera termine significando mucho.</p>
+            </div>
+          </div>
+
+          <div class="memory">
+            <div class="dot"></div>
+            <div class="memory-card">
+              <img src="foto5.jpg" alt="Juntos frente al árbol de Navidad" onerror="photoError(this,'Una fecha bonita juntos 🎄')">
+              <h4>Por más fechas especiales juntos 🎄❤️</h4>
+              <p>Quiero que pasen los años y sigamos teniendo fotos como esta: cambiando nosotros, cambiando los lugares, pero todavía eligiendo estar cerquita.</p>
+            </div>
+          </div>
+
+        </div>
+
+
+        <h3 class="gallery-title">Y unas cuantas más… porque nunca son suficientes 📷❤️</h3>
+        <p class="gallery-sub">
+          No todas tienen que ser perfectas. Precisamente por eso me gustan:
+          son pedacitos reales de nosotros.
+        </p>
+
+        <div class="memory-gallery">
+          <figure class="gallery-item">
+            <img src="foto6.jpg" alt="Un beso">
+            <figcaption>Un besito para mi Pinky 😘❤️</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="foto7.jpg" alt="Una caminata juntos">
+            <figcaption>Planes sencillos, compañía favorita 🌙</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="foto8.jpg" alt="Juntos en una salida">
+            <figcaption>Mi lugar favorito muchas veces es cerquita de ti 🥹</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="foto9.jpg" alt="Un día juntos">
+            <figcaption>Quiero acompañarte también en tus cosas y tus días 🤝❤️</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="foto10.jpg" alt="Una foto espontánea juntos">
+            <figcaption>Y hasta las fotos más random terminan siendo nuestras 😂💗</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="foto11.jpg" alt="Una foto divertida">
+            <figcaption>También amo nuestra parte más random y graciosa 😂🦛❤️</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="foto12.jpg" alt="Postre juntos">
+            <figcaption>Contigo hasta un antojito se vuelve recuerdo rico 🍓🥹</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="foto13.jpg" alt="Compartiendo una bebida">
+            <figcaption>Las pequeñas cositas contigo también me encantan 🥤❤️</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="foto14.jpg" alt="Un beso en el parque">
+            <figcaption>Y tus besitos… esos sí son de mis favoritos 😘🌙</figcaption>
+          </figure>
+        </div>
+
+
+        <h3 class="micro-title">Y también esos momentitos simples que amo 🥹</h3>
+        <p class="micro-copy">
+          Porque nosotros no solo somos las fotos “bonitas”; también somos antojos, tonterías,
+          paseítos, risas espontáneas y escenas muy nuestras. ❤️
+        </p>
+
+        <div class="memory-gallery">
+          <figure class="gallery-item">
+            <img src="foto11.jpg" alt="Momento divertido con hipopótamo">
+            <figcaption>Hasta tus tonterías me encantan 😂🦛</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="foto12.jpg" alt="Postrecitos juntos">
+            <figcaption>Antojitos compartidos = plan perfecto 🍓🍨❤️</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="foto13.jpg" alt="Gaseosas juntos">
+            <figcaption>Hasta una coquita contigo sabe mejor 🥤💗</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="foto14.jpg" alt="Besito en el parque">
+            <figcaption>Y tus besitos... esos sí me pueden 😌❤️</figcaption>
+          </figure>
+        </div>
+
+        <div class="center" style="margin-top:25px">
+          <button class="btn soft" onclick="completeSection('memories'); toast('📸 Estos recuerdos apenas son el comienzo ❤️')">
+            Guardar estos recuerdos en el corazón
+          </button>
+        </div>
+      </section>
+
+      <!-- ABRE CUANDO -->
+      <section class="panel" id="abre">
+        <div class="section-kicker">Sorpresa 03</div>
+        <h2 class="section-title">Ábreme cuando… 💌</h2>
+        <p class="section-copy">
+          Estos mensajes no son solamente para hoy. Vuelve aquí cuando los necesites.
+          Quiero estar cerquita incluso en esos momentos en los que no pueda abrazarte.
+        </p>
+        <div class="open-grid" id="openGrid"></div>
+      </section>
+
+      <!-- JUEGUITO -->
+      <section class="panel" id="juego">
+        <div class="section-kicker">Sorpresa 04</div>
+        <h2 class="section-title">Un examen muy difícil 😌❤️</h2>
+        <p class="section-copy">Tres preguntas importantísimas. No se permite copiar. Bueno… hoy sí, porque es tu cumpleaños 😂.</p>
+
+        <div class="quiz-card">
+          <h4>1. ¿Hasta dónde te amo? 🌙</h4>
+          <div class="quiz-options">
+            <button class="quiz-option" onclick="answerQuiz(this,false,0)">Hasta la esquina 😌</button>
+            <button class="quiz-option" onclick="answerQuiz(this,false,0)">Hasta la luna en cohete 🚀</button>
+            <button class="quiz-option" onclick="answerQuiz(this,true,0)">De aquí a la luna a pasitos de tortuga 🐢❤️</button>
+          </div>
+          <div class="quiz-result" id="quizResult0"></div>
+        </div>
+
+        <div class="quiz-card">
+          <h4>2. Para mí, tú eres… 🥹</h4>
+          <div class="quiz-options">
+            <button class="quiz-option" onclick="answerQuiz(this,false,1)">Una señorita que me roba comida 😂</button>
+            <button class="quiz-option" onclick="answerQuiz(this,true,1)">Mi compañera de vida ❤️</button>
+            <button class="quiz-option" onclick="answerQuiz(this,false,1)">Mi archienemiga 😤</button>
+          </div>
+          <div class="quiz-result" id="quizResult1"></div>
+        </div>
+
+        <div class="quiz-card">
+          <h4>3. Cuando tengamos un mal momento…</h4>
+          <div class="quiz-options">
+            <button class="quiz-option" onclick="answerQuiz(this,false,2)">Nos rendimos y ya 😒</button>
+            <button class="quiz-option" onclick="answerQuiz(this,true,2)">Recordamos cuánto nos amamos y lo hablamos ❤️</button>
+            <button class="quiz-option" onclick="answerQuiz(this,false,2)">Pinky desaparece con mis papitas 😭</button>
+          </div>
+          <div class="quiz-result" id="quizResult2"></div>
+        </div>
+      </section>
+
+      <!-- CANCIÓN -->
+      <section class="panel" id="cancion">
+        <div class="section-kicker">Sorpresa 05</div>
+        <h2 class="section-title">Una canción para nosotros 🎵</h2>
+        <p class="section-copy">
+          Hay canciones que dicen algo que a veces uno siente pero no sabe explicar tan bonito.
+          Esta me hizo pensar en ti. ❤️
+        </p>
+        <div class="music-card">
+          <div class="disc" id="disc"></div>
+          <div class="music-info">
+            <strong>“Te quiero” — Hombres G ❤️</strong>
+            <small id="musicStatus">Toca reproducir y escucha “Te quiero” dentro de la página ❤️</small>
+          </div>
+          <button class="music-play" id="musicBtn" onclick="toggleMusic()">▶</button>
+        </div>
+
+        <div class="center" style="margin-top:16px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+          <button class="btn soft" onclick="openSong('youtube')">▶ Abrir en YouTube</button>
+          <button class="btn soft" onclick="openSong('spotify')">♫ Abrir en Spotify</button>
+        </div>
+
+        <audio id="music" preload="metadata">
+          <source src="nuestra-cancion.mp3" type="audio/mpeg">
+        </audio>
+      </section>
+
+      <!-- DESEO -->
+      <section class="panel" id="deseo">
+        <div class="section-kicker">Sorpresa 06</div>
+        <h2 class="section-title">Ahora pide un deseo ✨</h2>
+        <div class="wish-box">
+          <div class="starfield" id="starfield"></div>
+          <div class="wish-content">
+            <div style="font-size:48px">🌙✨</div>
+            <h3>Cierra los ojitos, Pinky</h3>
+            <p>
+              Piensa en algo que quieras con todo tu corazón.<br>
+              No me lo digas todavía… primero pídelo.
+            </p>
+            <button class="btn gold" id="wishBtn" onclick="makeWish()">Ya pedí mi deseo ✨</button>
+            <div id="wishMessage" class="hidden" style="margin-top:22px;line-height:1.8">
+              🌟 Espero verte cumplir ese deseo y muchísimos más.<br>
+              <b>Yo quiero ser tu soporte, acompañarte en los días fáciles y en los difíciles,
+              y verte lograr todo lo que te propongas.</b><br><br>
+              Porque tú puedes, mi amor. Yo creo muchísimo en ti. ❤️
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- REGALO -->
+      <section class="panel" id="regalo">
+        <div class="section-kicker">Sorpresa 07</div>
+        <h2 class="section-title">Te dejaron un regalito 🎁</h2>
+        <p class="section-copy center">Tócalo. Prometo que no explota… creo 😌.</p>
+
+        <div class="gift-wrap">
+          <div class="gift" id="gift" onclick="openGift()">
+            <div class="bow">🎀</div>
+            <div class="gift-lid"></div>
+            <div class="gift-box"></div>
+            <div class="gift-ribbon-v"></div>
+            <div class="gift-ribbon-h"></div>
+          </div>
+          <button class="btn" onclick="openGift()">Abrir regalo 🎁</button>
+
+          <div class="gift-message" id="giftMessage">
+            <div style="font-size:42px">🎟️❤️</div>
+            <h3 style="font-family:Georgia,serif;color:var(--wine);font-size:27px;margin:8px 0">
+              Vale por muchos momentos juntos
+            </h3>
+            <p style="line-height:1.8;color:var(--muted);margin-bottom:8px">
+              Este vale incluye: una cita contigo, muchos abrazos, besitos, comida rica,
+              una salida que disfrutemos los dos y la promesa de seguir creando recuerdos juntos. 🥹❤️
+            </p>
+            <small style="color:#ae8e98">No tiene fecha de vencimiento 😌</small>
+          </div>
+        </div>
+      </section>
+
+      <!-- CARTA -->
+      <section class="panel" id="carta">
+        <div class="section-kicker">Sorpresa 08</div>
+        <h2 class="section-title">Y ahora sí… esto es para ti 💌</h2>
+
+        <div class="letter">
+          <p>Feliz cumpleaños, mi Pinky ❤️.</p>
+
+          <p>
+            Hoy cumples 23 añitos y quería recordarte algo que quizá te digo mucho,
+            pero que para mí nunca va a perder su significado:
+            <b>conocerte fue de las mejores cosas que me pasó.</b>
+          </p>
+
+          <p>
+            Amo todos esos momentos que tenemos juntos: las risas, nuestras bromas,
+            nuestros cariños, nuestras conversaciones, los días bonitos y también
+            todo lo que hemos aprendido en los momentos difíciles.
+          </p>
+
+          <p>
+            Sé que podemos tener peleas, diferencias o días en los que todo parezca más complicado,
+            pero incluso ahí quiero que recuerdes esto:
+            <b>por más peleas que tengamos, siempre te amo.</b>
+            No quiero soltarte por una dificultad; quiero que aprendamos, hablemos,
+            mejoremos y sigamos cuidando lo nuestro.
+          </p>
+
+          <p class="highlight">
+            Te amo, te quiero y te amo, apestocín 😌❤️
+          </p>
+
+          <p>
+            Quiero tenerte en mi vida por muchísimo tiempo. Quiero que seas mi compañera de vida,
+            seguir creciendo contigo y poder mirar atrás algún día y decir:
+            “mira todo lo que vivimos, Pinky”.
+          </p>
+
+          <p>
+            También quiero que nunca dudes de ti. Tienes la capacidad de lograr cosas enormes
+            cuando te lo propones. Quiero estar ahí cuando consigas tus metas, celebrar contigo,
+            ayudarte cuando algo se ponga difícil y recordarte todas las veces que haga falta
+            que <b>tú puedes cumplir todo lo que te propongas.</b>
+          </p>
+
+          <p>
+            En tus momentos malos quiero ser un lugar seguro para ti, alguien con quien puedas hablar,
+            llorar, descansar o simplemente quedarte en silencio. No necesito arreglarlo todo;
+            a veces solo quiero que sepas que <b>siempre voy a estar para ti.</b>
+          </p>
+
+          <p>
+            Y en los momentos buenos quiero seguir estando todavía más: celebrando tus logros,
+            haciendo planes contigo, conociendo lugares, viajando, tomándonos mil fotos,
+            riéndonos hasta que nos duela la barriga y haciendo recuerdos que algún día
+            nos hagan decir “qué bonito fue vivir todo esto juntos”.
+          </p>
+
+          <p>
+            Deseo que tus 23 estén llenos de crecimiento, tranquilidad, oportunidades,
+            personas que te quieran bonito y muchísimos motivos para sentirte orgullosa de ti.
+            Y egoístamente también deseo poder estar cerquita para verlo. 🥹
+          </p>
+
+          <p class="highlight">
+            Te amo de aquí a la luna… a pasitos de tortuga. 🐢🌙❤️
+          </p>
+
+          <p>
+            Gracias por existir, gracias por todos los momentos y gracias por dejarme conocerte
+            tal como eres. Espero que hoy te sientas muy amada, porque lo eres.
+          </p>
+
+          <p>
+            Feliz cumpleaños, mi Pinky hermosa. 🎂🌷<br>
+            Por tus 23, por todos tus sueños y por muchísimos momentos felices más juntos.
+          </p>
+
+          <p class="signature">Con todo mi amor ❤️</p>
+        </div>
+
+        <div class="center" style="margin-top:24px">
+          <button class="btn soft" onclick="completeSection('letter'); confetti(45); toast('💌 Carta guardada en el corazón ❤️')">
+            Ya leí todo 🥹❤️
+          </button>
+        </div>
+      </section>
+
+      <!-- FINAL -->
+      <section class="panel final-panel" id="final">
+        <div class="section-kicker">Una última cosita…</div>
+        <div class="final-heart">❤️</div>
+        <h2 class="section-title">¿Seguimos creando recuerdos juntos?</h2>
+        <p class="section-copy">
+          Más risas. Más viajes. Más abrazos. Más metas. Más cumpleaños.
+          Más nosotros. 🥹❤️
+        </p>
+
+        <div class="final-actions">
+          <button class="btn" onclick="finalAnswer(1)">Obviamente, apestocín ❤️</button>
+          <button class="btn soft" onclick="finalAnswer(2)">Sí, pero quiero mi regalo 😂🎁</button>
+        </div>
+
+        <div class="final-message" id="finalMessage"></div>
+      </section>
+
+
+      <section class="panel final-panel" id="secreto">
+        <div class="section-kicker">Pssst…</div>
+        <h2 class="section-title">Un botoncito secreto 👀</h2>
+        <p class="section-copy">
+          Si llegaste hasta aquí, seguramente te ganaste una última sorpresita.  
+          <br>Presiona la estrellita de abajo. ✨
+        </p>
+
+        <button class="secret-trigger" onclick="toggleEaster()">✨</button>
+
+        <div class="easter-box" id="easterBox">
+          <img src="foto15.png" alt="Nosotros de niños">
+          <h3>¿Y si nos hubiéramos conocido desde chiquitos? 🥹❤️</h3>
+          <p>
+            Estoy seguro de que, incluso así, te habría escogido.<br>
+            Me gusta pensar que en cualquier versión de la vida, en cualquier momento,
+            de alguna manera habría terminado encontrándote. 🌷<br><br>
+            Y sí… hasta de chiquitos nos veríamos bonitos juntos. 😌❤️
+          </p>
+        </div>
+      </section>
+
+      <div class="footer">
+        Hecho con muchísimo amor para Gina, mi Pinky ❤️ · 21.09.2026
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<!-- MODAL -->
+<div class="modal-back" id="modal" onclick="backdropClose(event)">
+  <div class="modal-card">
+    <div class="modal-icon" id="modalIcon">❤️</div>
+    <h3 id="modalTitle"></h3>
+    <p id="modalText"></p>
+    <button class="btn" onclick="closeModal()">Guardar esto en mi corazón ❤️</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* =========================================================
+   CONFIGURACIÓN
+========================================================= */
+const BIRTHDAY = new Date("2026-09-21T00:00:00-05:00"); // medianoche en Perú
+const preview = new URLSearchParams(location.search).get("preview") === "1";
+const HAS_LOCAL_SONG = true;
+
+/* =========================================================
+   DATOS
+========================================================= */
+const reasons = [
+  "Porque conocerte fue de las mejores cosas que me pasó. Llegaste a mi vida y dejaste recuerdos que ahora son parte de mí. ❤️",
+  "Porque tu sonrisa puede cambiarme completamente un día. Hay algo en verte feliz que también me hace feliz a mí. 😊",
+  "Porque contigo puedo reírme de las cosas más tontas y aun así sentir que estoy teniendo uno de mis mejores momentos. 😂❤️",
+  "Porque eres mi Pinky. Ese nombre ya significa cariño, confianza, recuerdos y un pedacito enorme de mi corazón. 🌷",
+  "Porque incluso después de una pelea, sigo sabiendo que te amo y que prefiero arreglar las cosas contigo antes que soltarnos por orgullo. 🤍",
+  "Porque quiero crecer contigo, no buscar una relación perfecta, sino una relación que aprenda, mejore y se cuide con el tiempo. 🌱",
+  "Porque quiero ser tu soporte cuando algo te pese, escucharte y recordarte que no tienes que poder con todo tú sola. 🫂",
+  "Porque creo muchísimo en ti. Sé que puedes cumplir todo lo que te propongas, incluso cuando tú misma dudes un poquito. ✨",
+  "Porque quiero celebrar cada una de tus metas como si también fueran mías. Verte avanzar me hace sentir orgulloso de ti. 🏆❤️",
+  "Porque quiero seguir viajando contigo, conocer lugares nuevos, perdernos, reírnos y regresar con mil historias que contar. ✈️🌎",
+  "Porque quiero muchísimos momentos felices más: comidas, paseos, películas, llamadas, abrazos y planes improvisados. 🍿💕",
+  "Porque hasta nuestros momentos sencillos pueden convertirse en recuerdos especiales cuando estoy contigo. ☕❤️",
+  "Porque me importa cómo te sientes, cómo estuvo tu día y esas pequeñas cosas que para los demás quizá pasan desapercibidas. 🌸",
+  "Porque quiero que siempre sientas que conmigo puedes ser tú, sin tener que fingir que todo está bien cuando no lo está. 🫶",
+  "Porque te quiero en tus días arregladita y preciosa, pero también cansada, despeinada, renegando y siendo tú misma. 😂💗",
+  "Porque no quiero estar solamente para las fotografías bonitas; quiero estar también cuando toque apoyarnos de verdad. 🤝❤️",
+  "Porque puedo imaginar muchísimos capítulos más contigo y me ilusiona pensar en todo lo que todavía no hemos vivido. 📖✨",
+  "Porque eres una persona capaz, fuerte y con muchísimo por conseguir. Nunca dejes que un mal día te haga olvidar eso. 🌟",
+  "Porque contigo he aprendido que querer a alguien también es escucharlo, tener paciencia y seguir aprendiendo cómo cuidarnos mejor. 💞",
+  "Porque quiero elegirte incluso cuando no sea el día más fácil, recordando todo lo bonito que también existe entre nosotros. ❤️",
+  "Porque quiero tenerte para toda la vida y poder llamarte, con el tiempo, mi compañera de vida. 🥹💍",
+  "Porque te amo, te quiero y sí… te amo, apestocín. Eso no podía faltar. 😌😂❤️",
+  "Porque te amo de aquí a la luna a pasitos de tortuga… para que el camino sea larguito y podamos vivir muchísimo juntos. 🐢🌙❤️"
+];
+
+const openMessages = [
+  {
+    icon:"🥺",
+    title:"Cuando estés triste",
+    text:"Mi Pinky, no tienes que estar bien todo el tiempo. Si hoy pesa un poquito más, recuerda que puedes venir conmigo tal como estás. Quiero escucharte, abrazarte y acompañarte hasta que el día se sienta un poquito menos difícil. ❤️"
+  },
+  {
+    icon:"🌙",
+    title:"Cuando no puedas dormir",
+    text:"Imagíname diciéndote bajito: cierra esos ojitos, apestocín 😌❤️. Mañana será otro día y no tienes que resolver toda la vida esta noche. Descansa. Te mando un abrazo enorme hasta donde estés."
+  },
+  {
+    icon:"💗",
+    title:"Cuando me extrañes",
+    text:"Yo también te extraño. Piensa en todos esos momentos en los que terminamos riéndonos por cualquier tontería y recuerda que todavía tenemos muchísimos recuerdos pendientes por crear juntos. 🥹❤️"
+  },
+  {
+    icon:"🌷",
+    title:"Cuando dudes de ti",
+    text:"No permitas que un mal momento te convenza de que no puedes. Yo he visto todo lo que eres capaz de hacer. Ve de a poquito, pero sigue. Tú puedes cumplir todo lo que te propongas y yo voy a estar orgulloso de cada paso. ✨"
+  },
+  {
+    icon:"🎉",
+    title:"Cuando estés muy feliz",
+    text:"¡Ven a contármelo! Quiero celebrar tus cosas bonitas contigo, escucharte hablar emocionada y verte disfrutar todo aquello por lo que trabajaste. Tus alegrías también son importantes para mí. ❤️"
+  },
+  {
+    icon:"🫂",
+    title:"Cuando tengamos una pelea",
+    text:"Lee esto antes de que el orgullo hable más fuerte: por más peleas que tengamos, te amo. Prefiero que nos calmemos, nos escuchemos y recordemos que somos nosotros contra el problema, no nosotros uno contra el otro. 🤍"
+  }
+];
+
+const discovered = new Set(JSON.parse(localStorage.getItem("pinky-discovered") || "[]"));
+const quizDone = new Set();
+let currentReason = null;
+let toastTimer = null;
+
+/* =========================================================
+   INICIO / CUENTA REGRESIVA
+========================================================= */
+let isUnlocked = false;
+
+function unlock(){
+  if(isUnlocked) return;
+  isUnlocked = true;
+  document.getElementById("gate").classList.add("hidden");
+  document.getElementById("experience").classList.remove("hidden");
+  if(preview) document.getElementById("previewBadge").classList.remove("hidden");
+  setTimeout(()=>confetti(70),350);
+}
+
+function tick(){
+  if(preview){ unlock(); return; }
+
+  const now = new Date();
+  const diff = BIRTHDAY - now;
+
+  if(diff <= 0){
+    unlock();
+    return;
+  }
+
+  const total = Math.floor(diff/1000);
+  const h = Math.floor(total/3600);
+  const m = Math.floor((total%3600)/60);
+  const s = total%60;
+
+  document.getElementById("hh").textContent = String(h).padStart(2,"0");
+  document.getElementById("mm").textContent = String(m).padStart(2,"0");
+  document.getElementById("ss").textContent = String(s).padStart(2,"0");
+}
+tick();
+setInterval(tick,1000);
+
+/* =========================================================
+   FLOTANTES / ESTRELLAS
+========================================================= */
+(function makeFloaters(){
+  const box = document.getElementById("floaters");
+  const chars = ["❤️","♡","✨","🌷"];
+  for(let i=0;i<16;i++){
+    const el = document.createElement("span");
+    el.className="floater";
+    el.textContent=chars[i%chars.length];
+    el.style.left=(Math.random()*100)+"%";
+    el.style.fontSize=(14+Math.random()*15)+"px";
+    el.style.animationDuration=(9+Math.random()*8)+"s";
+    el.style.animationDelay=(-Math.random()*13)+"s";
+    box.appendChild(el);
+  }
+
+  const stars=document.getElementById("starfield");
+  for(let i=0;i<26;i++){
+    const s=document.createElement("span");
+    s.className="star";
+    s.textContent=Math.random()>.6?"✦":"·";
+    s.style.left=(Math.random()*100)+"%";
+    s.style.top=(Math.random()*100)+"%";
+    s.style.fontSize=(8+Math.random()*16)+"px";
+    s.style.animationDelay=(Math.random()*2)+"s";
+    stars.appendChild(s);
+  }
+})();
+
+/* =========================================================
+   PROGRESO
+========================================================= */
+function completeSection(key){
+  discovered.add(key);
+  localStorage.setItem("pinky-discovered", JSON.stringify([...discovered]));
+  updateProgress();
+}
+function updateProgress(){
+  const keys=["reasons","memories","openwhen","quiz","music","wish","gift","letter"];
+  const n=keys.filter(k=>discovered.has(k)).length;
+  document.getElementById("progressText").textContent=n+"/8";
+  document.getElementById("progressBar").style.width=(n/8*100)+"%";
+}
+updateProgress();
+
+function startExperience(){
+  document.getElementById("razones").scrollIntoView({behavior:"smooth",block:"start"});
+  toast("Empieza por los 23 corazoncitos, Pinky ❤️");
+}
+
+/* =========================================================
+   23 RAZONES
+========================================================= */
+function renderReasons(){
+  const grid=document.getElementById("reasonGrid");
+  reasons.forEach((_,i)=>{
+    const b=document.createElement("button");
+    b.className="reason-btn";
+    b.textContent=String(i+1).padStart(2,"0");
+    b.dataset.reason=i;
+    if(localStorage.getItem("pinky-reason-"+i)==="1") b.classList.add("opened");
+    b.onclick=()=>openReason(i,b);
+    grid.appendChild(b);
+  });
+}
+function openReason(i,btn){
+  currentReason=i;
+  btn.classList.add("opened");
+  localStorage.setItem("pinky-reason-"+i,"1");
+  showModal("❤️","Razón "+String(i+1).padStart(2,"0"),reasons[i]);
+
+  const opened=[...document.querySelectorAll(".reason-btn.opened")].length;
+  if(opened===23){
+    completeSection("reasons");
+    setTimeout(()=>{confetti(40);toast("🥹 Abriste las 23 razones. Y podría escribir 23 más.");},400);
+  }
+}
+renderReasons();
+
+/* =========================================================
+   ABRE CUANDO
+========================================================= */
+function renderOpenWhen(){
+  const grid=document.getElementById("openGrid");
+  openMessages.forEach((m,i)=>{
+    const b=document.createElement("button");
+    b.className="open-btn";
+    if(localStorage.getItem("pinky-open-"+i)==="1") b.classList.add("opened");
+    b.innerHTML=`<span class="emo">${m.icon}</span>${m.title}`;
+    b.onclick=()=>{
+      b.classList.add("opened");
+      localStorage.setItem("pinky-open-"+i,"1");
+      showModal(m.icon,m.title,m.text);
+      const opened=[...document.querySelectorAll(".open-btn.opened")].length;
+      if(opened===openMessages.length) completeSection("openwhen");
+    };
+    grid.appendChild(b);
+  });
+}
+renderOpenWhen();
+
+/* Recuperar progreso si Gina vuelve a abrir la página */
+if(Array.from({length:23},(_,i)=>localStorage.getItem("pinky-reason-"+i)==="1").every(Boolean)){
+  completeSection("reasons");
+}
+if(Array.from({length:openMessages.length},(_,i)=>localStorage.getItem("pinky-open-"+i)==="1").every(Boolean)){
+  completeSection("openwhen");
+}
+
+/* =========================================================
+   MODAL
+========================================================= */
+function showModal(icon,title,text){
+  document.getElementById("modalIcon").textContent=icon;
+  document.getElementById("modalTitle").textContent=title;
+  document.getElementById("modalText").textContent=text;
+  document.getElementById("modal").classList.add("show");
+  document.body.style.overflow="hidden";
+}
+function closeModal(){
+  document.getElementById("modal").classList.remove("show");
+  document.body.style.overflow="";
+}
+function backdropClose(e){if(e.target.id==="modal") closeModal()}
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeModal()});
+
+/* =========================================================
+   FOTOS
+========================================================= */
+function photoError(img,text){
+  const ph=document.createElement("div");
+  ph.className="photo-placeholder";
+  ph.innerHTML="📸<br>"+text+"<br><small style='font-weight:500;margin-top:8px'>Reemplaza el archivo "+img.getAttribute("src")+"</small>";
+  img.replaceWith(ph);
+}
+
+/* =========================================================
+   QUIZ
+========================================================= */
+function answerQuiz(btn,correct,index){
+  const result=document.getElementById("quizResult"+index);
+  if(correct){
+    btn.classList.add("correct");
+    result.textContent=index===0
+      ? "Correcto 😌🐢🌙❤️ Sabía que te acordabas."
+      : index===1
+      ? "Correcto 🥹❤️ Mi compañera de vida."
+      : "Esa es ❤️. Primero nos calmamos, luego hablamos.";
+    quizDone.add(index);
+    if(quizDone.size===3){
+      completeSection("quiz");
+      confetti(35);
+    }
+  }else{
+    btn.classList.remove("wrong");
+    void btn.offsetWidth;
+    btn.classList.add("wrong");
+    result.textContent="Mmmm… respuesta sospechosa 😂 Intenta otra vez.";
+  }
+}
+
+/* =========================================================
+   MÚSICA
+========================================================= */
+async function toggleMusic(){
+  const audio=document.getElementById("music");
+  const btn=document.getElementById("musicBtn");
+  const disc=document.getElementById("disc");
+  const status=document.getElementById("musicStatus");
+
+  if(audio.paused){
+    try{
+      await audio.play();
+      btn.textContent="❚❚";
+      disc.classList.add("playing");
+      status.textContent="Sonando “Te quiero” para nosotros ❤️";
+      completeSection("music");
+    }catch(e){
+      status.textContent="No se pudo reproducir automáticamente. Usa los botones de abajo o vuelve a tocar ▶";
+      toast("🎵 Si el navegador lo bloquea, vuelve a tocar ▶ o usa YouTube/Spotify");
+    }
+  }else{
+    audio.pause();
+    btn.textContent="▶";
+    disc.classList.remove("playing");
+    status.textContent="Pausada. Puedes volver a escucharla cuando quieras ❤️";
+  }
+}
+
+
+function openSong(where){
+  completeSection("music");
+  const urls = {
+    youtube: "https://www.youtube.com/results?search_query=Hombres+G+Te+quiero",
+    spotify: "https://open.spotify.com/search/Hombres%20G%20Te%20quiero"
+  };
+  window.open(urls[where], "_blank", "noopener,noreferrer");
+}
+
+/* =========================================================
+   DESEO
+========================================================= */
+function makeWish(){
+  document.getElementById("wishBtn").classList.add("hidden");
+  document.getElementById("wishMessage").classList.remove("hidden");
+  completeSection("wish");
+  confetti(55);
+}
+
+/* =========================================================
+   REGALO
+========================================================= */
+function openGift(){
+  document.getElementById("gift").classList.add("open");
+  document.getElementById("giftMessage").classList.add("show");
+  completeSection("gift");
+  confetti(70);
+}
+
+/* =========================================================
+   FINAL
+========================================================= */
+function finalAnswer(type){
+  const box=document.getElementById("finalMessage");
+  box.classList.add("show");
+  if(type===1){
+    box.innerHTML="🥹❤️ Entonces queda oficialmente firmado: <b>más momentos, más viajes, más abrazos y más nosotros.</b><br><br>Feliz cumpleaños, mi Pinky. Te amo muchísimo.";
+  }else{
+    box.innerHTML="😂🎁 ¡Sabía que ibas a preguntar por el regalo! Este era el regalo sentimental… el reclamo del regalo físico se recibe directamente con tu apestocín 😌❤️.";
+  }
+  confetti(100);
+}
+
+
+function toggleEaster(){
+  const box = document.getElementById("easterBox");
+  box.classList.toggle("show");
+  if(box.classList.contains("show")){
+    confetti(55);
+    toast("🥹❤️ Sorpresa secreta desbloqueada");
+  }
+}
+
+/* =========================================================
+   CONFETI + TOAST
+========================================================= */
+function confetti(amount=50){
+  const palette=["#a85d77","#f4bccd","#d8ad65","#ffffff","#7f4057","#ffdce8"];
+  for(let i=0;i<amount;i++){
+    const c=document.createElement("span");
+    c.className="confetti";
+    c.style.left=Math.random()*100+"vw";
+    c.style.background=palette[Math.floor(Math.random()*palette.length)];
+    c.style.setProperty("--drift",(Math.random()*220-110)+"px");
+    c.style.animationDuration=(2.5+Math.random()*2)+"s";
+    c.style.transform=`rotate(${Math.random()*180}deg)`;
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),4700);
+  }
+}
+function toast(msg){
+  const t=document.getElementById("toast");
+  t.textContent=msg;
+  t.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>t.classList.remove("show"),2600);
+}
+
+/* =========================================================
+   DETALLE SECRETO PARA PRUEBAS
+   5 toques en el corazón de la pantalla bloqueada también abre.
+========================================================= */
+let secretTaps=0;
+document.getElementById("secretHeart").addEventListener("click",()=>{
+  secretTaps++;
+  if(secretTaps>=5){
+    unlock();
+    toast("🛠️ Vista secreta desbloqueada");
+  }
+});
+
+/* Auto-marcar sección música si no hay audio, no.
+   El resto se descubre mediante interacciones. */
+</script>
+
+</body>
+</html>

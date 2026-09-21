@@ -1,0 +1,37 @@
+CUMPLEAÑOS PINKY — VERSIÓN FINAL COMPLETA ❤️
+===============================================
+
+ESTA VERSIÓN YA INCLUYE:
+- index.html
+- foto1.jpg ... foto14.jpg
+- foto15.png  (sorpresa secreta: ustedes de niños)
+- nuestra-cancion.mp3  (Te quiero — Hombres G)
+
+MEJORAS NUEVAS:
+✅ 4 fotos nuevas añadidas
+✅ la canción ahora ya se puede reproducir dentro de la página
+✅ se mantienen los botones de YouTube y Spotify
+✅ sorpresa secreta al final con la imagen de niños
+
+ANTES DE MEDIANOCHE:
+Prueba la web así:
+?preview=1
+
+Ejemplo:
+https://TUUSUARIO.github.io/TUREPO/?preview=1
+
+PARA GINA:
+Mándale el enlace normal, SIN ?preview=1.
+
+SE DESBLOQUEA:
+21/09/2026 a las 00:00 (hora Perú)
+
+GITHUB PAGES:
+1. Sube TODO el contenido del ZIP al repo
+2. Settings > Pages
+3. Deploy from a branch
+4. main / root
+5. Save
+
+IMPORTANTE:
+No cambies nombres de archivos salvo que edites también index.html.
