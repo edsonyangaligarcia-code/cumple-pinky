@@ -599,59 +599,118 @@ a{color:inherit}
 }
 
 
-/* ===== NUEVO: botón fijo de nuestro 3.er aniversario ===== */
+/* ===== Aniversario: botón flotante visible y adelanto interactivo ===== */
 .anniv-dock{
   position:fixed;
-  right:clamp(14px,2vw,28px);
-  bottom:calc(18px + env(safe-area-inset-bottom));
+  right:clamp(14px,2vw,30px);
+  bottom:calc(17px + env(safe-area-inset-bottom));
   z-index:80;
-  width:min(248px,calc(100vw - 24px));
+  width:min(290px,calc(100vw - 28px));
 }
 .anniv-button{
+  isolation:isolate;
+  position:relative;
   display:flex;
   align-items:center;
-  gap:10px;
+  gap:11px;
   width:100%;
-  padding:12px 13px;
+  min-height:88px;
+  padding:13px 14px;
+  overflow:hidden;
   text-align:left;
-  border:1px solid rgba(255,255,255,.94);
-  border-radius:22px;
-  background:linear-gradient(135deg,#fffefc,#ffe6ee);
-  box-shadow:0 12px 36px rgba(108,45,72,.20),inset 0 1px 0 rgba(255,255,255,.8);
+  border:1px solid rgba(255,255,255,.98);
+  border-radius:24px;
+  background:linear-gradient(125deg,#fffdfb 0%,#fff2f7 52%,#ffdbeb 100%);
+  box-shadow:0 13px 37px rgba(109,41,70,.23),inset 0 1px 0 rgba(255,255,255,.98);
   color:var(--wine);
   cursor:pointer;
   transition:transform .22s ease,box-shadow .22s ease;
 }
-.anniv-button:hover{transform:translateY(-3px);box-shadow:0 17px 40px rgba(108,45,72,.25)}
-.anniv-button:focus-visible{outline:3px solid var(--wine2);outline-offset:4px}
-.anniv-heart{font-size:27px;line-height:1;filter:drop-shadow(0 3px 6px rgba(193,77,126,.20))}
-.anniv-copy{display:flex;flex:1;min-width:0;flex-direction:column;gap:3px}
-.anniv-eyebrow{font-size:11px;font-weight:800;color:#82465e;white-space:nowrap}
-.anniv-timer{font-size:12px;font-weight:700;color:#a15f79;font-variant-numeric:tabular-nums;white-space:nowrap}
-.anniv-arrow{font-size:24px;line-height:1;color:#af708b}
+.anniv-button::after{
+  content:"";
+  position:absolute;
+  width:85px;height:155%;
+  top:-25%;left:-90px;
+  transform:rotate(22deg);
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.58),transparent);
+  pointer-events:none;
+  animation:annivShimmer 8s ease-in-out infinite;
+  z-index:0;
+}
+@keyframes annivShimmer{0%,71%,100%{left:-90px}84%{left:115%}}
+.anniv-button:hover{transform:translateY(-3px);box-shadow:0 16px 42px rgba(109,41,70,.29)}
+.anniv-button:focus-visible{outline:3px solid #b46e8b;outline-offset:4px}
+.anniv-heart,.anniv-copy,.anniv-arrow{position:relative;z-index:1}
+.anniv-heart{
+  flex:none;
+  font-size:30px;
+  line-height:1;
+  filter:drop-shadow(0 3px 6px rgba(193,77,126,.20));
+  animation:annivBeat 3.3s ease-in-out infinite;
+}
+@keyframes annivBeat{0%,86%,100%{transform:scale(1)}91%{transform:scale(1.15)}95%{transform:scale(1.04)}}
+.anniv-copy{display:flex;flex:1;min-width:0;flex-direction:column;gap:4px}
+.anniv-eyebrow{font-size:12px;line-height:1.2;font-weight:800;color:#82465e}
+.anniv-timer{font-size:14px;line-height:1.25;font-weight:800;color:#9a476c;font-variant-numeric:tabular-nums;white-space:nowrap}
+.anniv-prompt{font-size:10.5px;line-height:1.3;color:#a16c80}
+.anniv-arrow{font-size:21px;line-height:1;color:#a65c7a;transition:transform .2s ease}
+.anniv-button[aria-expanded="true"] .anniv-arrow{transform:rotate(180deg)}
+.anniv-peek{
+  position:absolute;
+  right:0;
+  bottom:calc(100% + 12px);
+  width:min(324px,calc(100vw - 28px));
+  padding:18px;
+  border:1px solid #f8d6e4;
+  border-radius:23px;
+  background:linear-gradient(145deg,#fff,#fff1f7);
+  box-shadow:0 16px 45px rgba(105,46,71,.23);
+  color:var(--wine);
+  animation:annivPeekIn .22s ease-out both;
+}
+.anniv-peek[hidden]{display:none}
+@keyframes annivPeekIn{from{opacity:0;transform:translateY(9px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+.anniv-peek-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.anniv-peek-title{font-weight:800;font-size:13px;color:#994e70}
+.anniv-close{
+  display:grid;place-items:center;flex:none;
+  width:30px;height:30px;border:0;border-radius:50%;
+  background:#f8dce7;color:var(--wine);
+  font-size:23px;cursor:pointer;
+}
+.anniv-peek-message{margin:10px 0 13px;min-height:48px;font-family:Georgia,serif;font-size:19px;line-height:1.4;color:#7f4057}
+.anniv-peek-date{display:inline-block;border-radius:999px;background:#fae5ed;color:#995b73;padding:7px 10px;font-size:11px;font-weight:700}
+.anniv-more{
+  display:block;margin-top:13px;padding:9px 12px;
+  border:1px solid #e8bbca;border-radius:999px;background:white;
+  color:var(--wine);font-size:12px;font-weight:800;cursor:pointer;
+}
+.anniv-more:hover,.anniv-close:hover{background:#f8dce7}
+.anniv-more:focus-visible,.anniv-close:focus-visible{outline:2px solid #b46e8b;outline-offset:3px}
 .anniv-dock.ready .anniv-button{
-  background:linear-gradient(135deg,#fff8fb,#ffcbdf);
+  background:linear-gradient(120deg,#fff8fb,#ffcada);
   animation:annivGlow 3s ease-in-out infinite;
 }
-@keyframes annivGlow{
-  50%{box-shadow:0 12px 40px rgba(193,77,126,.35),0 0 0 4px rgba(255,216,230,.40)}
-}
+.anniv-dock.ready .anniv-arrow{transform:none}
+@keyframes annivGlow{50%{box-shadow:0 13px 40px rgba(193,77,126,.39),0 0 0 4px rgba(255,216,230,.40)}}
 @media(max-width:520px){
   .anniv-dock{
     right:calc(12px + env(safe-area-inset-right));
     bottom:calc(12px + env(safe-area-inset-bottom));
-    width:min(215px,calc(100vw - 24px));
+    width:min(255px,calc(100vw - 24px));
   }
-  .anniv-button{border-radius:19px;padding:10px 11px;gap:8px}
-  .anniv-heart{font-size:22px}
-  .anniv-eyebrow{font-size:10.5px}
-  .anniv-timer{font-size:11.5px}
-  .app{padding-bottom:135px}
-  .gate{padding-bottom:135px}
+  .anniv-button{min-height:82px;padding:11px 12px;border-radius:20px;gap:8px}
+  .anniv-heart{font-size:26px}
+  .anniv-eyebrow{font-size:11.5px}
+  .anniv-timer{font-size:13px}
+  .anniv-prompt{font-size:10px}
+  .anniv-peek{width:min(300px,calc(100vw - 24px));padding:15px}
+  .app{padding-bottom:145px}
+  .gate{padding-bottom:145px}
 }
 @media(prefers-reduced-motion:reduce){
-  .anniv-button{transition:none}
-  .anniv-dock.ready .anniv-button{animation:none}
+  .anniv-button,.anniv-arrow{transition:none}
+  .anniv-button::after,.anniv-heart,.anniv-dock.ready .anniv-button,.anniv-peek{animation:none}
 }
 
 </style>
@@ -659,18 +718,27 @@ a{color:inherit}
 
 <body>
 
-<!-- Botón permanente de aniversario: compacto para PC y celular -->
+<!-- Nuestro tercer aniversario: botón fijo, pista desplegable y desbloqueo el 8/11 -->
 <aside class="anniv-dock" id="annivDock" aria-label="Cuenta regresiva de nuestro tercer aniversario">
-  <button class="anniv-button" id="annivButton" type="button" title="Se desbloquea el 8 de noviembre de 2026">
+  <div class="anniv-peek" id="annivPeek" hidden>
+    <div class="anniv-peek-head">
+      <span class="anniv-peek-title">💌 Una notita para ti</span>
+      <button type="button" class="anniv-close" id="annivClose" aria-label="Cerrar adelanto">×</button>
+    </div>
+    <p class="anniv-peek-message" id="annivPeekMessage" aria-live="polite">Pronto tendremos otra fecha para recordar. ❤️</p>
+    <span class="anniv-peek-date">🌙 Del 7 al 8 de noviembre · 00:00 (Perú)</span>
+    <button class="anniv-more" id="annivMore" type="button">✨ Otra notita</button>
+  </div>
+  <button class="anniv-button" id="annivButton" type="button" title="Se desbloquea el 8 de noviembre de 2026" aria-controls="annivPeek" aria-expanded="false">
     <span class="anniv-heart" aria-hidden="true">💝</span>
     <span class="anniv-copy">
       <span class="anniv-eyebrow" id="annivLabel">💞 3 años juntos</span>
       <span class="anniv-timer" id="annivTimer" role="timer" aria-live="off">Calculando…</span>
+      <span class="anniv-prompt" id="annivPrompt">Tócame para una notita ✨</span>
     </span>
-    <span class="anniv-arrow" aria-hidden="true">›</span>
+    <span class="anniv-arrow" id="annivArrow" aria-hidden="true">⌄</span>
   </button>
 </aside>
-
 
 <div class="floaters" id="floaters"></div>
 <div class="preview-badge hidden" id="previewBadge">🛠️ Modo prueba — solo tú ves esto</div>
@@ -1527,8 +1595,8 @@ document.getElementById("secretHeart").addEventListener("click",()=>{
    El resto se descubre mediante interacciones. */
 
 /* =========================================================
-   TERCER ANIVERSARIO: cuenta regresiva fija, hora de Perú
-   La nueva página se deja preparada sin añadir aún recuerdos.
+   TERCER ANIVERSARIO: empieza al pasar del 7 al 8 de noviembre
+   a las 00:00 hora de Perú. No abre la presentación antes.
 ========================================================= */
 (function initializeAnniversaryDock(){
   const ANNIVERSARY = new Date("2026-11-08T00:00:00-05:00").getTime();
@@ -1536,15 +1604,37 @@ document.getElementById("secretHeart").addEventListener("click",()=>{
   const button = document.getElementById("annivButton");
   const label = document.getElementById("annivLabel");
   const timer = document.getElementById("annivTimer");
+  const prompt = document.getElementById("annivPrompt");
+  const arrow = document.getElementById("annivArrow");
+  const peek = document.getElementById("annivPeek");
+  const peekMessage = document.getElementById("annivPeekMessage");
+  const close = document.getElementById("annivClose");
+  const more = document.getElementById("annivMore");
   const twoDigits = n => String(n).padStart(2,"0");
+  const notes = [
+    "Hay fechas que se guardan en el corazón. La nuestra está cada vez más cerca. 💗",
+    "Falta poquito para celebrar todo lo bonito que hemos vivido juntos. 🥹",
+    "Tres años, muchísimos recuerdos y todavía tanto por compartir. 🌷",
+    "Cuando termine el 7 de noviembre, empezará nuestro día especial. ✨"
+  ];
+  let noteIndex = 0;
 
+  function closePeek(){
+    peek.hidden = true;
+    button.setAttribute("aria-expanded","false");
+  }
   function refreshAnniversary(){
     const remaining = ANNIVERSARY - Date.now();
     if(remaining <= 0){
+      if(!dock.classList.contains("ready")){
+        closePeek();
+      }
       dock.classList.add("ready");
       label.textContent = "💗 ¡Felices 3 años!";
       timer.textContent = "Abrir nuestra sorpresa ✨";
-      button.title = "Abrir la sorpresa de aniversario";
+      prompt.textContent = "Nuestra historia continúa";
+      arrow.textContent = "›";
+      button.title = "Abrir la nueva presentación de aniversario";
       button.setAttribute("aria-label","Abrir la sorpresa de nuestro tercer aniversario");
       return;
     }
@@ -1557,23 +1647,44 @@ document.getElementById("secretHeart").addEventListener("click",()=>{
     label.textContent = "💞 3 años juntos";
     timer.textContent = (days>0 ? days+" días · ":"") +
       twoDigits(hours)+":"+twoDigits(minutes)+":"+twoDigits(seconds);
-    button.title = "Se desbloquea el 8 de noviembre de 2026 a las 00:00 (Perú)";
-    button.setAttribute("aria-label",
-      "Faltan "+days+" días, "+hours+" horas, "+minutes+
-      " minutos y "+seconds+" segundos para nuestro tercer aniversario");
+    button.title = "Del 7 al 8 de noviembre a las 00:00 (Perú)";
+    button.setAttribute("aria-label","Cuenta regresiva al aniversario: "+
+      days+" días, "+hours+" horas, "+minutes+" minutos y "+seconds+
+      " segundos. Toca para leer una notita.");
   }
-
   button.addEventListener("click",()=>{
     if(Date.now() >= ANNIVERSARY){
       window.location.assign("./aniversario.html");
+      return;
+    }
+    if(peek.hidden){
+      peekMessage.textContent = notes[noteIndex];
+      peek.hidden = false;
+      button.setAttribute("aria-expanded","true");
     }else{
-      toast("💗 Nuestra sorpresa se abre el 8 de noviembre a medianoche.");
+      closePeek();
+    }
+  });
+  more.addEventListener("click",()=>{
+    noteIndex = (noteIndex+1)%notes.length;
+    peekMessage.textContent = notes[noteIndex];
+  });
+  close.addEventListener("click",()=>{
+    closePeek();
+    button.focus();
+  });
+  document.addEventListener("pointerdown",event=>{
+    if(!dock.contains(event.target) && !peek.hidden) closePeek();
+  });
+  document.addEventListener("keydown",event=>{
+    if(event.key==="Escape" && !peek.hidden){
+      closePeek();
+      button.focus();
     }
   });
   refreshAnniversary();
   setInterval(refreshAnniversary,1000);
 })();
-
 </script>
 
 </body>
