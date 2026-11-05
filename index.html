@@ -664,7 +664,7 @@ a{color:inherit}
   <button class="anniv-button" id="annivButton" type="button" title="Se desbloquea el 8 de noviembre de 2026">
     <span class="anniv-heart" aria-hidden="true">💝</span>
     <span class="anniv-copy">
-      <span class="anniv-eyebrow" id="annivLabel">Nuestro 3.er aniversario</span>
+      <span class="anniv-eyebrow" id="annivLabel">💞 3 años juntos</span>
       <span class="anniv-timer" id="annivTimer" role="timer" aria-live="off">Calculando…</span>
     </span>
     <span class="anniv-arrow" aria-hidden="true">›</span>
@@ -1542,7 +1542,7 @@ document.getElementById("secretHeart").addEventListener("click",()=>{
     const remaining = ANNIVERSARY - Date.now();
     if(remaining <= 0){
       dock.classList.add("ready");
-      label.textContent = "¡Nuestros 3 años juntos! 💗";
+      label.textContent = "💗 ¡Felices 3 años!";
       timer.textContent = "Abrir nuestra sorpresa ✨";
       button.title = "Abrir la sorpresa de aniversario";
       button.setAttribute("aria-label","Abrir la sorpresa de nuestro tercer aniversario");
@@ -1554,7 +1554,7 @@ document.getElementById("secretHeart").addEventListener("click",()=>{
     const hours = Math.floor((total%86400)/3600);
     const minutes = Math.floor((total%3600)/60);
     const seconds = total%60;
-    label.textContent = "Nuestro 3.er aniversario 💞";
+    label.textContent = "💞 3 años juntos";
     timer.textContent = (days>0 ? days+" días · ":"") +
       twoDigits(hours)+":"+twoDigits(minutes)+":"+twoDigits(seconds);
     button.title = "Se desbloquea el 8 de noviembre de 2026 a las 00:00 (Perú)";
