@@ -599,49 +599,128 @@ a{color:inherit}
 }
 
 
-/* Cuenta regresiva flotante y misteriosa */
-.surprise-dock{position:fixed!important;top:clamp(88px,15vh,140px);right:clamp(12px,2vw,28px);bottom:auto!important;left:auto!important;z-index:105;width:min(306px,calc(100vw - 24px));opacity:1;visibility:visible;pointer-events:auto}
-.surprise-button{isolation:isolate;position:relative;display:flex;flex-direction:column;gap:9px;width:100%;min-height:116px;padding:15px;overflow:hidden;border:2px solid rgba(248,181,213,.98);border-radius:25px;text-align:center;cursor:pointer;color:#7f4057;background:linear-gradient(125deg,#fff,#fff0f6 55%,#ffd6e6);box-shadow:0 16px 42px rgba(116,49,76,.28),0 0 0 4px rgba(255,213,233,.2);animation:surpriseBreath 3.5s ease-in-out infinite;transition:box-shadow .2s ease}
-.surprise-button:hover{filter:brightness(1.035)}
-.surprise-button:focus-visible{outline:3px solid #99516d;outline-offset:3px}
-.surprise-button::after{content:"";pointer-events:none;position:absolute;width:70px;height:150%;top:-25%;left:-100px;transform:rotate(22deg);background:linear-gradient(90deg,transparent,rgba(255,255,255,.72),transparent);animation:surpriseShine 7s ease-in-out infinite}
-@keyframes surpriseShine{0%,66%,100%{left:-100px}83%{left:115%}}
-.surprise-heading,.surprise-clock,.surprise-ready-text{position:relative;z-index:1}
-.surprise-heading{display:flex;align-items:center;justify-content:center;gap:8px;font-size:11px;font-weight:850;letter-spacing:.14em;text-transform:uppercase;color:#994f6e}
-.surprise-spark{display:inline-block;animation:surpriseTwinkle 2.5s ease-in-out infinite}
-.surprise-spark:last-child{animation-delay:1.1s}
-@keyframes surpriseTwinkle{50%{transform:scale(1.3) rotate(20deg);opacity:.55}}
-.surprise-clock{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:5px}
-.surprise-cell{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:3px;min-width:0;padding:8px 2px 7px;border:1px solid #f6dce6;border-radius:12px;background:rgba(255,255,255,.89)}
-.surprise-value{font-size:26px;font-weight:850;line-height:1;font-variant-numeric:tabular-nums;color:#873c61}
-.surprise-unit{font-size:9px;font-weight:700;color:#9d7283}
-.surprise-ready-text{display:none;font-size:17px;font-weight:850;line-height:1.3}
-.surprise-dock.ready .surprise-button{background:linear-gradient(120deg,#fff8fc,#ffb4d2,#ffe2ad);animation:surpriseBreath 2.2s ease-in-out infinite}
-@keyframes surpriseGlow{50%{box-shadow:0 13px 42px rgba(205,91,134,.41),0 0 0 5px rgba(255,220,233,.5)}}
-.surprise-dock.ready .surprise-heading{font-size:14px;letter-spacing:.08em}
+/* Reloj sorpresa: únicamente cifras, anclado al viewport */
+.surprise-dock{
+  position:fixed!important;
+  top:clamp(86px,15vh,136px);
+  right:clamp(12px,2vw,28px);
+  bottom:auto!important;
+  left:auto!important;
+  width:min(310px,calc(100vw - 24px));
+  z-index:105;
+  pointer-events:auto;
+  visibility:visible;
+  opacity:1;
+}
+.surprise-button{
+  isolation:isolate;
+  display:block;
+  position:relative;
+  width:100%;
+  min-height:88px;
+  padding:13px 13px;
+  overflow:hidden;
+  cursor:pointer;
+  border:2px solid rgba(245,169,207,.93);
+  border-radius:23px;
+  background:linear-gradient(122deg,#fffafc,#ffe1ed 56%,#f6bbd4);
+  box-shadow:0 13px 34px rgba(123,46,84,.27),0 0 0 4px rgba(255,218,233,.21);
+  animation:surpriseAura 3.4s ease-in-out infinite;
+}
+.surprise-button:hover{filter:brightness(1.045)}
+.surprise-button:focus-visible{outline:3px solid #a8537b;outline-offset:4px}
+.surprise-button::before{
+  content:"";position:absolute;inset:-12px;z-index:0;pointer-events:none;
+  background:radial-gradient(circle at 13% 15%,rgba(255,255,255,.9) 0 3px,transparent 4px),
+    radial-gradient(circle at 91% 84%,rgba(204,83,130,.30) 0 3px,transparent 5px);
+}
+.surprise-button::after{
+  content:"";position:absolute;top:-25%;left:-110px;width:69px;height:160%;
+  transform:rotate(20deg);pointer-events:none;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.85),transparent);
+  animation:surpriseShine 6.5s ease-in-out infinite;
+}
+@keyframes surpriseAura{
+  0%,100%{box-shadow:0 13px 34px rgba(123,46,84,.27),0 0 0 4px rgba(255,218,233,.21)}
+  50%{box-shadow:0 15px 43px rgba(179,70,119,.42),0 0 0 8px rgba(255,218,233,.34)}
+}
+@keyframes surpriseShine{0%,65%,100%{left:-110px}82%{left:115%}}
+.surprise-clock{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:7px;
+  position:relative;z-index:1;
+}
+.surprise-cell{
+  display:grid;place-items:center;min-width:0;
+  min-height:58px;padding:8px 3px;
+  border:1px solid rgba(242,192,213,.95);
+  border-radius:13px;
+  background:linear-gradient(145deg,rgba(255,255,255,.98),rgba(255,248,251,.89));
+  box-shadow:inset 0 1px 0 white,0 5px 13px rgba(139,59,89,.11);
+}
+.surprise-value{
+  color:#8f355e;font-family:ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace;
+  font-size:clamp(23px,2.2vw,29px);
+  font-weight:850;letter-spacing:-.045em;line-height:1;
+  font-variant-numeric:tabular-nums;
+  text-shadow:0 1px 0 rgba(255,255,255,.85);
+}
+.surprise-cell:last-child .surprise-value{animation:surpriseDigits 1.1s ease-in-out infinite}
+@keyframes surpriseDigits{50%{color:#c75c8c;text-shadow:0 0 12px rgba(242,144,186,.45)}}
+.surprise-heading{display:none}
+.surprise-ready-text{display:none;position:relative;z-index:1;font-size:17px;font-weight:850;color:#77334e;text-align:center}
+.surprise-dock.ready .surprise-button{
+  min-height:101px;
+  background:linear-gradient(115deg,#fff8fb,#ffb9d4,#ffe1ad);
+  animation:surpriseAura 1.9s ease-in-out infinite;
+}
 .surprise-dock.ready .surprise-clock{display:none}
+.surprise-dock.ready .surprise-heading{
+  display:flex;position:relative;z-index:1;
+  justify-content:center;align-items:center;
+  color:#7f4057;font-size:18px;font-weight:850;
+  margin:3px 0 10px;
+}
+.surprise-dock.ready .surprise-heading .surprise-spark{display:none}
 .surprise-dock.ready .surprise-ready-text{display:block}
-.surprise-button.tap-spark{animation:surpriseTap .45s ease-out}
-@keyframes surpriseTap{50%{transform:scale(1.045);filter:brightness(1.07)}}
-@media(max-width:520px){.surprise-dock{top:calc(77px + env(safe-area-inset-top));right:calc(11px + env(safe-area-inset-right));bottom:auto!important;width:min(267px,calc(100vw - 22px))}.surprise-button{min-height:105px;padding:12px;border-radius:21px}.surprise-value{font-size:22px}.surprise-cell{padding:7px 2px 6px}.app{padding-bottom:76px}.gate{padding-bottom:76px}}
-@keyframes surpriseBreath{0%,100%{box-shadow:0 16px 42px rgba(116,49,76,.28),0 0 0 4px rgba(255,213,233,.2)}50%{box-shadow:0 18px 47px rgba(171,67,113,.39),0 0 0 7px rgba(255,213,233,.35)}}
-@media(max-width:340px){.surprise-dock{top:calc(68px + env(safe-area-inset-top));right:10px;width:min(235px,calc(100vw - 20px))}.surprise-button{min-height:94px;padding:9px 10px;gap:6px}.surprise-value{font-size:20px}}
-@media(prefers-reduced-motion:reduce){.surprise-button{transition:none}.surprise-button,.surprise-button::after,.surprise-spark,.surprise-dock.ready .surprise-button,.surprise-button.tap-spark{animation:none}}
+.surprise-button.tap-spark{filter:brightness(1.11) saturate(1.15)}
+@media(max-width:520px){
+  .surprise-dock{
+    top:calc(78px + env(safe-area-inset-top));
+    right:calc(11px + env(safe-area-inset-right));
+    bottom:auto!important;
+    width:min(271px,calc(100vw - 22px));
+  }
+  .surprise-button{min-height:80px;padding:11px;border-radius:20px}
+  .surprise-clock{gap:5px}
+  .surprise-cell{min-height:54px;padding:7px 2px;border-radius:11px}
+  .surprise-value{font-size:23px}
+}
+@media(max-width:340px){
+  .surprise-dock{top:calc(68px + env(safe-area-inset-top));right:10px;width:min(231px,calc(100vw - 20px))}
+  .surprise-button{padding:9px;min-height:72px}
+  .surprise-cell{min-height:49px}
+  .surprise-value{font-size:20px}
+}
+@media(prefers-reduced-motion:reduce){
+  .surprise-button,.surprise-button::after,.surprise-cell:last-child .surprise-value,.surprise-dock.ready .surprise-button{animation:none}
+}
 
 </style>
 </head>
 
 <body>
 
-<!-- Cuenta regresiva sin pistas sobre la sorpresa -->
-<aside class="surprise-dock" id="surpriseDock" aria-label="Cuenta regresiva">
-  <button class="surprise-button" id="surpriseButton" type="button" aria-label="Cuenta regresiva">
-    <span class="surprise-heading"><span class="surprise-spark" aria-hidden="true">✦</span><span id="surpriseTitle">Cuenta regresiva</span><span class="surprise-spark" aria-hidden="true">✦</span></span>
+<!-- Reloj flotante sin títulos ni pistas visibles -->
+<aside class="surprise-dock" id="surpriseDock" aria-label="Tiempo para una sorpresa">
+  <button class="surprise-button" id="surpriseButton" type="button" aria-label="Cuenta regresiva para una sorpresa">
+    <span class="surprise-heading" aria-hidden="true"><span class="surprise-spark"></span><span id="surpriseTitle"></span><span class="surprise-spark"></span></span>
     <span class="surprise-clock" role="timer" aria-live="off">
-      <span class="surprise-cell"><strong class="surprise-value" id="surpriseDays">00</strong><small class="surprise-unit">días</small></span>
-      <span class="surprise-cell"><strong class="surprise-value" id="surpriseHours">00</strong><small class="surprise-unit">horas</small></span>
-      <span class="surprise-cell"><strong class="surprise-value" id="surpriseMinutes">00</strong><small class="surprise-unit">min</small></span>
-      <span class="surprise-cell"><strong class="surprise-value" id="surpriseSeconds">00</strong><small class="surprise-unit">seg</small></span>
+      <span class="surprise-cell"><strong class="surprise-value" id="surpriseDays">00</strong></span>
+      <span class="surprise-cell"><strong class="surprise-value" id="surpriseHours">00</strong></span>
+      <span class="surprise-cell"><strong class="surprise-value" id="surpriseMinutes">00</strong></span>
+      <span class="surprise-cell"><strong class="surprise-value" id="surpriseSeconds">00</strong></span>
     </span>
     <span class="surprise-ready-text">🎁 Abrir sorpresa ✨</span>
   </button>
