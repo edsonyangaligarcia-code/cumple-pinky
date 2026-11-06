@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#7f4057">
-  <meta name="description" content="Un pequeño espacio para celebrar nuestro tercer aniversario.">
-  <title>Nuestro tercer aniversario 💗</title>
+  <meta name="description" content="Una pequeña sorpresa está por llegar.">
+  <title>Una sorpresa para ti ✨</title>
   <style>
     :root{--wine:#7f4057;--rose:#ffe5ee;--ink:#553440;--muted:#8b6b77;--gold:#d4a85c}
     *{box-sizing:border-box}
@@ -24,6 +24,10 @@
     .note{margin:26px 0 0;color:#9a7a85;font-size:14px;line-height:1.6}
     .back{color:var(--wine);background:rgba(255,255,255,.82);border:1px solid #f0d8e0;padding:12px 20px;border-radius:999px;font-weight:700;text-decoration:none;box-shadow:0 6px 22px rgba(100,49,71,.09);transition:transform .2s ease}
     .back:hover,.back:focus-visible{transform:translateY(-2px);outline:2px solid #d9a2b7;outline-offset:3px}
+    #annivReady .emblem{animation:giftReveal 2.5s ease-in-out infinite}
+    @keyframes giftReveal{0%,100%{transform:scale(1)}50%{transform:scale(1.12) rotate(-4deg)}}
+    #annivReady h1{animation:headlineReveal .7s ease-out both}
+    @keyframes headlineReveal{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
     [hidden]{display:none!important}
     @media(max-width:480px){.page{padding:22px 14px max(32px,env(safe-area-inset-bottom));gap:20px}.card{border-radius:26px}.timer{font-size:18px;padding:13px 15px}}
     @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
@@ -35,19 +39,19 @@
   <span class="spark three" aria-hidden="true">♡</span>
   <main class="page">
     <section class="card" id="annivWaiting">
-      <div class="emblem" aria-hidden="true">💞</div>
-      <p class="eyebrow">08 · NOVIEMBRE · 2026</p>
-      <h1>Nuestra próxima sorpresa</h1>
-      <p class="lead">Una fecha muy especial se acerca. El 8 de noviembre celebramos nuestros tres años juntos. ❤️</p>
-      <div class="timer" id="annivPageCountdown" role="timer" aria-label="Tiempo restante para el aniversario">Calculando…</div>
-      <p class="note">Se abrirá a las 00:00, hora de Perú.</p>
+      <div class="emblem" aria-hidden="true">✨</div>
+      <p class="eyebrow">UNA SORPRESA PARA TI</p>
+      <h1>Cuenta regresiva</h1>
+      <p class="lead">Hay algo esperando el momento perfecto para aparecer. 💗</p>
+      <div class="timer" id="annivPageCountdown" role="timer" aria-label="Tiempo restante para desbloquear la sorpresa">Calculando…</div>
+      <p class="note">Cada segundo cuenta. ✨</p>
     </section>
     <section class="card" id="annivReady" hidden>
-      <div class="emblem" aria-hidden="true">💖</div>
-      <p class="eyebrow">08 · NOVIEMBRE · 2026</p>
-      <h1>¡Felices 3 años juntos!</h1>
-      <p class="lead">Este es nuestro espacio para una nueva sorpresa. Nuestra historia continúa… 💗</p>
-      <p class="note">Pronto habrá más recuerdos aquí. ✨</p>
+      <div class="emblem" aria-hidden="true">🎁✨</div>
+      <p class="eyebrow">UNA SORPRESA PARA TI</p>
+      <h1>¡Es hoy! 🎉</h1>
+      <p class="lead">¡La espera terminó! Hay un espacio especial preparado solo para ti. 💗</p>
+      <p class="note">Aquí aparecerá tu nueva presentación. ✨</p>
     </section>
     <a class="back" href="./index.html">← Volver a nuestra página</a>
   </main>
