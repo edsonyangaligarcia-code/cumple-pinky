@@ -652,13 +652,14 @@ a{color:inherit}
   position:relative;z-index:1;
 }
 .surprise-cell{
-  display:grid;place-items:center;min-width:0;
-  min-height:58px;padding:8px 3px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;min-width:0;
+  min-height:71px;padding:8px 2px;
   border:1px solid rgba(242,192,213,.95);
   border-radius:13px;
   background:linear-gradient(145deg,rgba(255,255,255,.98),rgba(255,248,251,.89));
   box-shadow:inset 0 1px 0 white,0 5px 13px rgba(139,59,89,.11);
 }
+.surprise-unit{font-size:10px;font-weight:750;line-height:1.15;color:#9e6880;white-space:nowrap}
 .surprise-value{
   color:#8f355e;font-family:ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace;
   font-size:clamp(23px,2.2vw,29px);
@@ -694,13 +695,13 @@ a{color:inherit}
   }
   .surprise-button{min-height:80px;padding:11px;border-radius:20px}
   .surprise-clock{gap:5px}
-  .surprise-cell{min-height:54px;padding:7px 2px;border-radius:11px}
+  .surprise-cell{min-height:67px;padding:7px 2px;border-radius:11px}
   .surprise-value{font-size:23px}
 }
 @media(max-width:340px){
   .surprise-dock{top:calc(68px + env(safe-area-inset-top));right:10px;width:min(231px,calc(100vw - 20px))}
   .surprise-button{padding:9px;min-height:72px}
-  .surprise-cell{min-height:49px}
+  .surprise-cell{min-height:62px}
   .surprise-value{font-size:20px}
 }
 @media(prefers-reduced-motion:reduce){
@@ -717,10 +718,10 @@ a{color:inherit}
   <button class="surprise-button" id="surpriseButton" type="button" aria-label="Cuenta regresiva para una sorpresa">
     <span class="surprise-heading" aria-hidden="true"><span class="surprise-spark"></span><span id="surpriseTitle"></span><span class="surprise-spark"></span></span>
     <span class="surprise-clock" role="timer" aria-live="off">
-      <span class="surprise-cell"><strong class="surprise-value" id="surpriseDays">00</strong></span>
-      <span class="surprise-cell"><strong class="surprise-value" id="surpriseHours">00</strong></span>
-      <span class="surprise-cell"><strong class="surprise-value" id="surpriseMinutes">00</strong></span>
-      <span class="surprise-cell"><strong class="surprise-value" id="surpriseSeconds">00</strong></span>
+      <span class="surprise-cell"><strong class="surprise-value" id="surpriseDays">00</strong><small class="surprise-unit">días</small></span>
+      <span class="surprise-cell"><strong class="surprise-value" id="surpriseHours">00</strong><small class="surprise-unit">horas</small></span>
+      <span class="surprise-cell"><strong class="surprise-value" id="surpriseMinutes">00</strong><small class="surprise-unit">minutos</small></span>
+      <span class="surprise-cell"><strong class="surprise-value" id="surpriseSeconds">00</strong><small class="surprise-unit">segundos</small></span>
     </span>
     <span class="surprise-ready-text">🎁 Abrir sorpresa ✨</span>
   </button>
