@@ -599,144 +599,49 @@ a{color:inherit}
 }
 
 
-/* ===== Aniversario: botón flotante visible y adelanto interactivo ===== */
-.anniv-dock{
-  position:fixed;
-  right:clamp(14px,2vw,30px);
-  bottom:calc(17px + env(safe-area-inset-bottom));
-  z-index:80;
-  width:min(290px,calc(100vw - 28px));
-}
-.anniv-button{
-  isolation:isolate;
-  position:relative;
-  display:flex;
-  align-items:center;
-  gap:11px;
-  width:100%;
-  min-height:88px;
-  padding:13px 14px;
-  overflow:hidden;
-  text-align:left;
-  border:1px solid rgba(255,255,255,.98);
-  border-radius:24px;
-  background:linear-gradient(125deg,#fffdfb 0%,#fff2f7 52%,#ffdbeb 100%);
-  box-shadow:0 13px 37px rgba(109,41,70,.23),inset 0 1px 0 rgba(255,255,255,.98);
-  color:var(--wine);
-  cursor:pointer;
-  transition:transform .22s ease,box-shadow .22s ease;
-}
-.anniv-button::after{
-  content:"";
-  position:absolute;
-  width:85px;height:155%;
-  top:-25%;left:-90px;
-  transform:rotate(22deg);
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,.58),transparent);
-  pointer-events:none;
-  animation:annivShimmer 8s ease-in-out infinite;
-  z-index:0;
-}
-@keyframes annivShimmer{0%,71%,100%{left:-90px}84%{left:115%}}
-.anniv-button:hover{transform:translateY(-3px);box-shadow:0 16px 42px rgba(109,41,70,.29)}
-.anniv-button:focus-visible{outline:3px solid #b46e8b;outline-offset:4px}
-.anniv-heart,.anniv-copy,.anniv-arrow{position:relative;z-index:1}
-.anniv-heart{
-  flex:none;
-  font-size:30px;
-  line-height:1;
-  filter:drop-shadow(0 3px 6px rgba(193,77,126,.20));
-  animation:annivBeat 3.3s ease-in-out infinite;
-}
-@keyframes annivBeat{0%,86%,100%{transform:scale(1)}91%{transform:scale(1.15)}95%{transform:scale(1.04)}}
-.anniv-copy{display:flex;flex:1;min-width:0;flex-direction:column;gap:4px}
-.anniv-eyebrow{font-size:12px;line-height:1.2;font-weight:800;color:#82465e}
-.anniv-timer{font-size:14px;line-height:1.25;font-weight:800;color:#9a476c;font-variant-numeric:tabular-nums;white-space:nowrap}
-.anniv-prompt{font-size:10.5px;line-height:1.3;color:#a16c80}
-.anniv-arrow{font-size:21px;line-height:1;color:#a65c7a;transition:transform .2s ease}
-.anniv-button[aria-expanded="true"] .anniv-arrow{transform:rotate(180deg)}
-.anniv-peek{
-  position:absolute;
-  right:0;
-  bottom:calc(100% + 12px);
-  width:min(324px,calc(100vw - 28px));
-  padding:18px;
-  border:1px solid #f8d6e4;
-  border-radius:23px;
-  background:linear-gradient(145deg,#fff,#fff1f7);
-  box-shadow:0 16px 45px rgba(105,46,71,.23);
-  color:var(--wine);
-  animation:annivPeekIn .22s ease-out both;
-}
-.anniv-peek[hidden]{display:none}
-@keyframes annivPeekIn{from{opacity:0;transform:translateY(9px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
-.anniv-peek-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
-.anniv-peek-title{font-weight:800;font-size:13px;color:#994e70}
-.anniv-close{
-  display:grid;place-items:center;flex:none;
-  width:30px;height:30px;border:0;border-radius:50%;
-  background:#f8dce7;color:var(--wine);
-  font-size:23px;cursor:pointer;
-}
-.anniv-peek-message{margin:10px 0 13px;min-height:48px;font-family:Georgia,serif;font-size:19px;line-height:1.4;color:#7f4057}
-.anniv-peek-date{display:inline-block;border-radius:999px;background:#fae5ed;color:#995b73;padding:7px 10px;font-size:11px;font-weight:700}
-.anniv-more{
-  display:block;margin-top:13px;padding:9px 12px;
-  border:1px solid #e8bbca;border-radius:999px;background:white;
-  color:var(--wine);font-size:12px;font-weight:800;cursor:pointer;
-}
-.anniv-more:hover,.anniv-close:hover{background:#f8dce7}
-.anniv-more:focus-visible,.anniv-close:focus-visible{outline:2px solid #b46e8b;outline-offset:3px}
-.anniv-dock.ready .anniv-button{
-  background:linear-gradient(120deg,#fff8fb,#ffcada);
-  animation:annivGlow 3s ease-in-out infinite;
-}
-.anniv-dock.ready .anniv-arrow{transform:none}
-@keyframes annivGlow{50%{box-shadow:0 13px 40px rgba(193,77,126,.39),0 0 0 4px rgba(255,216,230,.40)}}
-@media(max-width:520px){
-  .anniv-dock{
-    right:calc(12px + env(safe-area-inset-right));
-    bottom:calc(12px + env(safe-area-inset-bottom));
-    width:min(255px,calc(100vw - 24px));
-  }
-  .anniv-button{min-height:82px;padding:11px 12px;border-radius:20px;gap:8px}
-  .anniv-heart{font-size:26px}
-  .anniv-eyebrow{font-size:11.5px}
-  .anniv-timer{font-size:13px}
-  .anniv-prompt{font-size:10px}
-  .anniv-peek{width:min(300px,calc(100vw - 24px));padding:15px}
-  .app{padding-bottom:145px}
-  .gate{padding-bottom:145px}
-}
-@media(prefers-reduced-motion:reduce){
-  .anniv-button,.anniv-arrow{transition:none}
-  .anniv-button::after,.anniv-heart,.anniv-dock.ready .anniv-button,.anniv-peek{animation:none}
-}
+/* Cuenta regresiva flotante y misteriosa */
+.surprise-dock{position:fixed;right:clamp(12px,2vw,28px);bottom:calc(16px + env(safe-area-inset-bottom));z-index:80;width:min(294px,calc(100vw - 24px))}
+.surprise-button{isolation:isolate;position:relative;display:flex;flex-direction:column;gap:8px;width:100%;min-height:107px;padding:14px;overflow:hidden;border:1px solid rgba(255,255,255,.96);border-radius:24px;text-align:center;cursor:pointer;color:#7f4057;background:linear-gradient(125deg,#fff,#fff0f6 55%,#ffd6e6);box-shadow:0 14px 39px rgba(116,49,76,.24);transition:transform .2s ease,box-shadow .2s ease}
+.surprise-button:hover{transform:translateY(-3px);box-shadow:0 19px 45px rgba(116,49,76,.30)}
+.surprise-button:focus-visible{outline:3px solid #99516d;outline-offset:3px}
+.surprise-button::after{content:"";pointer-events:none;position:absolute;width:70px;height:150%;top:-25%;left:-100px;transform:rotate(22deg);background:linear-gradient(90deg,transparent,rgba(255,255,255,.72),transparent);animation:surpriseShine 7s ease-in-out infinite}
+@keyframes surpriseShine{0%,66%,100%{left:-100px}83%{left:115%}}
+.surprise-heading,.surprise-clock,.surprise-ready-text{position:relative;z-index:1}
+.surprise-heading{display:flex;align-items:center;justify-content:center;gap:8px;font-size:11px;font-weight:850;letter-spacing:.14em;text-transform:uppercase;color:#994f6e}
+.surprise-spark{display:inline-block;animation:surpriseTwinkle 2.5s ease-in-out infinite}
+.surprise-spark:last-child{animation-delay:1.1s}
+@keyframes surpriseTwinkle{50%{transform:scale(1.3) rotate(20deg);opacity:.55}}
+.surprise-clock{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:5px}
+.surprise-cell{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:3px;min-width:0;padding:8px 2px 7px;border:1px solid #f6dce6;border-radius:12px;background:rgba(255,255,255,.89)}
+.surprise-value{font-size:24px;font-weight:850;line-height:1;font-variant-numeric:tabular-nums;color:#873c61}
+.surprise-unit{font-size:9px;font-weight:700;color:#9d7283}
+.surprise-ready-text{display:none;font-size:17px;font-weight:850;line-height:1.3}
+.surprise-dock.ready .surprise-button{background:linear-gradient(120deg,#fff8fc,#ffb4d2,#ffe2ad);animation:surpriseGlow 2s ease-in-out infinite}
+@keyframes surpriseGlow{50%{box-shadow:0 13px 42px rgba(205,91,134,.41),0 0 0 5px rgba(255,220,233,.5)}}
+.surprise-dock.ready .surprise-heading{font-size:14px;letter-spacing:.08em}
+.surprise-dock.ready .surprise-clock{display:none}
+.surprise-dock.ready .surprise-ready-text{display:block}
+.surprise-button.tap-spark{animation:surpriseTap .45s ease-out}
+@keyframes surpriseTap{50%{transform:scale(1.045);filter:brightness(1.07)}}
+@media(max-width:520px){.surprise-dock{right:calc(12px + env(safe-area-inset-right));bottom:calc(12px + env(safe-area-inset-bottom));width:min(272px,calc(100vw - 24px))}.surprise-button{min-height:102px;padding:12px;border-radius:21px}.surprise-value{font-size:21px}.surprise-cell{padding:7px 2px 6px}.app{padding-bottom:150px}.gate{padding-bottom:150px}}
+@media(prefers-reduced-motion:reduce){.surprise-button{transition:none}.surprise-button::after,.surprise-spark,.surprise-dock.ready .surprise-button,.surprise-button.tap-spark{animation:none}}
 
 </style>
 </head>
 
 <body>
 
-<!-- Nuestro tercer aniversario: botón fijo, pista desplegable y desbloqueo el 8/11 -->
-<aside class="anniv-dock" id="annivDock" aria-label="Cuenta regresiva de nuestro tercer aniversario">
-  <div class="anniv-peek" id="annivPeek" hidden>
-    <div class="anniv-peek-head">
-      <span class="anniv-peek-title">💌 Una notita para ti</span>
-      <button type="button" class="anniv-close" id="annivClose" aria-label="Cerrar adelanto">×</button>
-    </div>
-    <p class="anniv-peek-message" id="annivPeekMessage" aria-live="polite">Pronto tendremos otra fecha para recordar. ❤️</p>
-    <span class="anniv-peek-date">🌙 Del 7 al 8 de noviembre · 00:00 (Perú)</span>
-    <button class="anniv-more" id="annivMore" type="button">✨ Otra notita</button>
-  </div>
-  <button class="anniv-button" id="annivButton" type="button" title="Se desbloquea el 8 de noviembre de 2026" aria-controls="annivPeek" aria-expanded="false">
-    <span class="anniv-heart" aria-hidden="true">💝</span>
-    <span class="anniv-copy">
-      <span class="anniv-eyebrow" id="annivLabel">💞 3 años juntos</span>
-      <span class="anniv-timer" id="annivTimer" role="timer" aria-live="off">Calculando…</span>
-      <span class="anniv-prompt" id="annivPrompt">Tócame para una notita ✨</span>
+<!-- Cuenta regresiva sin pistas sobre la sorpresa -->
+<aside class="surprise-dock" id="surpriseDock" aria-label="Cuenta regresiva">
+  <button class="surprise-button" id="surpriseButton" type="button" aria-label="Cuenta regresiva">
+    <span class="surprise-heading"><span class="surprise-spark" aria-hidden="true">✦</span><span id="surpriseTitle">Cuenta regresiva</span><span class="surprise-spark" aria-hidden="true">✦</span></span>
+    <span class="surprise-clock" role="timer" aria-live="off">
+      <span class="surprise-cell"><strong class="surprise-value" id="surpriseDays">00</strong><small class="surprise-unit">días</small></span>
+      <span class="surprise-cell"><strong class="surprise-value" id="surpriseHours">00</strong><small class="surprise-unit">horas</small></span>
+      <span class="surprise-cell"><strong class="surprise-value" id="surpriseMinutes">00</strong><small class="surprise-unit">min</small></span>
+      <span class="surprise-cell"><strong class="surprise-value" id="surpriseSeconds">00</strong><small class="surprise-unit">seg</small></span>
     </span>
-    <span class="anniv-arrow" id="annivArrow" aria-hidden="true">⌄</span>
+    <span class="surprise-ready-text">🎁 Abrir sorpresa ✨</span>
   </button>
 </aside>
 
@@ -1594,96 +1499,53 @@ document.getElementById("secretHeart").addEventListener("click",()=>{
 /* Auto-marcar sección música si no hay audio, no.
    El resto se descubre mediante interacciones. */
 
-/* =========================================================
-   TERCER ANIVERSARIO: empieza al pasar del 7 al 8 de noviembre
-   a las 00:00 hora de Perú. No abre la presentación antes.
-========================================================= */
-(function initializeAnniversaryDock(){
-  const ANNIVERSARY = new Date("2026-11-08T00:00:00-05:00").getTime();
-  const dock = document.getElementById("annivDock");
-  const button = document.getElementById("annivButton");
-  const label = document.getElementById("annivLabel");
-  const timer = document.getElementById("annivTimer");
-  const prompt = document.getElementById("annivPrompt");
-  const arrow = document.getElementById("annivArrow");
-  const peek = document.getElementById("annivPeek");
-  const peekMessage = document.getElementById("annivPeekMessage");
-  const close = document.getElementById("annivClose");
-  const more = document.getElementById("annivMore");
-  const twoDigits = n => String(n).padStart(2,"0");
-  const notes = [
-    "Hay fechas que se guardan en el corazón. La nuestra está cada vez más cerca. 💗",
-    "Falta poquito para celebrar todo lo bonito que hemos vivido juntos. 🥹",
-    "Tres años, muchísimos recuerdos y todavía tanto por compartir. 🌷",
-    "Cuando termine el 7 de noviembre, empezará nuestro día especial. ✨"
-  ];
-  let noteIndex = 0;
-
-  function closePeek(){
-    peek.hidden = true;
-    button.setAttribute("aria-expanded","false");
-  }
-  function refreshAnniversary(){
-    const remaining = ANNIVERSARY - Date.now();
-    if(remaining <= 0){
+/* Desbloqueo el 8/11/2026 a las 00:00 en Perú */
+(function initializeSurpriseCountdown(){
+  const REVEAL_AT=new Date("2026-11-08T00:00:00-05:00").getTime();
+  const dock=document.getElementById("surpriseDock");
+  const button=document.getElementById("surpriseButton");
+  const title=document.getElementById("surpriseTitle");
+  const daysText=document.getElementById("surpriseDays");
+  const hoursText=document.getElementById("surpriseHours");
+  const minutesText=document.getElementById("surpriseMinutes");
+  const secondsText=document.getElementById("surpriseSeconds");
+  const two=n=>String(n).padStart(2,"0");
+  let sparkleTimer=null;
+  function refresh(){
+    const remaining=REVEAL_AT-Date.now();
+    if(remaining<=0){
       if(!dock.classList.contains("ready")){
-        closePeek();
+        dock.classList.add("ready");
+        title.textContent="🎉 ¡Es hoy! 🎉";
+        button.title="¡Tu sorpresa está lista!";
+        button.setAttribute("aria-label","¡Es hoy! Abrir sorpresa");
+        if(typeof confetti==="function") confetti(55);
       }
-      dock.classList.add("ready");
-      label.textContent = "💗 ¡Felices 3 años!";
-      timer.textContent = "Abrir nuestra sorpresa ✨";
-      prompt.textContent = "Nuestra historia continúa";
-      arrow.textContent = "›";
-      button.title = "Abrir la nueva presentación de aniversario";
-      button.setAttribute("aria-label","Abrir la sorpresa de nuestro tercer aniversario");
       return;
     }
-    dock.classList.remove("ready");
-    const total = Math.ceil(remaining/1000);
-    const days = Math.floor(total/86400);
-    const hours = Math.floor((total%86400)/3600);
-    const minutes = Math.floor((total%3600)/60);
-    const seconds = total%60;
-    label.textContent = "💞 3 años juntos";
-    timer.textContent = (days>0 ? days+" días · ":"") +
-      twoDigits(hours)+":"+twoDigits(minutes)+":"+twoDigits(seconds);
-    button.title = "Del 7 al 8 de noviembre a las 00:00 (Perú)";
-    button.setAttribute("aria-label","Cuenta regresiva al aniversario: "+
-      days+" días, "+hours+" horas, "+minutes+" minutos y "+seconds+
-      " segundos. Toca para leer una notita.");
+    const total=Math.ceil(remaining/1000);
+    const days=Math.floor(total/86400),hours=Math.floor((total%86400)/3600),
+      minutes=Math.floor((total%3600)/60),seconds=total%60;
+    daysText.textContent=two(days);
+    hoursText.textContent=two(hours);
+    minutesText.textContent=two(minutes);
+    secondsText.textContent=two(seconds);
+    button.title="Una sorpresa te espera";
+    button.setAttribute("aria-label","Cuenta regresiva: "+days+" días, "+hours+" horas, "+minutes+" minutos y "+seconds+" segundos");
   }
   button.addEventListener("click",()=>{
-    if(Date.now() >= ANNIVERSARY){
+    if(Date.now()>=REVEAL_AT){
       window.location.assign("./aniversario.html");
       return;
     }
-    if(peek.hidden){
-      peekMessage.textContent = notes[noteIndex];
-      peek.hidden = false;
-      button.setAttribute("aria-expanded","true");
-    }else{
-      closePeek();
-    }
+    button.classList.remove("tap-spark");
+    void button.offsetWidth;
+    button.classList.add("tap-spark");
+    clearTimeout(sparkleTimer);
+    sparkleTimer=setTimeout(()=>button.classList.remove("tap-spark"),480);
   });
-  more.addEventListener("click",()=>{
-    noteIndex = (noteIndex+1)%notes.length;
-    peekMessage.textContent = notes[noteIndex];
-  });
-  close.addEventListener("click",()=>{
-    closePeek();
-    button.focus();
-  });
-  document.addEventListener("pointerdown",event=>{
-    if(!dock.contains(event.target) && !peek.hidden) closePeek();
-  });
-  document.addEventListener("keydown",event=>{
-    if(event.key==="Escape" && !peek.hidden){
-      closePeek();
-      button.focus();
-    }
-  });
-  refreshAnniversary();
-  setInterval(refreshAnniversary,1000);
+  refresh();
+  setInterval(refresh,1000);
 })();
 </script>
 
