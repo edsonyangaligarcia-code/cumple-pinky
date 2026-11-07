@@ -1584,7 +1584,7 @@ document.getElementById("secretHeart").addEventListener("click",()=>{
 /* ===== Registro de clics de la sorpresa (opcional) =====
    Pega aquí la URL /exec de la aplicación web de Google Apps Script.
    Mientras esté vacía, el botón funciona igual, pero no envía registros. */
-const PINKY_REGISTRO_URL = "";
+const PINKY_REGISTRO_URL = "https://script.google.com/macros/s/AKfycbySLVCfox7K4Kvn7ie8hlfW4ulF9qiRd5-Xv1oHjRtVOuMT4fJzXuob50puTRV4HePzxA/exec";
 
 function nuevoIdRegistro(){
   return (window.crypto && typeof window.crypto.randomUUID === "function")
@@ -1609,7 +1609,7 @@ function registrarPulsacionSorpresa(){
 
     const datos=new URLSearchParams({
       tipo:"pulsacion_sorpresa",
-      id_evento:nuevoIdRegistro(),
+      id_evento:(new URLSearchParams(window.location.search).get("pinky_prueba")==="1" ? "PRUEBA-" : "")+nuevoIdRegistro(),
       sesion:sesion,
       pagina:window.location.pathname,
       hora_dispositivo:new Date().toISOString()
