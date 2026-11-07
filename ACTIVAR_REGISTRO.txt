@@ -1,0 +1,39 @@
+CUMPLE PINKY — REGISTRO DE PULSACIONES
+=====================================
+
+Este complemento registra CADA pulsación del botón de cuenta regresiva:
+- ANTES del 08/11/2026 00:00 (Perú): botón aún bloqueado.
+- DESPUÉS del 08/11/2026 00:00 (Perú): botón que abre aniversario.html.
+
+Se conserva el diseño y funcionamiento actual. La hoja de Google Sheets
+es PRIVADA y recibe hora de servidor, estado y sesión anónima.
+No se recogen nombres, correos electrónicos ni direcciones IP.
+
+ACTIVACIÓN — REQUIERE LA CUENTA DE GOOGLE DEL PROPIETARIO
+--------------------------------------------------------
+1. Abre tu hoja privada "Cumple Pinky — Registro privado de pulsaciones".
+   Entra a Extensiones > Apps Script.
+2. Copia TODO el archivo REGISTRADOR_PINKY.gs de este repositorio y
+   pégalo en el editor, sustituyendo el contenido de Código.gs.
+3. Cambia REEMPLAZAR_CON_ID_DE_TU_GOOGLE_SHEET por el ID de esa hoja.
+   El ID está en la dirección de la hoja entre /d/ y /edit.
+   No subas esa versión con el ID privado a este repositorio público.
+4. Guarda y selecciona Implementar > Nueva implementación > Aplicación web.
+   Ejecutar como: Yo. Quién tiene acceso: Cualquier persona.
+   Autoriza el acceso a Google Sheets y copia la URL terminada en /exec.
+5. En index.html busca: const PINKY_REGISTRO_URL = "";
+   Pega la URL ENTRE las comillas y guarda el archivo en main.
+6. Abre la web publicada, pulsa el botón, revisa la pestaña Pulsaciones.
+   Luego de la fecha de apertura, la misma pulsación se registra justo
+   antes de abrir aniversario.html.
+
+IMPORTANTE
+----------
+- Hasta completar los pasos 1 a 5, NO hay registros remotos.
+- Los clics anteriores a activar este sistema NO se pueden recuperar.
+- La hora y el estado se calculan en el servidor de Apps Script.
+- El envío funciona con sendBeacon/fetch; una falla de Internet o de Google
+  puede causar pérdida de un evento. No se puede prometer registro 100%.
+- No se puede afirmar que una sesión corresponda a una persona concreta.
+- El web app recibe envíos públicos; no debe emplearse como sistema antifraude.
+- Puedes ocultar el registro o desactivarlo vaciando PINKY_REGISTRO_URL.
