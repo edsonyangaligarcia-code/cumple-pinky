@@ -723,7 +723,7 @@ a{color:inherit}
       <span class="surprise-cell"><strong class="surprise-value" id="surpriseMinutes">00</strong><small class="surprise-unit">minutos</small></span>
       <span class="surprise-cell"><strong class="surprise-value" id="surpriseSeconds">00</strong><small class="surprise-unit">segundos</small></span>
     </span>
-    <span class="surprise-ready-text">🎁 Abrir sorpresa ✨</span>
+    <span class="surprise-ready-text">🎁 Toca aquí para ver tu sorpresa ✨</span>
   </button>
 </aside>
 
@@ -1626,6 +1626,8 @@ function registrarPulsacionSorpresa(){
 /* Desbloqueo el 8/11/2026 a las 00:00 en Perú */
 (function initializeSurpriseCountdown(){
   const REVEAL_AT=new Date("2026-11-08T00:00:00-05:00").getTime();
+  // La prueba de aniversario solo se activa con ambos parametros; no adelanta la fecha publica.
+  const anniversaryDemo=preview && new URLSearchParams(location.search).get("aniversario_preview")==="1";
   const dock=document.getElementById("surpriseDock");
   const button=document.getElementById("surpriseButton");
   const title=document.getElementById("surpriseTitle");
@@ -1636,13 +1638,14 @@ function registrarPulsacionSorpresa(){
   const two=n=>String(n).padStart(2,"0");
   let sparkleTimer=null;
   function refresh(){
-    const remaining=REVEAL_AT-Date.now();
+    const remaining=anniversaryDemo ? 0 : REVEAL_AT-Date.now();
     if(remaining<=0){
       if(!dock.classList.contains("ready")){
         dock.classList.add("ready");
-        title.textContent="🎉 ¡Es hoy! 🎉";
-        button.title="¡Tu sorpresa está lista!";
-        button.setAttribute("aria-label","¡Es hoy! Abrir sorpresa");
+        title.textContent="Feliz aniversario, Pinky ❤️";
+        button.title="Feliz aniversario, Pinky. Toca aquí para ver tu sorpresa.";
+        button.setAttribute("aria-label","Feliz aniversario, Pinky. Toca aquí para ver tu sorpresa.");
+        dock.setAttribute("aria-label","Sorpresa de aniversario disponible");
         if(typeof confetti==="function") confetti(55);
       }
       return;
@@ -1659,8 +1662,8 @@ function registrarPulsacionSorpresa(){
   }
   button.addEventListener("click",()=>{
     registrarPulsacionSorpresa();
-    if(Date.now()>=REVEAL_AT){
-      window.location.assign("./aniversario.html");
+    if(Date.now()>=REVEAL_AT || anniversaryDemo){
+      window.location.assign(anniversaryDemo ? "./aniversario.html?preview=1" : "./aniversario.html");
       return;
     }
     button.classList.remove("tap-spark");
