@@ -230,6 +230,28 @@
     b.addEventListener('click', () => openVideo(item,b));
     $('videoGrid').append(b);
   });
+  // El recuerdo aparece desde ahora. Solo se habilita el reproductor cuando
+  // el archivo de la final está realmente publicado; jamás mostramos un video roto.
+  (async function prepareChampionshipVideo(){
+    const videoPath=ASSET+'final-campeonato.mp4';
+    const slot=$('championshipVideo');
+    if(!slot)return;
+    try{
+      const response=await fetch(videoPath,{method:'HEAD',cache:'no-store'});
+      if(!response.ok||!String(response.headers.get('content-type')||'').includes('video'))return;
+      const video=document.createElement('video');
+      video.controls=true;
+      video.playsInline=true;
+      video.preload='none';
+      video.setAttribute('aria-label','La final del campeonato, junto a ti');
+      const source=document.createElement('source');
+      source.src=videoPath;
+      source.type='video/mp4';
+      video.append(source);
+      slot.append(video);
+      slot.hidden=false;
+    }catch(error){ /* La dedicatoria permanece visible sin reproductor defectuoso. */ }
+  })();
 
   $('revealDrawingNote').addEventListener('click', () => {
     const note = $('drawingNote');
