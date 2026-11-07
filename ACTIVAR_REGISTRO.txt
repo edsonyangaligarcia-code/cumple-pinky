@@ -37,3 +37,7 @@ IMPORTANTE
 - No se puede afirmar que una sesión corresponda a una persona concreta.
 - El web app recibe envíos públicos; no debe emplearse como sistema antifraude.
 - Puedes ocultar el registro o desactivarlo vaciando PINKY_REGISTRO_URL.
+
+PRUEBAS
+-------
+Abre index.html?pinky_prueba=1 para que los eventos se identifiquen como PRUEBA en la hoja. El modo de prueba no cambia la fecha de desbloqueo. El receptor limita temporalmente solicitudes por sesión y evita repeticiones del mismo ID mientras permanezca en caché; no es protección contra abuso deliberado. Los clics pueden perderse si falla la red, el navegador o el servicio.
