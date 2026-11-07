@@ -10,14 +10,13 @@
   const progress = new Set();
   function complete(key) {
     progress.add(key);
-    $('progressTrack').setAttribute('aria-valuenow',String(progress.size));
-    $('progressBar').style.width = Math.min(100,progress.size/7*100)+'%';
+    // Los recuerdos se pueden abrir libremente, sin una barra que los cuente.
   }
   let toastTimer;
   function toast(text){$('toast').textContent=text;$('toast').classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('toast').classList.remove('show'),2800)}
   function confetti(amount=48){
     if(reduced.matches)return;
-    const colors=['#861e2d','#ad3443','#d9b57b','#faf3e3','#fffdf7'];
+    const colors=['#6f1020','#8b2334','#d9b57b','#f4e9ca','#fffdf7'];
     for(let i=0;i<amount;i++){
       const c=document.createElement('i');c.className='confetti';c.setAttribute('aria-hidden','true');
       c.style.left=Math.random()*100+'vw';c.style.background=colors[i%colors.length];
@@ -27,7 +26,7 @@
   }
   function decorate(){
     for(let i=0;i<16;i++){
-      const el=document.createElement('span');el.className='floater';el.textContent=['❤️','♡','✦'][i%3];
+      const el=document.createElement('span');el.className='floater';el.textContent=['❤️','♡','✦','🌷','🌼'][i%5];
       el.style.left=Math.random()*100+'%';el.style.fontSize=(14+Math.random()*15)+'px';
       el.style.animationDuration=(9+Math.random()*8)+'s';el.style.animationDelay=(-Math.random()*13)+'s';$('floaters').append(el);
     }
@@ -52,9 +51,6 @@
   }
   if(!tick()){const clock=setInterval(()=>{if(tick())clearInterval(clock)},1000)}
   $('start').addEventListener('click',()=>{confetti(65);go('recuerdos')});
-  $('menuButton').addEventListener('click',()=>{const open=$('sectionMenu').hidden;$('sectionMenu').hidden=!open;$('menuButton').setAttribute('aria-expanded',String(open))});
-  $('sectionMenu').addEventListener('click',e=>{if(e.target.closest('a')){$('sectionMenu').hidden=true;$('menuButton').setAttribute('aria-expanded','false')}});
-  document.addEventListener('click',e=>{if(!e.target.closest('.progress-shell')){$('sectionMenu').hidden=true;$('menuButton').setAttribute('aria-expanded','false')}});
   const photos=[
     ['Nosotros abrazados','Me encanta esta foto contigo. No estábamos haciendo nada especial, pero yo estaba a tu lado y eso me bastaba para ser feliz.'],
     ['Tú, vista desde la ventana de la cocina','Te tomé esta foto desde la ventana de la cocina. Me gustaba mirarte, incluso en un día cualquiera.'],
@@ -69,7 +65,7 @@
     ['Tú con las flores que hice a mano','Esas flores las hice a mano para ti. Quería regalarte algo hecho por mí, con todo el cariño que te tenía.'],
     ['Nosotros acostados en mi cama','Me encantaba estar acostado contigo en mi cama. Aunque no hiciéramos nada, estar a tu lado convertía ese día en mi mejor día.']
   ];
-  let photoIndex=0;
+  let photoIndex=5;
   function renderPhoto(){
     const [alt,caption]=photos[photoIndex];const image=$('memoryPhoto');
     image.src=ASSET+'foto-'+two(photoIndex+1)+'.jpg';image.alt=alt;$('photoCaption').textContent=caption;
@@ -129,12 +125,18 @@
     retry.addEventListener('click',load);load();
   }
   videos.forEach(item=>{const b=document.createElement('button');b.className='open-btn';b.type='button';const icon=document.createElement('span');icon.className='emo';icon.setAttribute('aria-hidden','true');icon.textContent=item.icon;b.append(icon,document.createTextNode(item.title));b.addEventListener('click',()=>openVideo(item,b));$('videoGrid').append(b)});
-  $('palmVideo').addEventListener('click',()=>openVideo(videos[4],$('videoGrid').children[4]));
-  $('quizOptions').addEventListener('click',e=>{
-    const button=e.target.closest('button');if(!button)return;
-    if(button.dataset.correct==='true'){
-      button.classList.add('correct');$('quizResult').textContent='Sabía que te ibas a acordar. ❤️';$('quizMemory').hidden=false;complete('quiz');confetti(42);
-    }else{button.classList.remove('wrong');void button.offsetWidth;button.classList.add('wrong');$('quizResult').textContent='Te doy una pista: ahí nos dimos nuestro primer beso. 😌'}
+  $('drawingMemoryButton').addEventListener('click',()=>{
+    const note=$('drawingMemoryText'), button=$('drawingMemoryButton');
+    const opened=note.hidden;note.hidden=!opened;button.setAttribute('aria-expanded',String(opened));
+    if(opened){confetti(22);note.scrollIntoView({behavior:reduced.matches?'auto':'smooth',block:'nearest'})}
+  });
+  $('lettersMemoryButton').addEventListener('click',()=>{
+    const note=$('lettersMemoryText'), button=$('lettersMemoryButton');
+    const opened=note.hidden;note.hidden=!opened;button.setAttribute('aria-expanded',String(opened));
+    if(opened)confetti(18);
+  });
+  $('snoopySticker').addEventListener('click',()=>{
+    imageModal(ASSET+'foto-10.jpg','Tu Snoopy 🤍','También quise guardar esta foto porque sé que Snoopy es parte de nuestros recuerdos.','Tu peluche de Snoopy');
   });
   $('wishButton').addEventListener('click',()=>{$('wishButton').hidden=true;$('wishMessage').hidden=false;complete('message');confetti(55)});
   $('gift').addEventListener('click',()=>{
