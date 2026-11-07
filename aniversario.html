@@ -1,82 +1,365 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#7f4057">
-  <meta name="description" content="Una pequeña sorpresa está por llegar.">
-  <title>Una sorpresa para ti ✨</title>
+  <meta name="theme-color" content="#831e30">
+  <meta name="description" content="Un pequeño álbum de recuerdos, sonrisas y momentos que vivimos juntos.">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Lo bonito de nosotros · 8 de noviembre ❤️</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
   <style>
-    :root{--wine:#7f4057;--rose:#ffe5ee;--ink:#553440;--muted:#8b6b77;--gold:#d4a85c}
-    *{box-sizing:border-box}
-    html{min-height:100%}
-    body{margin:0;min-height:100svh;color:var(--ink);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;background:radial-gradient(circle at 20% 10%,#ffe1ed,transparent 38%),radial-gradient(circle at 90% 90%,#fbe3d4,transparent 42%),linear-gradient(140deg,#fff6f8,#fffcfb 65%,#fbe3ed);overflow-x:hidden}
-    .spark{position:fixed;z-index:0;pointer-events:none;color:#e8a3bd;opacity:.46;font-size:clamp(24px,4vw,44px);animation:float 6s ease-in-out infinite}
-    .spark.one{left:8%;top:14%}.spark.two{right:10%;top:18%;animation-delay:-2s}.spark.three{left:16%;bottom:12%;animation-delay:-4s}
-    @keyframes float{50%{transform:translateY(-12px) rotate(12deg)}}
-    .page{min-height:100svh;padding:32px 18px max(40px,env(safe-area-inset-bottom));display:grid;place-content:center;justify-items:center;gap:23px;position:relative;z-index:1}
-    .card{width:min(680px,100%);padding:clamp(34px,7vw,64px) clamp(22px,6vw,54px);background:rgba(255,255,255,.80);border:1px solid rgba(255,255,255,.94);border-radius:34px;box-shadow:0 24px 75px rgba(105,49,75,.14);backdrop-filter:blur(15px);text-align:center}
-    .eyebrow{text-transform:uppercase;letter-spacing:.18em;font-size:12px;font-weight:800;color:var(--gold);margin:0 0 15px}
-    .emblem{font-size:clamp(46px,10vw,76px);filter:drop-shadow(0 10px 20px rgba(180,77,113,.17));margin-bottom:8px}
-    h1{font-family:Georgia,serif;color:var(--wine);font-size:clamp(36px,7vw,64px);line-height:1.09;margin:12px 0 16px}
-    .lead{font-size:clamp(15px,2.8vw,18px);color:var(--muted);line-height:1.75;margin:0 auto;max-width:460px}
-    .timer{margin:30px auto 0;display:inline-flex;align-items:center;justify-content:center;gap:7px;flex-wrap:wrap;padding:15px 21px;border-radius:20px;background:var(--rose);color:var(--wine);font-size:clamp(17px,4vw,24px);font-weight:800;font-variant-numeric:tabular-nums}
-    .note{margin:26px 0 0;color:#9a7a85;font-size:14px;line-height:1.6}
-    .back{color:var(--wine);background:rgba(255,255,255,.82);border:1px solid #f0d8e0;padding:12px 20px;border-radius:999px;font-weight:700;text-decoration:none;box-shadow:0 6px 22px rgba(100,49,71,.09);transition:transform .2s ease}
-    .back:hover,.back:focus-visible{transform:translateY(-2px);outline:2px solid #d9a2b7;outline-offset:3px}
-    #annivReady .emblem{animation:giftReveal 2.5s ease-in-out infinite}
-    @keyframes giftReveal{0%,100%{transform:scale(1)}50%{transform:scale(1.12) rotate(-4deg)}}
-    #annivReady h1{animation:headlineReveal .7s ease-out both}
-    @keyframes headlineReveal{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+    :root{--crema:#faf5e8;--blanco:#fffdfa;--papel:#fffaf0;--rojo:#831e30;--rojo2:#ae4050;--rojo3:#d88a91;--oscuro:#3c2528;--suave:#7b6764;--borde:#f0dfd8;--sombra:0 24px 72px rgba(90,27,39,.12)}
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:90px}
+    body{margin:0;background:radial-gradient(circle at 0 0,#f7e4dc 0,transparent 37%),radial-gradient(circle at 95% 18%,#fbe9db 0,transparent 35%),linear-gradient(145deg,#fcf8ef 0%,#fffdfa 44%,#f7efe3 100%);color:var(--oscuro);font-family:'DM Sans',system-ui,-apple-system,sans-serif;overflow-x:hidden}
+    body:before{content:"";position:fixed;inset:0;background-image:radial-gradient(#a9404d 0.6px,transparent 1px);background-size:29px 29px;opacity:.095;pointer-events:none;z-index:-1}
     [hidden]{display:none!important}
-    @media(max-width:480px){.page{padding:22px 14px max(32px,env(safe-area-inset-bottom));gap:20px}.card{border-radius:26px}.timer{font-size:18px;padding:13px 15px}}
-    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+    button,a{font:inherit}button{cursor:pointer}a{color:inherit}
+    button:focus-visible,a:focus-visible,[tabindex]:focus-visible{outline:3px solid #bb5263;outline-offset:4px}
+    img{max-width:100%}
+    .ambiente{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+    .corazon-flotante{position:absolute;bottom:-14vh;color:var(--rojo2);opacity:0;animation:flotar var(--dur) linear infinite;left:var(--x);font-size:var(--tam);animation-delay:var(--delay)}
+    @keyframes flotar{0%{transform:translate3d(0,0,0) rotate(-18deg);opacity:0}12%{opacity:.21}85%{opacity:.15}100%{transform:translate3d(var(--dx),-120vh,0) rotate(22deg);opacity:0}}
+    .vista-etiqueta{position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:110;background:#36282a;color:#fff;padding:9px 14px;border-radius:999px;box-shadow:0 8px 28px #0002;font-size:12px;white-space:nowrap}
+    .vista-etiqueta a{color:#ffe3bd;text-decoration:underline;margin-left:7px}
+    .espera{min-height:100svh;display:grid;place-items:center;padding:36px 18px;position:relative;z-index:2}
+    .espera-tarjeta{width:min(650px,100%);padding:clamp(32px,6vw,63px) 24px;background:rgba(255,252,244,.88);border:1px solid #fff;border-radius:36px;box-shadow:var(--sombra);text-align:center;backdrop-filter:blur(18px)}
+    .espera-icono{font-size:70px;display:inline-block;animation:latido 1.8s ease-in-out infinite}
+    @keyframes latido{50%{transform:scale(1.15) rotate(-5deg)}}
+    .ceja{margin:0 0 14px;color:var(--rojo2);letter-spacing:.2em;text-transform:uppercase;font-size:12px;font-weight:800}
+    .serif{font-family:'Playfair Display',Georgia,serif;font-weight:600}
+    .espera h1{font-family:'Playfair Display',Georgia,serif;font-weight:600;color:var(--rojo);font-size:clamp(35px,7vw,58px);line-height:1.12;margin:10px 0 15px}
+    .espera p{line-height:1.75;color:var(--suave);max-width:480px;margin:10px auto}
+    .reloj{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;max-width:475px;margin:30px auto 20px}
+    .reloj div{border-radius:18px;background:#fff;border:1px solid #f5e9e0;padding:14px 3px;box-shadow:0 7px 24px #8b465316}
+    .reloj b{display:block;font-size:clamp(22px,6vw,38px);font-variant-numeric:tabular-nums;color:var(--rojo)}
+    .reloj small{font-size:10px;color:var(--suave);text-transform:uppercase;letter-spacing:.08em}
+    .sitio{position:relative;z-index:2}
+    .avance{position:fixed;top:0;left:0;right:0;height:4px;background:#e9d8d0;z-index:95}
+    .avance>span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--rojo),#da8190);transition:width .15s}
+    .barra{width:min(1190px,calc(100% - 32px));position:sticky;top:13px;margin:13px auto 0;z-index:80;background:#fffdfaed;border:1px solid #ffffff;box-shadow:0 9px 32px #6f26301b;border-radius:999px;padding:9px 13px;display:flex;gap:12px;align-items:center;justify-content:space-between;backdrop-filter:blur(16px)}
+    .marca{font-weight:800;font-size:14px;color:var(--rojo);white-space:nowrap;text-decoration:none;letter-spacing:-.015em}
+    .marca span{font-size:20px;vertical-align:middle;margin-right:4px}
+    .navegar{display:flex;align-items:center;gap:5px}
+    .navegar a{text-decoration:none;border-radius:999px;padding:9px 12px;font-size:12px;font-weight:750;color:#755a5e;transition:background .2s,color .2s}
+    .navegar a:hover{background:#f8e9e6;color:var(--rojo)}
+    .inicio{min-height:calc(100svh - 70px);width:min(1180px,calc(100% - 34px));margin:auto;display:grid;grid-template-columns:1.02fr .98fr;gap:40px;align-items:center;padding:60px 5px 80px}
+    .inicio-texto{max-width:580px;position:relative}
+    .inicio h1{font-size:clamp(50px,7.5vw,99px);line-height:1.01;letter-spacing:-.055em;color:var(--rojo);margin:14px 0 25px}
+    .inicio h1 i{font-weight:500;color:#b64b55}
+    .inicio .intro{max-width:500px;font-size:clamp(16px,2vw,19px);line-height:1.83;color:var(--suave);margin:0 0 26px}
+    .boton{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 23px;border-radius:999px;background:linear-gradient(135deg,var(--rojo),#aa3b4b);color:#fff;border:0;font-weight:800;text-decoration:none;box-shadow:0 11px 29px rgba(131,30,48,.25);transition:transform .2s,box-shadow .2s}
+    .boton:hover{transform:translateY(-3px);box-shadow:0 15px 33px rgba(131,30,48,.31)}
+    .boton.claro{background:var(--blanco);color:var(--rojo);border:1px solid var(--borde);box-shadow:0 8px 23px #802f401b}
+    .inicio-fotos{height:min(560px,65vw);position:relative}
+    .foto-grande,.foto-chica{position:absolute;padding:10px 10px 38px;background:#fffdfa;border-radius:7px;box-shadow:0 19px 50px #67273530;overflow:hidden;transition:transform .4s ease}
+    .foto-grande{width:65%;left:16%;top:5%;height:83%;transform:rotate(5deg)}
+    .foto-grande:hover{transform:rotate(1deg) translateY(-8px)}
+    .foto-chica{width:43%;height:49%;left:0;bottom:0;transform:rotate(-11deg);z-index:2}
+    .foto-chica:hover{transform:rotate(-4deg) translateY(-7px)}
+    .foto-grande img,.foto-chica img{width:100%;height:100%;object-fit:cover;display:block;border-radius:3px}
+    .sticker{position:absolute;right:0;top:1%;z-index:3;font-size:clamp(45px,6vw,72px);animation:latido 2.7s infinite;filter:drop-shadow(0 10px 18px #8f4b4b33)}
+    .fecha-cinta{position:absolute;right:0;bottom:3%;z-index:5;background:#fffaf0;border-radius:25px;padding:10px 16px;color:var(--rojo);font-family:'Playfair Display',Georgia,serif;font-size:19px;box-shadow:0 9px 28px #67273521;transform:rotate(-6deg)}
+    .cinta{padding:23px 16px;text-align:center;background:linear-gradient(100deg,#761827,#a33b4b,#761827);color:#fff5e7;font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:clamp(17px,3vw,27px);letter-spacing:.01em}
+    .seccion{width:min(1180px,calc(100% - 34px));margin:0 auto;padding:90px 0 15px;scroll-margin-top:85px}
+    .encabezado{text-align:center;max-width:760px;margin:0 auto 34px}
+    .encabezado .capitulo{color:var(--rojo2);font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:800;margin-bottom:13px}
+    .encabezado h2{font-family:'Playfair Display',Georgia,serif;font-weight:600;color:var(--rojo);font-size:clamp(37px,5.5vw,66px);line-height:1.14;letter-spacing:-.035em;margin:0 0 15px}
+    .encabezado p{color:var(--suave);font-size:clamp(15px,2vw,18px);line-height:1.8;margin:0 auto;max-width:640px}
+    .memorias-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:19px;align-items:start}
+    .recuerdo{background:#fffdfa;border:1px solid #fff;border-radius:22px;padding:10px 10px 20px;box-shadow:0 10px 34px #71263214;min-width:0;transform:rotate(var(--giro));transition:transform .3s,box-shadow .3s;position:relative}
+    .recuerdo:hover{transform:rotate(0deg) translateY(-6px);box-shadow:0 18px 47px #71263225}
+    .recuerdo:nth-child(5n+1){--giro:-1.3deg}.recuerdo:nth-child(5n+2){--giro:.9deg}.recuerdo:nth-child(5n+3){--giro:-.7deg}.recuerdo:nth-child(5n+4){--giro:1.2deg}.recuerdo:nth-child(5n){--giro:-.4deg}
+    .recuerdo-media{aspect-ratio:4/4.6;position:relative;border-radius:14px;overflow:hidden;background:#f2e5d9}
+    .recuerdo-media>img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .65s}
+    .recuerdo:hover .recuerdo-media>img{transform:scale(1.045)}
+    .recuerdo-media .ver-foto{position:absolute;inset:0;width:100%;height:100%;border:0;background:transparent;display:flex;align-items:flex-end;justify-content:flex-end;padding:12px}
+    .zoom-icono{display:grid;place-items:center;background:#fffdfae9;box-shadow:0 5px 18px #501f2b29;border-radius:50%;width:39px;height:39px;color:var(--rojo);font-size:19px}
+    .video-sello{position:absolute;top:11px;left:11px;background:#fffdfaed;color:var(--rojo);border-radius:999px;padding:7px 12px;font-size:11px;font-weight:850;letter-spacing:.07em}
+    .video-iniciar{position:absolute;inset:0;width:100%;height:100%;border:0;background:linear-gradient(0deg,#2d101b63,transparent 55%);display:grid;place-items:center;color:white}
+    .play-circulo{display:grid;place-items:center;background:#fff9f2f2;color:var(--rojo);width:69px;height:69px;border-radius:50%;font-size:29px;box-shadow:0 13px 34px #0005;transition:transform .2s}
+    .video-iniciar:hover .play-circulo{transform:scale(1.12)}
+    .video-cargando{position:absolute;inset:0;display:grid;place-items:center;background:#42252da6;color:white;font-weight:800;font-size:14px;text-align:center;padding:20px}
+    .recuerdo-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#211618}
+    .recuerdo-cuerpo{padding:13px 9px 1px}
+    .recuerdo-ordinal{font-weight:800;text-transform:uppercase;letter-spacing:.17em;font-size:10px;color:var(--rojo2)}
+    .recuerdo h3{font-family:'Playfair Display',Georgia,serif;font-size:clamp(20px,2.5vw,27px);color:var(--rojo);line-height:1.25;margin:7px 0 10px}
+    .recuerdo p{font-size:14px;color:var(--suave);line-height:1.75;margin:0}
+    .interludio{margin:77px auto 10px;max-width:870px;padding:39px 30px;text-align:center;border-radius:33px;background:radial-gradient(circle at 20% 10%,#fffdf6,transparent 50%),linear-gradient(130deg,#f9e4df,#f8efe3);border:1px solid #fff8f0;box-shadow:0 13px 39px #802b3820}
+    .interludio span{font-size:34px;display:block;margin-bottom:8px}
+    .interludio p{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:clamp(22px,3vw,36px);color:var(--rojo);line-height:1.45;margin:0}
+    .especiales{padding-top:112px}
+    .especiales-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+    .especial{border-radius:28px;padding:28px;background:#fffdfaf0;border:1px solid #fff;box-shadow:var(--sombra);overflow:hidden;display:flex;flex-direction:column;align-items:center;text-align:center}
+    .especial h3{font:600 31px/1.23 'Playfair Display',Georgia,serif;color:var(--rojo);margin:18px 0 8px}
+    .especial p{color:var(--suave);font-size:15px;line-height:1.75;margin:0 0 20px;max-width:420px}
+    .dibujo-marco{background:#fff;padding:10px 10px 25px;border-radius:6px;transform:rotate(-3deg);box-shadow:0 12px 38px #702b3e24;width:min(300px,100%);margin:10px auto 12px}
+    .dibujo-marco img{display:block;width:100%;height:300px;object-fit:contain;cursor:zoom-in}
+    .audio-ilustracion{width:200px;height:200px;border-radius:50%;margin:26px auto 15px;background:radial-gradient(circle at 40% 40%,#fff9f3 0 7%,#e5afb2 8% 15%,#9d3c4e 16% 25%,#381c27 26% 35%,#801b34 36% 100%);box-shadow:0 18px 44px #7b304235;position:relative;display:grid;place-items:center;transition:transform .5s}
+    .audio-ilustracion:after{content:"❤";position:absolute;color:#fff1e1;font-size:38px;text-shadow:0 3px 8px #502035}
+    .audio-ilustracion.sonando{animation:disco 4s linear infinite}
+    @keyframes disco{to{transform:rotate(360deg)}}
+    .audio-control{display:flex;flex-direction:column;gap:12px;align-items:center;width:100%}
+    .audio-control .nota-voz{font-size:12px;color:var(--suave);line-height:1.6;margin:0 0 5px}.audio-control audio{width:min(370px,100%);height:44px}
+    .cartas-fondo{padding:112px 0 120px;position:relative}
+    .sobres{display:grid;grid-template-columns:repeat(4,1fr);gap:23px;width:min(1050px,100%);margin:47px auto 0}
+    .sobre-item{border:0;background:none;padding:18px 8px;min-width:0;text-align:center;color:var(--rojo)}
+    .sobre{position:relative;display:block;width:min(180px,100%);aspect-ratio:1.5/1;margin:auto;background:#f1d1c8;border:2px solid #cf9b9a;border-radius:5px 5px 12px 12px;box-shadow:0 17px 29px #81354b20;transition:transform .35s;overflow:hidden}
+    .sobre:before{content:"";position:absolute;left:0;right:0;top:0;height:64%;background:#fff0e7;clip-path:polygon(0 0,100% 0,50% 88%);z-index:2;filter:drop-shadow(0 2px 2px #bc8d88)}
+    .sobre:after{content:"";position:absolute;inset:0;background:linear-gradient(32deg,transparent 49.5%,#e6b6b0 50%) left bottom/50% 100% no-repeat,linear-gradient(-32deg,transparent 49.5%,#e6b6b0 50%) right bottom/50% 100% no-repeat;z-index:1}
+    .sello{position:absolute;top:50%;left:50%;transform:translate(-50%,-22%);z-index:3;width:45px;height:45px;border-radius:50%;display:grid;place-items:center;background:var(--rojo);color:#fff0e8;font-size:23px;box-shadow:0 4px 14px #66263866}
+    .sobre-item:hover .sobre,.sobre-item:focus-visible .sobre{transform:translateY(-12px) rotate(-3deg);box-shadow:0 23px 36px #81354b35}
+    .sobre:before{transition:transform .55s ease}
+    .sobre-item.abriendo .sobre{transform:translateY(-11px) rotate(-2deg) scale(1.035)}
+    .sobre-item.abriendo .sobre:before{transform:rotateX(180deg)}
+    .sobre-item.abriendo .sello{opacity:0;transition:opacity .3s}
+    .sobre-item strong{display:block;font:600 19px 'Playfair Display',Georgia,serif;margin:19px 0 4px}
+    .sobre-item small{color:#927c77;font-size:12px}
+    .aviso-cartas{max-width:690px;margin:17px auto 0;text-align:center;color:#8b716d;font-size:13px;line-height:1.75}
+    .pie{text-align:center;color:#977d79;font-size:13px;padding:20px 18px 48px;line-height:1.65}
+    .lightbox{width:min(900px,calc(100% - 18px));max-width:none;max-height:94svh;padding:0;border:0;border-radius:22px;box-shadow:0 35px 100px #0006;background:#fffbf6;color:var(--rojo);overflow:hidden}
+    .lightbox::backdrop{background:#2d1622d4;backdrop-filter:blur(7px)}
+    .lightbox-wrap{display:flex;flex-direction:column;max-height:94svh}
+    .lightbox-top{display:flex;gap:12px;justify-content:space-between;align-items:center;padding:12px 18px;border-bottom:1px solid var(--borde)}
+    .lightbox-top strong{font:600 19px 'Playfair Display',Georgia,serif;min-width:0}
+    .cerrar{border:0;border-radius:50%;background:#f2e0dc;color:var(--rojo);width:41px;height:41px;font-weight:800;font-size:21px}
+    .lightbox-img{display:block;max-height:calc(94svh - 78px);width:100%;object-fit:contain;margin:auto;background:#fff7ed}
+    .lightbox-texto{text-align:center;font-size:13px;color:var(--suave);padding:10px 16px}
+    .confeti{position:fixed;top:-20px;border-radius:3px;z-index:150;pointer-events:none;animation:caer 3.7s linear forwards}
+    @keyframes caer{to{transform:translate3d(var(--x),110vh,0) rotate(760deg);opacity:0}}
+    .sube{position:fixed;bottom:18px;right:18px;z-index:75;width:44px;height:44px;background:var(--rojo);color:white;border-radius:50%;border:2px solid #fff9ed;box-shadow:0 8px 22px #69203844;opacity:0;pointer-events:none;transform:translateY(13px);transition:.25s}
+    .sube.visible{opacity:1;pointer-events:auto;transform:translateY(0)}
+    .sin-error{display:none;font-size:13px;color:var(--rojo);margin:4px 0}
+    @media(min-width:960px){.recuerdo:nth-child(7n+3){margin-top:24px}.recuerdo:nth-child(7n+5){margin-top:16px}}
+    @media(max-width:880px){.inicio{grid-template-columns:1fr;gap:12px;padding:65px 3px 45px}.inicio-texto{text-align:center;margin:auto}.inicio .intro{margin:0 auto 25px}.inicio-fotos{width:min(550px,95%);height:490px;margin:15px auto}.memorias-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.navegar a{padding:8px 9px;font-size:11px}.sobres{grid-template-columns:repeat(3,1fr)}}
+    @media(max-width:600px){.barra{width:calc(100% - 20px);margin-top:9px;top:9px;padding:9px 12px}.marca{font-size:13px}.navegar a:nth-child(2),.navegar a:nth-child(3){display:none}.inicio h1{font-size:clamp(53px,12vw,76px)}.inicio-fotos{height:390px;width:min(440px,96%)}.inicio-fotos .foto-grande{left:19%}.seccion{width:calc(100% - 24px);padding-top:69px}.encabezado{padding:0 6px}.memorias-grid{gap:11px}.recuerdo{padding:6px 6px 13px;border-radius:15px;box-shadow:0 7px 23px #71263216}.recuerdo-media{border-radius:10px;aspect-ratio:3/4}.recuerdo-cuerpo{padding:10px 6px 2px}.recuerdo h3{font-size:18px;margin:6px 0 7px}.recuerdo p{font-size:12.2px;line-height:1.55}.recuerdo-ordinal{font-size:9px}.play-circulo{width:48px;height:48px;font-size:22px}.video-sello{top:7px;left:7px;font-size:9px;padding:4px 8px}.interludio{margin:55px auto 0;padding:29px 15px;border-radius:23px}.especiales-grid{grid-template-columns:1fr}.especial{padding:23px 16px}.especiales{padding-top:70px}.cartas-fondo{padding:72px 0 85px}.sobres{grid-template-columns:repeat(2,1fr);gap:10px;margin-top:20px}.sobre-item{padding:13px 8px}.sobre-item strong{font-size:17px;margin-top:13px}.fecha-cinta{font-size:15px}.sube{bottom:12px;right:12px}.reloj{gap:5px}.reloj div{padding:12px 2px;border-radius:12px}}
+    @media(max-width:360px){.memorias-grid{grid-template-columns:1fr}.recuerdo h3{font-size:23px}.recuerdo p{font-size:14px}.recuerdo-media{aspect-ratio:4/4}.navegar a{font-size:10px}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
   </style>
 </head>
 <body>
-  <span class="spark one" aria-hidden="true">♡</span>
-  <span class="spark two" aria-hidden="true">✧</span>
-  <span class="spark three" aria-hidden="true">♡</span>
-  <main class="page">
-    <section class="card" id="annivWaiting">
-      <div class="emblem" aria-hidden="true">✨</div>
-      <p class="eyebrow">UNA SORPRESA PARA TI</p>
-      <h1>Cuenta regresiva</h1>
-      <p class="lead">Hay algo esperando el momento perfecto para aparecer. 💗</p>
-      <div class="timer" id="annivPageCountdown" role="timer" aria-label="Tiempo restante para desbloquear la sorpresa">Calculando…</div>
-      <p class="note">Cada segundo cuenta. ✨</p>
-    </section>
-    <section class="card" id="annivReady" hidden>
-      <div class="emblem" aria-hidden="true">🎁✨</div>
-      <p class="eyebrow">UNA SORPRESA PARA TI</p>
-      <h1>¡Es hoy! 🎉</h1>
-      <p class="lead">¡La espera terminó! Hay un espacio especial preparado solo para ti. 💗</p>
-      <p class="note">Aquí aparecerá tu nueva presentación. ✨</p>
-    </section>
-    <a class="back" href="./index.html">← Volver a nuestra página</a>
-  </main>
+  <div class="ambiente" id="ambiente" aria-hidden="true"></div>
+  <div class="vista-etiqueta" id="vistaEtiqueta" hidden>✦ Vista previa del aniversario <a href="./aniversario.html">Ver como visitante</a></div>
+  <section class="espera" id="espera" aria-labelledby="tituloEspera">
+    <div class="espera-tarjeta">
+      <div class="espera-icono" aria-hidden="true">💌</div>
+      <div class="ceja">Una sorpresa preparada con cariño</div>
+      <h1 id="tituloEspera">Hay recuerdos que merecen un lugar especial.</h1>
+      <p>Esta historia tiene una fecha para abrirse. Cada segundo que falta es un poquito menos para descubrirla. ❤️</p>
+      <div class="reloj" role="timer" aria-label="Cuenta regresiva al 8 de noviembre">
+        <div><b id="dias">00</b><small>días</small></div><div><b id="horas">00</b><small>horas</small></div><div><b id="minutos">00</b><small>minutos</small></div><div><b id="segundos">00</b><small>segundos</small></div>
+      </div>
+      <p style="font-size:13px;margin:18px auto 3px">8 de noviembre · 00:00 · Perú</p>
+      <a href="./index.html" style="font-size:13px;color:var(--rojo);font-weight:800">← Volver a Pinky</a>
+    </div>
+  </section>
+  <div class="sitio" id="sitio" hidden>
+    <div class="avance" aria-hidden="true"><span id="avance"></span></div>
+    <header class="barra">
+      <a class="marca" href="#inicio"><span>♡</span> Lo bonito de nosotros</a>
+      <nav class="navegar" aria-label="Secciones"><a href="#album">Recuerdos</a><a href="#especiales">Dibujo y voz</a><a href="#cartas">Cartas</a></nav>
+    </header>
+    <main>
+      <section class="inicio" id="inicio">
+        <div class="inicio-texto">
+          <p class="ceja">8 de noviembre · Desde aquel 2023</p>
+          <h1 class="serif">Lo bonito de <i>nosotros.</i></h1>
+          <p class="intro">No son solo fotografías y videos. Son todas esas veces en las que una sonrisa, una caminata o simplemente estar a tu lado hicieron que un día común se volviera inolvidable.</p>
+          <a href="#album" class="boton" id="comenzar">Empezar a recordar <span aria-hidden="true">♡</span></a>
+        </div>
+        <div class="inicio-fotos" aria-label="Un pequeño álbum de nuestros recuerdos">
+          <div class="foto-grande"><img src="assets/aniversario/foto-01.jpg" alt="Una fotografía juntos, acurrucados" fetchpriority="high"></div>
+          <div class="foto-chica"><img src="assets/aniversario/foto-04.jpg" alt="Nuestros pies descansando cerca del agua en Obrajillo"></div>
+          <span class="sticker" aria-hidden="true">❤️</span>
+          <span class="fecha-cinta">08 · 11 · ♡</span>
+        </div>
+      </section>
+      <div class="cinta">Las cosas más bonitas no siempre son grandes. A veces son esos momentos de todos los días.</div>
+      <div id="album"></div>
+      <section class="seccion especiales" id="especiales">
+        <div class="encabezado"><p class="capitulo">Un pedacito más de esta historia</p><h2>Detalles que hice con el corazón</h2><p>Además de nuestros recuerdos, hay dos cosas que quiero dejar aquí: un dibujo y mi voz. Para ver y escuchar cuando quieras, sin apuro.</p></div>
+        <div class="especiales-grid">
+          <article class="especial">
+            <div class="dibujo-marco"><img id="dibujo" src="assets/aniversario/dibujo.jpg" alt="Dibujo hecho a mano de una persona muy especial" loading="lazy" tabindex="0" role="button" aria-label="Ampliar dibujo"></div>
+            <h3>Un dibujo hecho para ti ✏️</h3><p>Quería guardar también esta forma de verte. Trazos sencillos, mucho cariño y un recuerdo que no necesitaba palabras.</p>
+            <button class="boton claro" id="abrirDibujo" type="button">Ver el dibujo completo ♡</button>
+          </article>
+          <article class="especial">
+            <div class="audio-ilustracion" id="audioDisco" aria-hidden="true"></div>
+            <h3>Hay algo que quiero decirte 🎙️</h3><p>Una grabación con mi voz. Hay mensajes que suenan distinto cuando se escuchan, así que te la dejo aquí para cuando quieras ponerle play.</p>
+            <div class="audio-control"><button class="boton claro" id="cargarVoz" type="button">▶ Escuchar mi voz</button><p id="estadoVoz" class="nota-voz" role="status">Toca el botón para escuchar la grabación.</p><audio id="voz" controls preload="none" aria-label="Grabación de voz"></audio><p class="sin-error" id="vozError" role="status">No se pudo cargar el audio. Prueba nuevamente.</p></div>
+          </article>
+        </div>
+      </section>
+      <section class="seccion cartas-fondo" id="cartas">
+        <div class="encabezado"><p class="capitulo">Para el último capítulo · 7 sobres</p><h2>Las palabras que guardé para ti 💌</h2><p>Después de las fotos, las risas y los pequeños momentos, también quiero dejar aquí estas cartas tal como fueron escritas, con mi letra y con su historia. Toca un sobre para abrirlo.</p></div>
+        <div class="sobres" id="sobres"></div>
+        <p class="aviso-cartas">Algunas cartas hablan de momentos difíciles. Puedes leerlas a tu ritmo y cerrar cualquier sobre cuando quieras.</p>
+      </section>
+    </main>
+    <footer class="pie">De aquí a la luna, a pasitos de tortuga. ♡<br>8 de noviembre · Un álbum de nuestra historia</footer>
+    <button class="sube" id="sube" type="button" aria-label="Volver al inicio">↑</button>
+  </div>
+  <dialog id="lightbox" class="lightbox" aria-label="Recuerdo ampliado">
+    <div class="lightbox-wrap"><div class="lightbox-top"><strong id="lightboxTitulo">Un recuerdo</strong><button id="cerrar" class="cerrar" type="button" aria-label="Cerrar">×</button></div><img class="lightbox-img" id="lightboxImagen" alt=""><div class="lightbox-texto" id="lightboxTexto"></div></div>
+  </dialog>
   <script>
-    const anniversaryDate = new Date("2026-11-08T00:00:00-05:00").getTime();
-    const waiting = document.getElementById("annivWaiting");
-    const ready = document.getElementById("annivReady");
-    const timer = document.getElementById("annivPageCountdown");
-    const two = number => String(number).padStart(2,"0");
-    function updateAnniversaryPage() {
-      const remaining = anniversaryDate - Date.now();
-      if (remaining <= 0) {
-        waiting.hidden = true;
-        ready.hidden = false;
-        return;
+  (function(){
+    'use strict';
+    const ASSET='assets/aniversario/';
+    const CUANDO=new Date('2026-11-08T00:00:00-05:00').getTime();
+    // El acceso anticipado es una vista de prueba, no una protección contra inspeccionar archivos públicos.
+    const preview=new URLSearchParams(location.search).get('preview')==='1';
+    const $=id=>document.getElementById(id);
+    const dos=n=>String(n).padStart(2,'0');
+    const partes={1:4,2:2,3:2,4:5,5:2,6:1,7:4,8:2,9:3};
+    const capitulos=[
+      {eyebrow:'Capítulo 01 · Lo cotidiano',titulo:'La magia de estar contigo',sub:'Porque hasta los días sin planes terminaron siendo algunos de mis favoritos.',frase:'A tu lado, hasta no hacer nada era mi plan favorito.',items:[
+        {tipo:'foto',n:1,titulo:'De esos días cualquiera',texto:'Una foto casual, de esas que tal vez parecen simples, pero que a mí me recuerdan lo bonito que era estar cerquita de ti.'},
+        {tipo:'foto',n:2,titulo:'Desde la ventana de la cocina',texto:'Me gusta esta foto porque fuiste tú, sin estar posando: un momento que pude guardar desde la ventana.'},
+        {tipo:'foto',n:3,titulo:'Dormidita en mi pecho',texto:'Recuerdo tenerte así, tan cerquita. No hacía falta nada más para que aquel ratito fuera especial.'},
+        {tipo:'video',n:4,titulo:'Cuando no querías dormir conmigo 😂',texto:'Hasta esa pequeña travesura quedó convertida en uno de nuestros momentos graciosos.'},
+        {tipo:'foto',n:12,titulo:'Echados, sin hacer nada',texto:'No importaba si no hacíamos algo especial: estar a tu lado podía convertir cualquier día en mi mejor día.'},
+        {tipo:'video',n:6,titulo:'Un ratito en el que era feliz',texto:'Un video casual, pero de esos que me gusta volver a mirar porque guardan una felicidad sencilla.'}
+      ]},
+      {eyebrow:'Capítulo 02 · Nuestros caminos',titulo:'Los lugares que se volvieron nuestros',sub:'Algunos paseos se quedan para siempre en la memoria por la persona con quien los compartiste.',frase:'A veces el recuerdo más bonito de un lugar es con quién estuviste ahí.',items:[
+        {tipo:'foto',n:4,titulo:'Nuestro primer viaje a Obrajillo',texto:'Caminamos una hora bajo el sol y terminamos metiendo nuestros pies al agua. ¡Qué alivio! Ese paseo sigue siendo especial para mí.'},
+        {tipo:'video',n:1,titulo:'Mi cumpleaños en el Parque de las Aguas',texto:'Un 29 de julio que recuerdo como uno de mis mejores cumpleaños. La pasé muy bonito contigo.'},
+        {tipo:'foto',n:6,titulo:'Caminando de tu mano',texto:'Una foto casual y una caminata más. Me gustaba mucho ese gesto de andar tomados de la mano.'},
+        {tipo:'video',n:2,titulo:'Los besitos desde la estación Flores',texto:'Cuando nos despedíamos a la distancia y seguíamos mandándonos besitos hasta el último momento.'},
+        {tipo:'video',n:9,titulo:'Caminando junto al mar de noche',texto:'La brisa, la oscuridad y esa caminata en la playa. Fue un momento hermoso compartido a tu lado.'},
+        {tipo:'video',n:7,titulo:'Otro momento sencillo, otra sonrisa',texto:'Un pedacito más de nuestra vida cotidiana que quise guardar para siempre.'}
+      ]},
+      {eyebrow:'Capítulo 03 · Fechas inolvidables',titulo:'Los días que tienen su propio corazón',sub:'Entre tortas, velitas, abrazos y aquella palmera que sabe mucho de nosotros.',frase:'Desde aquel 8 de noviembre de 2023, hay fechas que nunca se sienten como un día cualquiera.',items:[
+        {tipo:'foto',n:5,titulo:'Nuestro primer aniversario',texto:'8 de noviembre de 2024. Una torta, velitas y nosotros celebrando nuestro primer año juntos.'},
+        {tipo:'video',n:3,titulo:'Aquel aniversario en mi cuarto de Balta',texto:'El video de nuestro primer aniversario. Me gusta poder volver a ese pedacito del 8 de noviembre de 2024.'},
+        {tipo:'video',n:5,titulo:'Corrimos hasta nuestra palmera 🌴',texto:'El 21 de septiembre de 2024, faltaban diez minutos para tu cumpleaños. Corrimos hasta la palmera donde nos dimos nuestro primer beso ¡y llegamos a tiempo!'},
+        {tipo:'foto',n:9,titulo:'Celebrando también en familia',texto:'Una foto contigo, mi hermano y su pareja. Me gusta que nuestra historia también tenga esos recuerdos compartidos.'}
+      ]},
+      {eyebrow:'Capítulo 04 · Las sonrisas',titulo:'Nuestras pequeñas tonterías',sub:'La complicidad también se escribe con carcajadas, detalles y fotos sin ninguna ocasión especial.',frase:'Y es que contigo hasta unas medias con hueco podían convertirse en una anécdota. 😂',items:[
+        {tipo:'foto',n:7,titulo:'Otra foto, otra historia',texto:'Una de esas fotos casuales que guardan mucho más de lo que parece.'},
+        {tipo:'foto',n:8,titulo:'¡Tus medias tenían un hueco! 😂',texto:'Todavía me causa gracia recordar cuando vi el huequito en tus medias. Un momento tan tonto y tan nuestro.'},
+        {tipo:'video',n:8,titulo:'Un momento para reír juntos',texto:'De esos instantes graciosos que no necesitan explicación, porque se entiende todo al volver a mirarlos.'},
+        {tipo:'foto',n:10,titulo:'Tu Snoopy 🥹',texto:'Tenía que guardar aquí una foto de tu peluche de Snoopy, porque también forma parte de nuestros pequeños recuerdos.'},
+        {tipo:'foto',n:11,titulo:'Las flores que hice para ti',texto:'Esas flores hechas a mano, con paciencia y muchísimo cariño. Me gustaba hacerte detalles que fueran solo tuyos.'}
+      ]}
+    ];
+    const album=$('album');
+    function tarjeta(item){
+      const esVideo=item.tipo==='video';
+      const id=dos(item.n);
+      const article=document.createElement('article');article.className='recuerdo';
+      const media=document.createElement('div');media.className='recuerdo-media';
+      const img=document.createElement('img');img.loading='lazy';img.decoding='async';img.alt=esVideo?'Fotograma de '+item.titulo:item.titulo;
+      img.src=ASSET+(esVideo?'poster-':'foto-')+id+'.jpg';media.append(img);
+      if(esVideo){
+        const label=document.createElement('span');label.className='video-sello';label.textContent='▶ VIDEO '+id;media.append(label);
+        const btn=document.createElement('button');btn.className='video-iniciar';btn.type='button';btn.setAttribute('aria-label','Reproducir: '+item.titulo);
+        btn.innerHTML='<span class="play-circulo" aria-hidden="true">▶</span>';btn.addEventListener('click',()=>reproducir(item.n,media,btn));media.append(btn);
+      }else{
+        const btn=document.createElement('button');btn.className='ver-foto';btn.type='button';btn.innerHTML='<span class="zoom-icono" aria-hidden="true">⌕</span>';
+        btn.setAttribute('aria-label','Ampliar fotografía '+id);btn.addEventListener('click',()=>abrirImagen(img.src,item.titulo,item.texto));media.append(btn);
       }
-      const seconds = Math.ceil(remaining / 1000);
-      const days = Math.floor(seconds / 86400);
-      const hours = Math.floor((seconds % 86400) / 3600);
-      const minutes = Math.floor((seconds % 3600) / 60);
-      const secs = seconds % 60;
-      timer.textContent = days + " días · " + two(hours) + ":" + two(minutes) + ":" + two(secs);
+      const cuerpo=document.createElement('div');cuerpo.className='recuerdo-cuerpo';
+      const ord=document.createElement('div');ord.className='recuerdo-ordinal';ord.textContent=(esVideo?'Video ':'Foto ')+id;
+      const h=document.createElement('h3');h.textContent=item.titulo;const p=document.createElement('p');p.textContent=item.texto;cuerpo.append(ord,h,p);article.append(media,cuerpo);return article;
     }
-    updateAnniversaryPage();
-    setInterval(updateAnniversaryPage,1000);
+    function construir(){
+      capitulos.forEach((cap,i)=>{
+        const s=document.createElement('section');s.className='seccion';s.id='capitulo-'+(i+1);
+        const head=document.createElement('div');head.className='encabezado';
+        const e=document.createElement('p');e.className='capitulo';e.textContent=cap.eyebrow;
+        const h=document.createElement('h2');h.textContent=cap.titulo;
+        const p=document.createElement('p');p.textContent=cap.sub;head.append(e,h,p);
+        const cards=document.createElement('div');cards.className='memorias-grid';cap.items.forEach(it=>cards.append(tarjeta(it)));
+        s.append(head,cards);album.append(s);
+        if(i<capitulos.length-1){const inter=document.createElement('div');inter.className='interludio';inter.innerHTML='<span aria-hidden="true">♡ ✦ ♡</span>';const q=document.createElement('p');q.textContent=cap.frase;inter.append(q);album.append(inter)}
+      });
+      for(let i=1;i<=7;i++){
+        const btn=document.createElement('button');btn.className='sobre-item';btn.type='button';btn.setAttribute('aria-label','Abrir carta '+i);
+        btn.innerHTML='<span class="sobre"><span class="sello">♥</span></span><strong>Carta '+dos(i)+'</strong><small>Toca para abrir ♡</small>';
+        btn.addEventListener('click',()=>{
+          if(btn.classList.contains('abriendo'))return;
+          btn.classList.add('abriendo');
+          btn.querySelector('small').textContent='Abriendo tu carta… ♡';
+          const delay=window.matchMedia('(prefers-reduced-motion: reduce)').matches?0:530;
+          setTimeout(()=>{
+            abrirImagen(ASSET+'carta-'+dos(i)+'.jpg','Carta '+dos(i),'Una página escrita a mano, para leer con calma.');
+            btn.classList.remove('abriendo');
+            btn.querySelector('small').textContent='Abrir de nuevo ♡';
+          },delay);
+        });
+        $('sobres').append(btn);
+      }
+    }
+    const lightbox=$('lightbox');
+    function abrirImagen(src,titulo,descripcion){$('lightboxImagen').src=src;$('lightboxImagen').alt=titulo;$('lightboxTitulo').textContent=titulo;$('lightboxTexto').textContent=descripcion;if(typeof lightbox.showModal==='function')lightbox.showModal();else lightbox.setAttribute('open','')}
+    $('cerrar').addEventListener('click',()=>typeof lightbox.close==='function'?lightbox.close():lightbox.removeAttribute('open'));
+    lightbox.addEventListener('click',e=>{if(e.target===lightbox){if(typeof lightbox.close==='function')lightbox.close();else lightbox.removeAttribute('open')}});
+    $('abrirDibujo').addEventListener('click',()=>abrirImagen(ASSET+'dibujo.jpg','El dibujo que hice para ti','Un recuerdo hecho a lápiz y con cariño.'));
+    $('dibujo').addEventListener('click',()=>$('abrirDibujo').click());
+    $('dibujo').addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();$('abrirDibujo').click()}});
+    let descargandoVideos=new Set();
+    // Cada fragmento se guarda tras una pequeña cabecera JPEG para transportarlo
+    // por el repositorio. Se retiran exactamente 792 bytes antes de reconstruir el MP4.
+    const CARRIER_OFFSET=792;
+    async function recuperarParte(name){
+      const response=await fetch(ASSET+name);
+      if(!response.ok)throw Error('No se pudo descargar '+name+' (HTTP '+response.status+')');
+      const bytes=await response.arrayBuffer();
+      if(bytes.byteLength<=CARRIER_OFFSET)throw Error('Fragmento inválido: '+name);
+      return bytes.slice(CARRIER_OFFSET);
+    }
+    async function ensamblar(n){
+      const total=partes[n];if(!total)throw Error('Video no disponible');
+      const chunks=await Promise.all(Array.from({length:total},(_,k)=>recuperarParte('v'+dos(n)+'-p'+dos(k+1)+'.jpg')));
+      return URL.createObjectURL(new Blob(chunks,{type:'video/mp4'}));
+    }
+    async function reproducir(n,media,btn){
+      if(descargandoVideos.has(n))return;descargandoVideos.add(n);btn.disabled=true;
+      const cargando=document.createElement('div');cargando.className='video-cargando';cargando.textContent='Cargando este recuerdo… ♡';media.append(cargando);
+      try{const url=await ensamblar(n);const video=document.createElement('video');video.controls=true;video.playsInline=true;video.preload='metadata';video.src=url;video.setAttribute('aria-label','Video de nuestros recuerdos');media.append(video);btn.remove();cargando.remove();const promise=video.play();if(promise&&typeof promise.catch==='function')promise.catch(()=>{});
+        video.addEventListener('error',()=>{cargando.textContent='El video no se pudo reproducir';media.append(cargando)},{once:true});
+      }catch(e){cargando.textContent='No se pudo cargar. Toca para reintentar.';btn.disabled=false;cargando.addEventListener('click',()=>{cargando.remove();reproducir(n,media,btn)},{once:true});}
+      finally{descargandoVideos.delete(n)}
+    }
+    const voz=$('voz');
+    $('cargarVoz').addEventListener('click',async()=>{
+      const btn=$('cargarVoz');
+      if(!voz.src){
+        btn.disabled=true;
+        $('estadoVoz').textContent='Preparando tu audio… ♡';
+        try{
+          const bytes=await recuperarParte('voz-p01.jpg');
+          voz.src=URL.createObjectURL(new Blob([bytes],{type:'audio/mp4'}));
+          $('estadoVoz').textContent='Tu grabación está lista. ♡';
+        }catch(err){
+          $('estadoVoz').textContent='No se pudo cargar la grabación. Puedes reintentar.';
+          btn.disabled=false;
+          return;
+        }
+        btn.disabled=false;
+        btn.textContent='▶ Reproducir otra vez';
+      }
+      voz.play().catch(()=>{$('estadoVoz').textContent='Pulsa Play en el reproductor de audio.';});
+    });
+    voz.addEventListener('playing',()=>$('audioDisco').classList.add('sonando'));
+    voz.addEventListener('pause',()=>$('audioDisco').classList.remove('sonando'));
+    voz.addEventListener('ended',()=>$('audioDisco').classList.remove('sonando'));
+    voz.addEventListener('error',()=>$('vozError').style.display='block');
+    function confeti(){if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;for(let i=0;i<42;i++){const el=document.createElement('span');el.className='confeti';el.style.left=(Math.random()*100)+'vw';el.style.width=(5+Math.random()*7)+'px';el.style.height=(8+Math.random()*9)+'px';el.style.background=['#831e30','#ad4756','#f0b4a6','#f5dbbc'][i%4];el.style.animationDelay=(Math.random()*.65)+'s';el.style.setProperty('--x',((Math.random()-.5)*260)+'px');document.body.append(el);setTimeout(()=>el.remove(),4800)}}
+    function mostrar(){if(!$('sitio').hidden)return;$('espera').hidden=true;$('sitio').hidden=false;if(preview)$('vistaEtiqueta').hidden=false;construir();crearCorazones();actualizarScroll();if(!preview)confeti()}
+    function cuentaRegresiva(){const resto=CUANDO-Date.now();if(preview||resto<=0){mostrar();return}const sec=Math.ceil(resto/1000);$('dias').textContent=dos(Math.floor(sec/86400));$('horas').textContent=dos(Math.floor(sec%86400/3600));$('minutos').textContent=dos(Math.floor(sec%3600/60));$('segundos').textContent=dos(sec%60)}
+    function crearCorazones(){const a=$('ambiente');if(a.children.length)return;for(let i=0;i<17;i++){const e=document.createElement('span');e.className='corazon-flotante';e.textContent=i%3===0?'✦':'♡';e.style.setProperty('--x',Math.random()*100+'vw');e.style.setProperty('--dx',(Math.random()*120-60)+'px');e.style.setProperty('--dur',(11+Math.random()*12)+'s');e.style.setProperty('--delay',(-Math.random()*19)+'s');e.style.setProperty('--tam',(14+Math.random()*22)+'px');a.append(e)}}
+    function actualizarScroll(){const max=document.documentElement.scrollHeight-innerHeight;const pct=max>0?Math.max(0,Math.min(100,scrollY/max*100)):0;$('avance').style.width=pct+'%';$('sube').classList.toggle('visible',scrollY>800)}
+    addEventListener('scroll',actualizarScroll,{passive:true});addEventListener('resize',actualizarScroll);
+    $('sube').addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
+    $('comenzar').addEventListener('click',()=>{if(!preview)confeti()});
+    cuentaRegresiva();setInterval(cuentaRegresiva,1000);
+  })();
   </script>
 </body>
 </html>
