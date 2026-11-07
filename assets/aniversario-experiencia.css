@@ -48,3 +48,5 @@
 .championship-video video{width:100%;display:block;margin:0 auto}
 @media(max-width:520px){.drawing-panel .drawing-note-card > .btn,.letters-panel .note-card > .btn,
 .drawing-panel .gift-message > .btn{width:100%;max-width:100%;padding-inline:15px;line-height:1.4}}
+/* Enlace de respaldo: abre el MP4 en el reproductor nativo del telefono */
+.media-open-direct{display:block;width:max-content;max-width:100%;margin:12px auto 2px;color:var(--u-maroon);font-size:13px;font-weight:700;line-height:1.5;text-align:center;text-decoration:underline;text-underline-offset:3px;padding:9px}

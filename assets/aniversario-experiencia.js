@@ -233,7 +233,7 @@
   // Un solo botón para la final: el reproductor solo aparece si el archivo existe.
   // La vista pública no presenta controles que lleven a un vídeo inexistente.
   (async function prepareChampionshipVideo(){
-    const videoPath=ASSET+'final-campeonato.mp4';
+    const videoPath=ASSET+'final-campeonato.mp4?v=20261107-h264-mobile';
     const slot=$('championshipVideo');
     if(!slot) return;
     try{
@@ -261,6 +261,8 @@
         const video=document.createElement('video');
         video.controls=true;
         video.playsInline=true;
+        video.setAttribute('playsinline','');
+        video.setAttribute('webkit-playsinline','');
         video.preload='metadata';
         video.setAttribute('aria-label','La final del campeonato, junto a ti');
         video.src=videoPath;
@@ -268,9 +270,18 @@
         const status=document.createElement('p');
         status.className='media-status';
         status.setAttribute('role','status');
-        $('mediaBody').append(video,status);
+        status.textContent='Preparando el video…';
+        const direct=document.createElement('a');
+        direct.href=videoPath;
+        direct.target='_blank';
+        direct.rel='noopener noreferrer';
+        direct.className='media-open-direct';
+        direct.textContent='¿No ves la imagen? Abrir video directamente';
+        $('mediaBody').append(video,status,direct);
+        video.addEventListener('loadeddata', () => { if(token===mediaToken) status.textContent=''; });
         video.addEventListener('playing', () => { if(token===mediaToken) status.textContent=''; });
-        video.addEventListener('error', () => { if(token===mediaToken) status.textContent='El video no se pudo cargar. Intenta abrirlo de nuevo.'; });
+        video.addEventListener('waiting', () => { if(token===mediaToken) status.textContent='Cargando el video…'; });
+        video.addEventListener('error', () => { if(token===mediaToken) status.textContent='No se pudo reproducir aquí. Prueba abrir el video directamente.'; });
         video.play().catch(() => {
           if(token===mediaToken && video.paused) status.textContent='Pulsa reproducir para ver el video.';
         });
