@@ -32,3 +32,19 @@
 .championship-video{margin:23px auto 2px;max-width:560px}
 .championship-video video{display:block;width:100%;max-height:62svh;object-fit:contain;border-radius:19px;background:#22171a;box-shadow:0 12px 27px #4d132127}
 @media(prefers-reduced-motion:reduce){.championship-ball,.championship-glow,.championship-spark{animation:none}}
+
+/* Ajuste de centrado solicitado para mensajes, notas y acciones (2026-11-07) */
+#dibujo .section-kicker,#dibujo .section-title,#dibujo .section-copy,
+#cartas .section-kicker,#cartas .section-title,#cartas .section-copy{text-align:center}
+.drawing-panel .gift-message,.drawing-panel .drawing-note-card,.letters-panel .note-card{text-align:center}
+.drawing-panel .drawing-open{display:block;width:100%;margin-inline:auto}
+.drawing-panel .flower-row,.letters-panel .flower-row{justify-content:center}
+.drawing-panel .revealed-note,.letters-panel .revealed-note{text-align:center}
+.drawing-panel .revealed-note p,.letters-panel .revealed-note p{text-align:center}
+.drawing-panel .drawing-note-card > .btn,.letters-panel .note-card > .btn,
+.drawing-panel .gift-message > .btn{display:flex;align-items:center;justify-content:center;max-width:min(100%,460px);width:max-content;margin:16px auto 0;text-align:center;white-space:normal}
+.drawing-panel .gift-message .drawing-caption{margin:20px auto;max-width:620px;text-align:center}
+.championship-video{width:min(100%,570px);margin:24px auto}
+.championship-video video{width:100%;display:block;margin:0 auto}
+@media(max-width:520px){.drawing-panel .drawing-note-card > .btn,.letters-panel .note-card > .btn,
+.drawing-panel .gift-message > .btn{width:100%;max-width:100%;padding-inline:15px;line-height:1.4}}
