@@ -1,13 +1,41 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#831e30">
-  <meta http-equiv="refresh" content="0;url=./aniversario.html?preview=1">
-  <title>Vista previa del aniversario</title>
-  <style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#faf5e8;color:#831e30;font-family:Georgia,serif;text-align:center;padding:24px}a{color:inherit;font-weight:bold}p{line-height:1.8}</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#831e30">
+  <title>Vista previa del aniversario · Pinky</title>
+  <style>
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%;background:#faf5e8;color:#831e30;font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+    body{display:flex;flex-direction:column;height:100vh;height:100dvh;overflow:hidden}
+    .aviso{flex:none;display:flex;align-items:center;justify-content:center;gap:7px 18px;flex-wrap:wrap;padding:10px 14px;padding-top:max(10px,env(safe-area-inset-top));background:#36282a;color:#fff8ed;font-size:12px;line-height:1.5;text-align:center}
+    .aviso strong{font-weight:700}.aviso a{color:#ffe3bd;text-underline-offset:3px;padding:3px}
+    a:focus-visible{outline:2px solid #ffe3bd;outline-offset:3px}
+    iframe{display:block;flex:1;width:100%;min-height:0;border:0;background:#faf5e8}
+    noscript{padding:15px;text-align:center}noscript a{color:inherit}
+    @media(max-width:380px){.aviso{font-size:11px;gap:3px 12px;padding:8px}}
+  </style>
 </head>
-<body><main><h1>Abriendo nuestros recuerdos… ♡</h1><p>Si no continúa automáticamente, <a href="./aniversario.html?preview=1">entra a la vista previa aquí</a>.</p></main>
-<script>location.replace('./aniversario.html?preview=1');</script>
+<body>
+  <header class="aviso" aria-label="Modo de vista previa">
+    <strong>♡ Vista previa · Sin esperar al aniversario</strong>
+    <a href="./aniversario.html">Ver como visitante</a>
+  </header>
+  <iframe id="recuerdos" src="./aniversario.html?preview=1" title="Vista previa completa de nuestros recuerdos" allow="fullscreen" allowfullscreen></iframe>
+  <noscript><a href="./aniversario.html?preview=1">Abrir la vista previa directamente</a></noscript>
+  <script>
+    // La experiencia sigue siendo la misma página; el aviso ocupa su propia fila.
+    // El acceso anticipado no constituye una protección de archivos públicos.
+    document.getElementById('recuerdos').addEventListener('load',function(){
+      try{
+        const aviso=this.contentDocument.getElementById('vistaEtiqueta');
+        if(aviso) aviso.hidden=true;
+      }catch(error){
+        // El enlace directo permanece disponible aunque cambie el dominio del sitio.
+      }
+    });
+  </script>
 </body>
 </html>
