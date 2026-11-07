@@ -230,27 +230,56 @@
     b.addEventListener('click', () => openVideo(item,b));
     $('videoGrid').append(b);
   });
-  // El recuerdo aparece desde ahora. Solo se habilita el reproductor cuando
-  // el archivo de la final está realmente publicado; jamás mostramos un video roto.
+  // Un solo botón para la final: el reproductor solo aparece si el archivo existe.
+  // La vista pública no presenta controles que lleven a un vídeo inexistente.
   (async function prepareChampionshipVideo(){
     const videoPath=ASSET+'final-campeonato.mp4';
     const slot=$('championshipVideo');
-    if(!slot)return;
+    if(!slot) return;
     try{
       const response=await fetch(videoPath,{method:'HEAD',cache:'no-store'});
-      if(!response.ok)return; // GitHub Pages puede servir archivos MP4 con distintos MIME.
-      const video=document.createElement('video');
-      video.controls=true;
-      video.playsInline=true;
-      video.preload='none';
-      video.setAttribute('aria-label','La final del campeonato, junto a ti');
-      const source=document.createElement('source');
-      source.src=videoPath;
-      source.type='video/mp4';
-      video.append(source);
-      slot.append(video);
+      if(!response.ok){
+        // Solo en vista previa mostramos qué archivo falta; nunca en la sorpresa pública.
+        if(preview){
+          const pending=document.createElement('p');
+          pending.className='media-status';
+          pending.textContent='Vista previa: falta subir el video de esta final.';
+          slot.append(pending);
+          slot.hidden=false;
+        }
+        return;
+      }
+      const button=document.createElement('button');
+      button.type='button';
+      button.className='btn';
+      button.textContent='▶ Ver el video de aquella final';
+      button.setAttribute('aria-label','Ver el video de la final del campeonato');
+      button.addEventListener('click', () => {
+        $('voiceAudio').pause();
+        showMedia('Aquella final, contigo ❤️','Quise guardar también esta final, porque tenerte a mi lado fue lo más especial. ❤️');
+        const token=mediaToken;
+        const video=document.createElement('video');
+        video.controls=true;
+        video.playsInline=true;
+        video.preload='metadata';
+        video.setAttribute('aria-label','La final del campeonato, junto a ti');
+        video.src=videoPath;
+        activeVideo=video;
+        const status=document.createElement('p');
+        status.className='media-status';
+        status.setAttribute('role','status');
+        $('mediaBody').append(video,status);
+        video.addEventListener('playing', () => { if(token===mediaToken) status.textContent=''; });
+        video.addEventListener('error', () => { if(token===mediaToken) status.textContent='El video no se pudo cargar. Intenta abrirlo de nuevo.'; });
+        video.play().catch(() => {
+          if(token===mediaToken && video.paused) status.textContent='Pulsa reproducir para ver el video.';
+        });
+      });
+      slot.append(button);
       slot.hidden=false;
-    }catch(error){ /* La dedicatoria permanece visible sin reproductor defectuoso. */ }
+    }catch(error){
+      // Sin archivo o sin conexión, no alteramos la dedicatoria ni el contador.
+    }
   })();
 
   $('revealDrawingNote').addEventListener('click', () => {
