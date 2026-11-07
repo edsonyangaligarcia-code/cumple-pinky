@@ -6,9 +6,9 @@
 <meta name="theme-color" content="#861e2d">
 <meta name="robots" content="noindex,nofollow">
 <meta name="description" content="Pinky, preparé esto para recordar contigo todo lo que vivimos.">
-<title>Feliz aniversario, mi Pinky ❤️</title>
-<link rel="stylesheet" href="./assets/aniversario-experiencia.css?v=20261107-2">
-<script src="./assets/aniversario-experiencia.js?v=20261107-2" defer></script>
+<title>Feliz aniversario, Pinky ❤️</title>
+<link rel="stylesheet" href="./assets/aniversario-experiencia.css?v=20261107-4">
+<script src="./assets/aniversario-experiencia.js?v=20261107-4" defer></script>
 </head>
 <body>
 <div class="floaters" id="floaters" aria-hidden="true"></div>
@@ -26,21 +26,15 @@
   </div>
 </section>
 <div id="experience" hidden>
-  <div class="progress-shell">
-    <a href="#inicio" class="progress-name">❤️ Para ti, Pinky</a>
-    <div class="progress-track" role="progressbar" aria-label="Sorpresas descubiertas" aria-valuemin="0" aria-valuemax="7" aria-valuenow="0" id="progressTrack"><span id="progressBar"></span></div>
-    <button id="menuButton" class="icon-button" aria-label="Ir a una parte de la sorpresa" aria-expanded="false" aria-controls="sectionMenu">☰</button>
-    <nav id="sectionMenu" class="section-menu" aria-label="Nuestra sorpresa" hidden><a href="#recuerdos">Nuestros recuerdos</a><a href="#momentos">Nuestros videos</a><a href="#juego">¿Te acuerdas?</a><a href="#regalo">Lo que dibujé para ti</a><a href="#voz">Mi voz</a><a href="#cartas">Lo que te escribí</a></nav>
-  </div>
-  <main class="app"><div class="wrap">
+    <main class="app"><div class="wrap">
     <section class="hero" id="inicio">
       <div class="panel hero-panel">
         <span class="spark s1" aria-hidden="true">✦</span><span class="spark s2" aria-hidden="true">♡</span><span class="spark s3" aria-hidden="true">✦</span>
         <div class="hero-heart" aria-hidden="true">❤️</div>
         <p class="hero-date">8 de noviembre · Nuestra historia</p>
-        <h1>Feliz aniversario,<small>mi Pinky</small></h1>
+        <h1>Feliz aniversario,<small>Pinky ❤️</small></h1>
         <p class="hero-copy">Quise preparar esto para volver contigo a nuestros paseos, a nuestras risas y a todos esos días en los que estar a tu lado me hacía feliz.</p>
-        <div class="hero-photo"><img src="assets/aniversario/foto-01.jpg" alt="Nosotros abrazados" fetchpriority="high"><span>Mi mejor día era contigo ❤️</span></div>
+        <div class="hero-photo"><img src="assets/aniversario/foto-11.jpg" alt="Tú con las flores que hice para ti" fetchpriority="high"><span>Estas flores las hice pensando en ti ❤️</span></div>
         <button class="btn" id="start">Abrir lo que preparé para ti ❤️</button>
       </div>
     </section>
@@ -60,12 +54,23 @@
       <p class="section-copy">También guardé estos videos. Toca el momento que quieras recordar conmigo.</p>
       <div class="open-grid" id="videoGrid"></div>
     </section>
-    <section class="panel" id="juego" aria-labelledby="quizTitle">
-      <p class="section-kicker">Hay cosas de ti y de mí que no olvido</p>
-      <h2 class="section-title" id="quizTitle">A ver, Pinky… ¿te acuerdas? 😌</h2>
-      <p class="section-copy">Yo todavía recuerdo cómo corrimos esa noche. Quiero saber si al leer esto pensaste en el mismo lugar que yo.</p>
-      <div class="quiz-card"><h3>¿A dónde corrimos antes de que empezara tu cumpleaños?</h3><div class="quiz-options" id="quizOptions"><button data-correct="false">A la estación Flores</button><button data-correct="true">A nuestra palmera</button><button data-correct="false">A la playa</button></div><p id="quizResult" class="quiz-result" role="status"></p></div>
-      <div class="quiz-memory" id="quizMemory" hidden><p>¡A nuestra palmera! Faltaban diez minutos para tu cumpleaños y llegamos a tiempo. Me hizo feliz recibir ese día contigo, donde nos dimos nuestro primer beso.</p><button class="btn soft" id="palmVideo">Volver a esa noche ❤️</button></div>
+
+    <section class="panel note-section" id="antes-dibujo" aria-labelledby="drawingNoteTitle">
+      <p class="section-kicker">Hay algo que todavía quiero decirte</p>
+      <h2 class="section-title" id="drawingNoteTitle">El dibujo que hice para ti 🌷</h2>
+      <p class="section-copy">Antes de enseñártelo, quiero contarte algo. Te lo dejé escrito para que lo abras cuando quieras.</p>
+      <div class="flower-strip" aria-hidden="true"><span>🌷</span><span>🌼</span><span>🌷</span><span>🌼</span><span>🌷</span></div>
+      <button type="button" class="btn soft" id="drawingMemoryButton" aria-expanded="false" aria-controls="drawingMemoryText">Leer mi mensaje para ti 💌</button>
+      <div class="memory-note" id="drawingMemoryText" hidden>
+        <p>¿Te acuerdas de que el día que nos vimos me dijiste que no te gustaba el dibujo? Por eso pensé en no ponerlo aquí… pero al final decidí hacerlo, porque es un regalo que preparé para ti.</p>
+        <p>Sé que no logré dibujar bien tus hermosos ojos ni tus hermosas pestañas, que tanto me gustan. Quizás no salió como quería, pero lo hice con muchísimo cariño, pensando en ti en cada trazo. ❤️</p>
+      </div>
+      <div class="snoopy-corner">
+        <button id="snoopySticker" type="button" aria-label="Ver un recuerdo de tu Snoopy" title="Tu Snoopy">
+          <img src="assets/aniversario/foto-10.jpg" loading="lazy" alt="Tu peluche de Snoopy">
+        </button>
+        <span>También guardé un espacio para tu Snoopy 🤍</span>
+      </div>
     </section>
     <section class="panel wish-panel" id="mensaje" aria-labelledby="wishTitle">
       <div class="wish-box"><div class="starfield" id="starfield" aria-hidden="true"></div><div class="wish-content"><span class="wish-heart" aria-hidden="true">♡</span><h2 id="wishTitle">Hay algo que quiero recordarte</h2><p>Piensa en uno de esos días en los que nos reímos sin parar.<br>Yo también estoy recordando los nuestros.</p><button class="btn cream" id="wishButton">Leer lo que quiero decirte ✨</button><div id="wishMessage" class="wish-message" hidden>Contigo aprendí que no hacía falta un plan especial para tener un día hermoso. A veces era una caminata, una conversación o estar acostados sin hacer nada. Estar a tu lado convertía ese día en mi mejor día. ❤️</div></div></div>
@@ -88,7 +93,15 @@
     <section class="panel center letters-panel" id="cartas" aria-labelledby="lettersTitle">
       <p class="section-kicker">Para el final</p>
       <h2 class="section-title" id="lettersTitle">Lo que te escribí 💌</h2>
-      <p class="section-copy">Después de recordar todo esto contigo, quiero dejarte mis cartas. Las escribí para ti y quiero que puedas leerlas con calma, con mi letra y tal como salieron de mí.</p>
+      <p class="section-copy">Estas son algunas de las cartas que te escribí durante todo el tiempo que no nos vimos. Las escribí de todo corazón. Te amo &lt;3</p>
+      <div class="letters-intro">
+        <div class="flower-strip" aria-hidden="true"><span>🌷</span><span>🌼</span><span>🌷</span></div>
+        <button type="button" class="btn soft" id="lettersMemoryButton" aria-expanded="false" aria-controls="lettersMemoryText">Abrir un mensaje antes de mis cartas ✨</button>
+        <div class="memory-note" id="lettersMemoryText" hidden>
+          <p>Durante todo ese tiempo en que no nos vimos, seguías presente en mis pensamientos. Escribir estas cartas fue una forma de sentirte cerca, incluso en la distancia.</p>
+          <p>Quise conservarlas aquí tal como las escribí, porque cada palabra salió de mi corazón y es parte de lo que vivimos. Te amo. ❤️</p>
+        </div>
+      </div>
       <button class="envelope" id="envelope" aria-label="Abrir mis cartas para ti"><span class="envelope-back" aria-hidden="true"></span><span class="envelope-paper" aria-hidden="true">Para ti, Pinky<br><span>Con cariño, Edson</span></span><span class="envelope-front" aria-hidden="true"></span><span class="envelope-flap" aria-hidden="true"></span><span class="envelope-seal" aria-hidden="true">♥</span></button>
       <p class="hint" id="envelopeHint">Toca el sobre para leerme ❤️</p>
       <p class="signature">Con cariño, Edson</p>
