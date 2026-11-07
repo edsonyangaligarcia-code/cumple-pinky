@@ -17,3 +17,18 @@
 
 /* Ajustes finos solicitados */
 .drawing-panel{position:relative}.snoopy-float{position:absolute;top:18px;right:22px;display:flex;align-items:center;gap:6px;background:#fff8ef;border:1px solid rgba(111,16,32,.1);border-radius:999px;padding:8px 12px;box-shadow:0 10px 24px rgba(90,43,59,.08);font-size:18px;color:var(--u-maroon);transform:rotate(-4deg)}.snoopy-float span{font-size:12px;font-weight:700;letter-spacing:.02em}.drawing-panel .section-copy{text-align:center;max-width:620px;margin-left:auto;margin-right:auto}.drawing-panel .gift-message{margin-top:18px}.gift-message.is-visible{display:block}.drawing-note-card{margin-top:20px}.drawing-caption{margin:18px 0 20px;text-align:center}.drawing-open img{border-radius:18px;background:#f8f1e5}.envelope-paper{opacity:0;transform:translateY(28px);transition:transform .6s .25s,opacity .25s ease}.envelope.opened .envelope-paper{opacity:1;transform:translateY(-65px)}@media(max-width:520px){.snoopy-float{top:16px;right:16px;font-size:17px;padding:7px 10px}}@media(max-width:420px){.snoopy-float{position:static;display:inline-flex;margin:0 auto 14px;transform:rotate(-3deg)}}
+/* Recuerdo de la final del campeonato: discreto y con la estética del cumpleaños */
+.championship-card{position:relative;isolation:isolate;margin:32px 0 4px;padding:clamp(24px,5vw,36px);text-align:center;border-radius:29px;background:radial-gradient(circle at 50% 0%,#fffaf0 0%,#f8eddf 80%);border:1px solid #f2dfcd;box-shadow:0 14px 35px rgba(91,33,43,.09)}
+.championship-card .section-kicker{margin-top:8px}
+.championship-card h3{font:700 clamp(27px,5vw,37px)/1.2 Georgia,serif;color:var(--u-maroon);margin:10px 0 19px}
+.championship-card p:not(.section-kicker){margin:0 auto 13px;max-width:590px;font-family:Georgia,serif;font-size:clamp(16px,2.4vw,19px);line-height:1.85;color:#6a4c46}
+.championship-art{height:108px;display:flex;align-items:center;justify-content:center;position:relative;margin:2px auto 9px}
+.championship-ball{display:block;font-size:66px;animation:championshipBounce 3.8s ease-in-out infinite;filter:drop-shadow(0 10px 14px rgba(91,31,44,.14))}
+.championship-glow{position:absolute;right:calc(50% - 95px);top:20px;color:#a44052;font-size:23px;animation:pulse 2s ease-in-out infinite}
+.championship-spark{position:absolute;color:#bb8e67;opacity:.82;font-size:25px;animation:twinkle 2.8s ease-in-out infinite}
+.championship-spark.spark-a{left:calc(50% - 106px);top:16px}
+.championship-spark.spark-b{right:calc(50% - 116px);bottom:12px;animation-delay:1.2s}
+@keyframes championshipBounce{0%,100%{transform:translateY(0) rotate(-8deg)}50%{transform:translateY(-11px) rotate(8deg)}}
+.championship-video{margin:23px auto 2px;max-width:560px}
+.championship-video video{display:block;width:100%;max-height:62svh;object-fit:contain;border-radius:19px;background:#22171a;box-shadow:0 12px 27px #4d132127}
+@media(prefers-reduced-motion:reduce){.championship-ball,.championship-glow,.championship-spark{animation:none}}
