@@ -1581,6 +1581,48 @@ document.getElementById("secretHeart").addEventListener("click",()=>{
 /* Auto-marcar sección música si no hay audio, no.
    El resto se descubre mediante interacciones. */
 
+/* ===== Registro de clics de la sorpresa (opcional) =====
+   Pega aquí la URL /exec de la aplicación web de Google Apps Script.
+   Mientras esté vacía, el botón funciona igual, pero no envía registros. */
+const PINKY_REGISTRO_URL = "";
+
+function nuevoIdRegistro(){
+  return (window.crypto && typeof window.crypto.randomUUID === "function")
+    ? window.crypto.randomUUID()
+    : Date.now().toString(36) + "-" + Math.random().toString(36).slice(2);
+}
+
+function registrarPulsacionSorpresa(){
+  const endpoint=PINKY_REGISTRO_URL.trim();
+  if(!/^https:\/\/script\.google\.com\/macros\/s\/[^/]+\/exec(?:\?.*)?$/.test(endpoint)) return;
+  try {
+    let sesion;
+    try {
+      sesion=sessionStorage.getItem("pinky-sesion-anonima-v1");
+      if(!sesion){
+        sesion=nuevoIdRegistro();
+        sessionStorage.setItem("pinky-sesion-anonima-v1",sesion);
+      }
+    } catch(e) {
+      sesion=nuevoIdRegistro();
+    }
+
+    const datos=new URLSearchParams({
+      tipo:"pulsacion_sorpresa",
+      id_evento:nuevoIdRegistro(),
+      sesion:sesion,
+      pagina:window.location.pathname,
+      hora_dispositivo:new Date().toISOString()
+    });
+
+    // sendBeacon permite registrar también cuando el clic navega a aniversario.html.
+    if(navigator.sendBeacon && navigator.sendBeacon(endpoint,datos)) return;
+    fetch(endpoint,{method:"POST",mode:"no-cors",keepalive:true,body:datos}).catch(()=>{});
+  } catch(e) {
+    // Un error de registro nunca debe interrumpir la sorpresa.
+  }
+}
+
 /* Desbloqueo el 8/11/2026 a las 00:00 en Perú */
 (function initializeSurpriseCountdown(){
   const REVEAL_AT=new Date("2026-11-08T00:00:00-05:00").getTime();
@@ -1616,6 +1658,7 @@ document.getElementById("secretHeart").addEventListener("click",()=>{
     button.setAttribute("aria-label","Cuenta regresiva: "+days+" días, "+hours+" horas, "+minutes+" minutos y "+seconds+" segundos");
   }
   button.addEventListener("click",()=>{
+    registrarPulsacionSorpresa();
     if(Date.now()>=REVEAL_AT){
       window.location.assign("./aniversario.html");
       return;
