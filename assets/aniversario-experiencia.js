@@ -238,7 +238,7 @@
     if(!slot)return;
     try{
       const response=await fetch(videoPath,{method:'HEAD',cache:'no-store'});
-      if(!response.ok||!String(response.headers.get('content-type')||'').includes('video'))return;
+      if(!response.ok)return; // GitHub Pages puede servir archivos MP4 con distintos MIME.
       const video=document.createElement('video');
       video.controls=true;
       video.playsInline=true;
