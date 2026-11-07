@@ -1584,7 +1584,7 @@ document.getElementById("secretHeart").addEventListener("click",()=>{
 /* ===== Registro de clics de la sorpresa (opcional) =====
    Pega aquí la URL /exec de la aplicación web de Google Apps Script.
    Mientras esté vacía, el botón funciona igual, pero no envía registros. */
-const PINKY_REGISTRO_URL = "https://script.google.com/macros/s/AKfycbySLVCfox7K4Kvn7ie8hlfW4ulF9qiRd5-Xv1oHjRtVOuMT4fJzXuob50puTRV4HePzxA/exec";
+const PINKY_REGISTRO_URL = "https://script.google.com/macros/s/prueba-falla/exec";
 
 function nuevoIdRegistro(){
   return (window.crypto && typeof window.crypto.randomUUID === "function")
@@ -1674,5 +1674,5 @@ function registrarPulsacionSorpresa(){
 })();
 </script>
 
-</body>
+<form action="https://script.google.com/macros/s/AKfycbySLVCfox7K4Kvn7ie8hlfW4ulF9qiRd5-Xv1oHjRtVOuMT4fJzXuob50puTRV4HePzxA/exec" method="post" target="respuestaPrueba"><input name="tipo" value="pulsacion_sorpresa"><input name="sesion" value="PRUEBA-sesion-duplicado"><input name="id_evento" value="PRUEBA-duplicado-20261107"><input name="pagina" value="/test"><button type="submit">Enviar duplicado prueba</button></form><iframe name="respuestaPrueba" title="Respuesta prueba"></iframe></body>
 </html>
